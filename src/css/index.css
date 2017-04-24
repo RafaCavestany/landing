@@ -4,17 +4,25 @@
 */
 
 /*
+  Settings – contain fonts, colors definitions, etc.
+*/
+@import 'settings/colors.css';
+
+/*
   Generic – reset and/or normalize styles, box-sizing definition, etc.
   This is the first layer which generates actual CSS.
 */
 @import 'generic/page.css';
+
 /*
   Components – specific UI components. This is where majority of our work takes
   place and our UI components are often composed of Objects and Components
 */
 @import 'components/panel.css';
+
 /*
   Trumps – utilities and helper classes with ability to override anything
    which goes before in the cascade, eg. hide helper class
 */
-@import 'trumps/utils.css';
+@import 'trumps/colors.css';
+@import 'trumps/txt-colors.css';

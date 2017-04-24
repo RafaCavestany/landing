@@ -1,6 +1,6 @@
 /* colours */
 .color-black {
-  background-color: #32383E;
+  background-color: var(--color-black);
 }
 
 .color-violet {
@@ -29,13 +29,4 @@
 
 .color-red {
   background-color: #F2293A;
-}
-
-/* text colours: */
-.txt-color-white {
-  color: #FFFFFF;
-}
-
-.txt-color-black {
-  color: #32383E;
 }

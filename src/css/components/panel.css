@@ -9,3 +9,11 @@
   /* outline: 10px solid hotpink; */
   /* turn above on to see the edge of panels */
 }
+
+.panel__title {
+  font-size: 3rem;
+}
+
+.panel__paragraph {
+  max-width: 50%;
+}
