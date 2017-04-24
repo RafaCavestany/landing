@@ -13,6 +13,7 @@
   This is the first layer which generates actual CSS.
 */
 @import 'generic/reset.css';
+@import 'generic/normalize.css';
 @import 'generic/page.css';
 
 /*
