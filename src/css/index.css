@@ -18,8 +18,11 @@ body {
   /* turn above on to see the edge of panels */
 }
 
-
 /* colours */
+.color-black {
+  background-color: #32383E;
+}
+
 .color-violet {
   background-color: #7A4EAB;
 }
@@ -46,6 +49,15 @@ body {
 
 .color-red {
   background-color: #F2293A;
+}
+
+/* text colours: */
+.txt-color-white {
+  color: #FFFFFF;
+}
+
+.txt-color-black {
+  color: #32383E;
 }
 
 

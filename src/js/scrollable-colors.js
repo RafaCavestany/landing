@@ -1,6 +1,13 @@
+// This code is based on this pen: https://codepen.io/daveredfern/pen/zBGBJV
 $(window).scroll(function() {
+  modifyColors();
+}).scroll();
 
-  // selectors
+$(document).ready(function() {
+  modifyColors();
+});
+
+function modifyColors() {
   var $window = $(window),
     $body = $('body'),
     $panel = $('.panel');
@@ -25,5 +32,4 @@ $(window).scroll(function() {
       $body.addClass('color-' + $(this).data('color'));
     }
   });
-
-}).scroll();
+}
