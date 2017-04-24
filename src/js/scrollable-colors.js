@@ -1,21 +1,22 @@
 // This code is based on this pen: https://codepen.io/daveredfern/pen/zBGBJV
+$(document).ready(function() {
+  var $body = $('body');
+  $body.addClass('color-' + $('.panel').data('color'));
+});
+
 $(window).scroll(function() {
   modifyColors();
 }).scroll();
 
-$(document).ready(function() {
-  modifyColors();
-});
-
-function modifyColors() {
+function modifyColors(isFirst) {
   var $window = $(window),
     $body = $('body'),
-    $panel = $('.panel');
+    $panels = $('.panel');
 
   // Change 33% earlier than scroll position so colour is there when you arrive.
   var scroll = $window.scrollTop() + ($window.height() / 3);
 
-  $panel.each(function() {
+  $panels.each(function() {
     var $this = $(this);
 
     // if position is within range of this panel.
