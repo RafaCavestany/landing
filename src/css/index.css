@@ -1,21 +1,10 @@
+@import 'components/panel.css';
+
 /* Setting fade transition and default settings */
 body {
   color: #000;
   background-color: #f4f4f4;
   transition: background-color 1s ease;
-}
-
-
-/* panel styles */
-.panel {
-  /* min height incase content is higher than window height */
-  min-height: 100vh;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  font-family: sans-serif;
-  /* outline: 10px solid hotpink; */
-  /* turn above on to see the edge of panels */
 }
 
 /* colours */
