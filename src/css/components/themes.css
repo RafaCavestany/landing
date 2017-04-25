@@ -11,12 +11,24 @@
   background-color: var(--color-green);
 }
 
+/* Themes with white font */
 .color-black, .color-orange, .color-green {
   color: var(--color-white);
 }
 
+.color-black .icon,
+.color-orange .icon,
+.color-green .icon {
+  color: var(--color-white);
+}
+
+/*  Themes with black font */
 .color-white {
   background-color: var(--color-white);
+  color: var(--color-black);
+}
+
+.color-white .icon {
   color: var(--color-black);
 }
 
