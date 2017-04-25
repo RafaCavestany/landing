@@ -4,10 +4,8 @@
   position: fixed;
   top: 0;
   bottom: 0;
-  /*
-   TODO: remove next line after markup is done:
-  */
   border-right: 1px solid var(--color-white-opaque);
+  transition: border 1s ease;
 }
 
 .header--right {

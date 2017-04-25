@@ -34,10 +34,10 @@
 @import 'components/card.css';
 @import 'components/header.css';
 @import 'components/panel.css';
+@import 'components/themes.css';
 
 /*
   Trumps – utilities and helper classes with ability to override anything
    which goes before in the cascade, eg. hide helper class
 */
-@import 'trumps/colors.css';
 @import 'trumps/txt-colors.css';
