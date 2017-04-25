@@ -11,6 +11,15 @@
   background-color: var(--color-green);
 }
 
+.color-black, .color-orange, .color-green {
+  color: var(--color-white);
+}
+
+.color-white {
+  background-color: var(--color-white);
+  color: var(--color-black);
+}
+
 /* Black theme */
 /* TODO: remove .header styles and keep only .header--right after markup is done */
 .color-white .header {
