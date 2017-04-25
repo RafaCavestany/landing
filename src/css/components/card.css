@@ -5,7 +5,7 @@
   /* flex styles: */
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 .card__title {
