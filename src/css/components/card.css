@@ -1,6 +1,12 @@
 .card {
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: 100px;
+  /* flex styles: */
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .card__title {
