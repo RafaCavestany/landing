@@ -6,6 +6,9 @@
   bottom: 0;
   border-right: 1px solid var(--color-white-opaque);
   transition: border 1s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 .header--right {
@@ -19,4 +22,17 @@
 
 .header:last-child {
   right: 0;
+}
+
+.header__item {
+  height: calc(100% / 3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header__content {
+  transform: rotate(-90deg);
+  align-self: center;
+  white-space: nowrap;
 }
