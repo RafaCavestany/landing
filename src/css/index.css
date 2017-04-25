@@ -23,10 +23,16 @@
 @import 'elements/link.css';
 
 /*
+  Objects – class-based selectors which define undecorated design patterns.
+*/
+@import 'objects/layout.css';
+
+/*
   Components – specific UI components. This is where majority of our work takes
   place and our UI components are often composed of Objects and Components
 */
 @import 'components/card.css';
+@import 'components/header.css';
 @import 'components/panel.css';
 
 /*

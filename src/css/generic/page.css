@@ -1,4 +1,7 @@
-/* Setting fade transition and default settings */
+html, body {
+  height: 100%;
+}
+
 body {
   transition: background-color 1s ease;
 }
