@@ -12,3 +12,7 @@
       background-image: url('../../img/banner@2x.png');
     }
 }
+
+.banner__title {
+  max-width: 60%;
+}
