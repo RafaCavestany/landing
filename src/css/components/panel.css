@@ -1,7 +1,9 @@
-/* panel styles */
 .panel {
   /* min height incase content is higher than window height */
   min-height: 100vh;
+  box-sizing: border-box;
+  padding: 100px;
+  /* flex styles: */
   display: flex;
   justify-content: space-around;
   flex-direction: column;
@@ -9,9 +11,19 @@
 }
 
 .panel__title {
+  margin-bottom: 2.5rem;
   font-size: 3rem;
 }
 
 .panel__paragraph {
   max-width: 50%;
+  line-height: 1.5rem;
+  margin-bottom: 2.5rem;
+  font-size: 1rem;
+}
+
+.panel__highlight-txt {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-black);
 }

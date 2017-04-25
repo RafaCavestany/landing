@@ -17,6 +17,12 @@
 @import 'generic/page.css';
 
 /*
+  Elements – styling for bare HTML elements (like H1, A, etc.).
+  These come with default styling from the browser so we can redefine them here.
+*/
+@import 'elements/link.css';
+
+/*
   Components – specific UI components. This is where majority of our work takes
   place and our UI components are often composed of Objects and Components
 */
