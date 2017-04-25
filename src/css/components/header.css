@@ -1,5 +1,5 @@
 .header {
-  width: 60px;
+  width: var(--size-header);
   height: 100vh;
   position: fixed;
   top: 0;

@@ -1,0 +1,17 @@
+:root {
+  --size-header: 60px;
+  --padding-card: 100px;
+}
+
+
+/*
+Example for mediaqueries:
+:root {
+  --gutter: 4px;
+}
+
+@media (min-width: 600px) {
+  :root {
+    --gutter: 16px;
+  }
+}*/

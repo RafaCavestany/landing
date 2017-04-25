@@ -7,6 +7,7 @@
   Settings – contain fonts, colors definitions, etc.
 */
 @import 'settings/colors.css';
+@import 'settings/variables.css';
 
 /*
   Generic – reset and/or normalize styles, box-sizing definition, etc.
