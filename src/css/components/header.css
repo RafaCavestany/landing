@@ -2,6 +2,7 @@
   width: var(--size-header);
   height: 100vh;
   padding: var(--base-spacing-unit) 0;
+  box-sizing: border-box;
 
   position: fixed;
   top: 0;
@@ -42,4 +43,13 @@
 
 .header__content--rotated {
   transform: rotate(-90deg);
+}
+
+.header__content--start {
+  align-self: flex-start;
+  margin-top: var(--size-header);
+}
+
+.header__content--end {
+  align-self: flex-end;
 }
