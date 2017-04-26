@@ -32,7 +32,10 @@
 }
 
 .header__content {
-  transform: rotate(-90deg);
   align-self: center;
   white-space: nowrap;
+}
+
+.header__content--rotated {
+  transform: rotate(-90deg);
 }
