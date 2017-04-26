@@ -11,14 +11,11 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-
-  transition: border 1s ease;
-  border-right: 1px solid var(--color-white-opaque);
 }
 
 .vertical-header--right {
   border-left: 1px solid var(--color-white-opaque);
-  /* TODO: remove next after markup is done */
+  transition: border 1s ease;
   padding-top: var(--header-size);
 }
 
