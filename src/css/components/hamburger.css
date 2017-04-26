@@ -5,6 +5,16 @@
   position: relative;
 }
 
+.hamburger-container {
+  width: var(--big-spacing-unit);
+  height: var(--big-spacing-unit);
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  padding: var(--base-spacing-unit) 0;
+  box-sizing: border-box;
+}
+
 .hamburger.active .hamburger__item {
     background: transparent;
 }
