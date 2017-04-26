@@ -3,6 +3,11 @@
   background-image: url('../../img/banner@1x.jpg');
   background-repeat: no-repeat;
   background-position: center;
+  animation-name: fadeOpacity;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+  opacity: 0;
+  animation-fill-mode: forwards;
 }
 
 @media
@@ -14,5 +19,19 @@
 }
 
 .banner__title {
+  animation-name: fadeOpacity;
+  animation-duration: 0.3s;
+  animation-delay: 0.35s;
+  animation-iteration-count: 1;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+.banner__container {
   max-width: 60%;
+}
+
+@keyframes fadeOpacity {
+    from {opacity: 0}
+    to {opacity: 1}
 }

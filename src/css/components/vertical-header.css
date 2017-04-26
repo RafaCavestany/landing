@@ -7,25 +7,38 @@
   position: fixed;
   top: 0;
   bottom: 0;
+  z-index: 1;
 
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  animation-duration: 0.35s;
+  animation-delay: 0.65s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
 }
 
 .vertical-header--right {
   border-left: 1px solid var(--color-white-opaque);
   transition: border 1s ease;
   padding-top: var(--header-size);
+  animation-name: slideFromRight;
+  right: calc(var(--vertical-header-size) * -1);
 }
 
-/* Alert! Following code works only if there is 2 vertical-headers */
-.vertical-header:first-child {
-  left: 0;
+.vertical-header--left {
+  left: calc(var(--vertical-header-size) * -1);
+  animation-name: slideFromLeft;
 }
 
-.vertical-header:last-child {
-  right: 0;
+@keyframes slideFromLeft {
+    from {left: calc(var(--vertical-header-size) * -1)}
+    to {left: 0}
+}
+
+@keyframes slideFromRight {
+    from {right: calc(var(--vertical-header-size) * -1)}
+    to {right: 0}
 }
 
 .vertical-header__item {

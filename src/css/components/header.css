@@ -5,14 +5,24 @@
   box-sizing: border-box;
 
   position: fixed;
-  top: 0;
+  top: calc(var(--header-size) * -1);
   right: 0;
   left: 0;
 
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  z-index: 1;
+  z-index: 2;
+  animation-duration: 4s;
+  animation-delay: 1.1s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-name: slideFromTop;
+}
+
+@keyframes slideFromTop {
+    from {top: calc(var(--header-size) * -1)}
+    to {top: 0}
 }
 
 .header__link {
