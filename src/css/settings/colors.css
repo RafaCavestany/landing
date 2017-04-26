@@ -1,9 +1,9 @@
 :root {
-  --color-black: #32383E;
+  --color-black:        #32383E;
   --color-black-opaque: rgba(50, 56, 62, 0.35);;
-  --color-white: #FFFFFF;
+  --color-white:        #FFFFFF;
   --color-white-opaque: rgba(255, 255, 255, 0.35);
-  --color-orange: #FF8800;
+  --color-orange:       #FF8800;
   --color-orange-light: #FFA900;
-  --color-green: #00C87F;
+  --color-green:        #00C87F;
 }

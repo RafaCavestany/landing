@@ -1,14 +1,18 @@
 .header {
   width: var(--size-header);
   height: 100vh;
+  padding: var(--base-spacing-unit) 0;
+
   position: fixed;
   top: 0;
   bottom: 0;
-  border-right: 1px solid var(--color-white-opaque);
-  transition: border 1s ease;
+
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+
+  transition: border 1s ease;
+  border-right: 1px solid var(--color-white-opaque);
 }
 
 .header--right {

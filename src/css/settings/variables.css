@@ -1,6 +1,7 @@
 :root {
-  --size-header: 60px;
-  --padding-card: 100px;
+  --base-spacing-unit: 30px;
+  --size-header:       60px;
+  --padding-card:      100px;
 }
 
 
