@@ -29,3 +29,7 @@
   justify-content: center;
   display: flex;
 }
+
+.header__link__text {
+  margin-left: 5px;
+}
