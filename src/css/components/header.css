@@ -18,10 +18,12 @@
 }
 
 .header__link {
+  display: flex;
+  align-items: center;
+  margin-right: var(--base-spacing-unit);
   font-family: 'Graphik';
   font-size: 14px;
   font-weight: 600;
-  margin-right: var(--base-spacing-unit);
 }
 
 .header__menu {
@@ -31,5 +33,9 @@
 }
 
 .header__link__text {
-  margin-left: 5px;
+  margin-left: 10px;
+}
+
+.header__link__icon {
+  font-size: 20px;
 }
