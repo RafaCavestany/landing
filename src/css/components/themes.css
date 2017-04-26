@@ -37,23 +37,23 @@
 }
 
 /* Black theme */
-/* TODO: remove .header styles and keep only .header--right after markup is done */
-.color-white .header {
-  border-right: 1px solid var(--color-black-opaque);
+/* TODO: remove .vertical-header styles and keep only .vertical-header--right after markup is done */
+.color-white .vertical-header, .color-white .header{
+  border-color: var(--color-black-opaque);
 }
 
-.color-black .header,
-.color-orange .header,
-.color-green .header {
-  border-right: 1px solid var(--color-white-opaque);
+.color-black .vertical-header, .color-black .header
+.color-orange .vertical-header, .color-orange .header
+.color-green .vertical-header, .color-green .header{
+  border-color: var(--color-white-opaque);
 }
 
-.color-white .header--right {
-  border-left: 1px solid var(--color-black-opaque);
+.color-white .vertical-header--right {
+  border-color: var(--color-black-opaque);
 }
 
-.color-black .header--right,
-.color-orange .header--right,
-.color-green .header--right {
-  border-left: 1px solid var(--color-white-opaque);
+.color-black .vertical-header--right,
+.color-orange .vertical-header--right,
+.color-green .vertical-header--right {
+  border-color: var(--color-white-opaque);
 }
