@@ -1,7 +1,7 @@
 .card {
   min-height: 100vh;
   box-sizing: border-box;
-  padding: var(--padding-card) calc(var(--padding-card) + var(--size-header));
+  padding: var(--padding-card) calc(var(--padding-card) + var(--vertical-header-size));
   /* flex styles: */
   display: flex;
   flex-direction: column;
