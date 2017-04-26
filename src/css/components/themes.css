@@ -32,6 +32,10 @@
   color: var(--color-black);
 }
 
+[class^="color-"] .icon, [class*=" color-"] .icon {
+  transition: color 1s ease;
+}
+
 /* Black theme */
 /* TODO: remove .header styles and keep only .header--right after markup is done */
 .color-white .header {

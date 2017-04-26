@@ -52,4 +52,10 @@
 .header__icons {
   flex-direction: column;
   justify-content: space-around;
+  align-self: flex-end;
+  display: flex;
+}
+
+.header__icon {
+  padding-top: var(--base-spacing-unit);
 }
