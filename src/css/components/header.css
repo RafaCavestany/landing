@@ -1,7 +1,7 @@
 .header {
-  width: calc(100% - var(--vertical-header-size));
+  width: 100%;
   height: var(--header-size);
-  margin-left: var(--vertical-header-size);
+  padding-left: calc(var(--vertical-header-size) + var(--base-spacing-unit));
   box-sizing: border-box;
 
   position: fixed;
