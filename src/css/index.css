@@ -44,4 +44,5 @@
   Trumps – utilities and helper classes with ability to override anything
    which goes before in the cascade, eg. hide helper class
 */
+@import 'trumps/sizes.css';
 @import 'trumps/utils.css';

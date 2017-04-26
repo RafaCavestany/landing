@@ -30,7 +30,6 @@
 }
 
 .header__item {
-  height: calc(100% / 3);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -43,11 +42,11 @@
 
 .header__content--rotated {
   transform: rotate(-90deg);
+  margin-top: var(--size-header);
 }
 
 .header__content--start {
   align-self: flex-start;
-  margin-top: var(--size-header);
 }
 
 .header__content--end {
