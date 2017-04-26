@@ -49,6 +49,7 @@
   align-self: flex-start;
 }
 
-.header__content--end {
-  align-self: flex-end;
+.header__icons {
+  flex-direction: column;
+  justify-content: space-around;
 }
