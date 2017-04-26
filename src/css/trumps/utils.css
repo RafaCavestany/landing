@@ -1,3 +1,7 @@
 .u-underlined {
   text-decoration: underline;
 }
+
+.u-flex-align-start {
+  align-self: flex-start;
+}

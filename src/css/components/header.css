@@ -1,7 +1,7 @@
 .header {
   width: 100%;
   height: var(--header-size);
-  padding: 0 calc(var(--vertical-header-size) + var(--base-spacing-unit));
+  padding-left: calc(var(--vertical-header-size) + var(--base-spacing-unit));
   box-sizing: border-box;
 
   position: fixed;
@@ -11,11 +11,21 @@
 
   display: flex;
   justify-content: flex-end;
+  align-items: center;
   /* TODO: remove next after markup is done */
   transition: border 1s ease;
   border-bottom: 1px solid var(--color-white-opaque);
 }
 
 .header__link {
-  align-self: center;
+  font-family: 'Graphik';
+  font-size: 14px;
+  font-weight: 600;
+  margin-right: var(--base-spacing-unit);
+}
+
+.header__menu {
+  width: var(--vertical-header-size);
+  justify-content: center;
+  display: flex;
 }
