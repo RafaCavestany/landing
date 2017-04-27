@@ -6,6 +6,7 @@
     <script src="vendor/jquery-3.2.1.min.js" type="text/javascript"></script>
     <script src="src/js/scrollable-colors.js" type="text/javascript"></script>
     <script src="src/js/hamburger-menu.js" type="text/javascript"></script>
+    <script src="src/js/navigation.js" type="text/javascript"></script>
     <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="src/css/index.css">
   </head>
@@ -33,45 +34,49 @@
         </div>
         <div class="vertical-header__item h-one-third u-flex-direction-column">
           <div class="vertical-header__icons">
-            <a href="#about" class="vertical-header__icon">
+            <a href="#about" class="vertical-header__icon nav-arrow js-arrow-up">
               <i class="icon icon-arrow-long-up"></i>
             </a>
-            <a href="#projects" class="vertical-header__icon">
+            <a href="#projects" class="vertical-header__icon nav-arrow js-arrow-down">
               <i class="icon icon-arrow-long-down"></i>
             </a>
           </div>
         </div>
       </aside>
-      <section class="container">
-        <!-- Main article: 'Rafael' -->
-        <article id="intro" class="card banner js-panel" data-color="black">
-          <h1 class="card__title banner__title">
-            <div class="banner__container">
-              Rafa Cavestany is an Award-winning
-              <span class="u-underlined">Designer</span>
-              &amp;
-              <span class="u-underlined">Creative Director</span>
-              working in digital projects for all over the world.
-            </div>
-          </h1>
-        </article>
-        <!-- Second article: About Rafael-->
-        <article id="about" class="card js-panel" data-color="white">
-          <h2 class="card__title">
-            He has led projects for companies such as Intel, AT&amp;T, Telefónica,
-            HP, Visa, Directv, Golf Channel among others.
-          </h2>
-          <p class="card__paragraph">
-            With over a decade of experience, Rafa has helped clients of all sizes
-            to plan, create and grow their ideas in to digital products, bla bla
-            human center approach, user experience, etc.
-          </p>
-          <a href="#work" class="card__link">
-            See some of his projects below.
-          </a>
-        </article>
+      <div class="container">
+        <section id="intro" class="js-section" data-name="intro">
+          <!-- Main article: 'Rafael' -->
+          <article id="rafael" class="card banner js-panel" data-color="black">
+            <h1 class="card__title banner__title">
+              <div class="banner__container">
+                Rafa Cavestany is an Award-winning
+                <span class="u-underlined">Designer</span>
+                &amp;
+                <span class="u-underlined">Creative Director</span>
+                working in digital projects for all over the world.
+              </div>
+            </h1>
+          </article>
+        </section>
+        <section id="about" class="js-section" data-name="about">
+          <!-- Second article: About Rafael-->
+          <article id="aboutRafael" class="card js-panel" data-color="white">
+            <h2 class="card__title">
+              He has led projects for companies such as Intel, AT&amp;T, Telefónica,
+              HP, Visa, Directv, Golf Channel among others.
+            </h2>
+            <p class="card__paragraph">
+              With over a decade of experience, Rafa has helped clients of all sizes
+              to plan, create and grow their ideas in to digital products, bla bla
+              human center approach, user experience, etc.
+            </p>
+            <a href="#work" class="card__link">
+              See some of his projects below.
+            </a>
+          </article>
+        </section>
         <!-- Client: Oincs -->
-        <section id="work">
+        <section id="work" class="js-section" data-name="work">
           <article id="oincs" class="card js-panel" data-color="orange">
             <h2 class="card__title">Oincs</h2>
             <p class="card__paragraph">
@@ -113,19 +118,21 @@
               connect you with the nearest driver right when you need it.
             </p>
           </article>
-          <article id="project" class="card js-panel" data-color="black">
-            <h2 class="card__title">
-              Interested in starting a project?
-            </h2>
-            <h2 class="card__title">
-              Drop me a line at
-              <a href="mailto:business@rcavestany.com">
-                business@rcavestany.com
-              </a>
-            </h2>
-          </article>
+          <section id="project" class="js-section" data-name="project">
+            <article id="startProject" class="card js-panel" data-color="black">
+              <h2 class="card__title">
+                Interested in starting a project?
+              </h2>
+              <h2 class="card__title">
+                Drop me a line at
+                <a href="mailto:business@rcavestany.com">
+                  business@rcavestany.com
+                </a>
+              </h2>
+            </article>
+          </section>
         </section>
-      </section>
+      </div>
       <aside class="vertical-header vertical-header--right js-hamburger-container">
         <div class="hamburger js-hamburger-menu">
           <div class="hamburger__container">

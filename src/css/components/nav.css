@@ -1,0 +1,9 @@
+.nav-arrow {
+  opacity: 1;
+  visibility: visible;
+}
+
+.nav-arrow.hidden {
+  opacity: 0;
+  visibility: hidden;
+}

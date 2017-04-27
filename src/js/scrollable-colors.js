@@ -5,10 +5,6 @@ $(document).ready(function() {
 });
 
 $(window).scroll(function() {
-  modifyColors();
-}).scroll();
-
-function modifyColors(isFirst) {
   var $window = $(window),
     $body = $('body'),
     $panels = $('.js-panel');
@@ -33,4 +29,4 @@ function modifyColors(isFirst) {
       $body.addClass('color-' + $(this).data('color'));
     }
   });
-}
+}).scroll();

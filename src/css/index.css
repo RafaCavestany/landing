@@ -39,9 +39,10 @@
 @import 'components/hamburger.css';
 @import 'components/header.css';
 @import 'components/icons.css';
+@import 'components/menu.css';
+@import 'components/nav.css';
 @import 'components/themes.css';
 @import 'components/vertical-header.css';
-@import 'components/menu.css';
 
 /*
   Trumps – utilities and helper classes with ability to override anything
