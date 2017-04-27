@@ -6,7 +6,7 @@
 }
 
 .hamburger-container {
-  width: var(--big-spacing-unit);
+  width: 100%;
   height: var(--big-spacing-unit);
   justify-content: center;
   display: flex;

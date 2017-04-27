@@ -41,6 +41,7 @@
 @import 'components/icons.css';
 @import 'components/themes.css';
 @import 'components/vertical-header.css';
+@import 'components/menu.css';
 
 /*
   Trumps – utilities and helper classes with ability to override anything

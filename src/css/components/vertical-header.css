@@ -24,6 +24,7 @@
   padding-top: 0;
   animation-name: slideFromRight;
   right: calc(var(--vertical-header-size) * -1);
+  z-index: 3;
 }
 
 .vertical-header--left {
