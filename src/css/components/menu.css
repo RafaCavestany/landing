@@ -11,14 +11,17 @@
   bottom: 0;
   box-sizing: border-box;
   z-index: 2;
-  opacity: 0.8;
-  visibility: hidden;
+  opacity: 0;
   display: flex;
   justify-content: flex-end;
   color: var(--color-white);
+
+  transition: opacity 0.3s ease;
+  visibility: hidden;
 }
 
 .menu.active {
+  opacity: 0.9;
   visibility: visible;
 }
 
