@@ -25,12 +25,6 @@
 }
 
 /* icomoon icons */
-.icon-arrow-long-down:before {
-  content: '\e901';
-}
-.icon-arrow-long-up:before {
-  content: '\e902';
-}
 .icon-mail:before {
   content: '\e900';
 }

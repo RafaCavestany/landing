@@ -22,6 +22,12 @@
   color: var(--color-white);
 }
 
+.color-black .svg-icon,
+.color-orange .svg-icon,
+.color-green .svg-icon {
+  background-color: var(--color-white);
+}
+
 /*  Themes with black font */
 .color-white {
   background-color: var(--color-white);
@@ -30,6 +36,10 @@
 
 .color-white .icon {
   color: var(--color-black);
+}
+
+.color-white .svg-icon {
+  background-color: var(--color-black);
 }
 
 .color-white .hamburger:not(.active) .hamburger__item,
