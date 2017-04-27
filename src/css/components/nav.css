@@ -1,9 +1,11 @@
 .nav-arrow {
   opacity: 1;
-  visibility: visible;
+  /*visibility: visible;*/
+  transition: opacity .5s ease;
 }
 
 .nav-arrow.hidden {
   opacity: 0;
-  visibility: hidden;
+  /*visibility: hidden;*/
+  cursor: default;
 }
