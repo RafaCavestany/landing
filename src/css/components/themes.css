@@ -32,10 +32,14 @@
   color: var(--color-black);
 }
 
-.color-white .hamburger__item,
-.color-white .hamburger__item:before,
-.color-white .hamburger__item:after {
+.color-white .hamburger:not(.active) .hamburger__item,
+.color-white .hamburger:not(.active) .hamburger__item:before,
+.color-white .hamburger:not(.active) .hamburger__item:after {
   background-color: var(--color-black);
+}
+
+.vertical-header.active .vertical-header__item .icon {
+  color: var(--color-white);
 }
 
 [class^="color-"] .icon, [class*=" color-"] .icon {
@@ -43,12 +47,12 @@
 }
 
 /* Black theme */
-.color-white .vertical-header--right {
+.color-white .vertical-header--right:not(.active) {
   border-color: var(--color-black-opaque);
 }
 
-.color-black .vertical-header--right,
-.color-orange .vertical-header--right,
-.color-green .vertical-header--right {
+.color-black .vertical-header--right:not(.active),
+.color-orange .vertical-header--right:not(.active),
+.color-green .vertical-header--right:not(.active) {
   border-color: var(--color-white-opaque);
 }

@@ -1,11 +1,4 @@
 .hamburger {
-  width: 20px;
-  height: 14px;
-  display: block;
-  position: relative;
-}
-
-.hamburger-container {
   width: 100%;
   height: var(--big-spacing-unit);
   justify-content: center;
@@ -13,6 +6,14 @@
   align-items: center;
   padding: var(--base-spacing-unit) 0;
   box-sizing: border-box;
+}
+
+.hamburger__container {
+  width: 20px;
+  height: 14px;
+  display: block;
+  position: relative;
+  cursor: pointer;
 }
 
 .hamburger.active .hamburger__item {
