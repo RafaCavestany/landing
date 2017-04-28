@@ -8,6 +8,11 @@
   justify-content: center;
 }
 
+.card--work {
+  flex-direction: row;
+  padding-right: 0;
+}
+
 .card__title {
   font-size: 3.5rem;
   font-weight: 600;
@@ -19,7 +24,6 @@
   font-size: 1rem;
   line-height: 1.5rem;
   margin-bottom: 2.5rem;
-  max-width: 50%;
 }
 
 .card__link {
@@ -41,4 +45,53 @@
   font-size: 13px;
   font-weight: 600;
   text-transform: uppercase;
+}
+
+.card__container {
+  width: 40%;
+  padding-right: 30px;
+  box-sizing: border-box;
+}
+
+.card__image {
+  width: 60%;
+  display: block;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  background-position: right;
+}
+
+.card__image--oincs {
+  background-image: url('../../img/img-oincs.png');
+}
+
+.card__image--cab-2-ride {
+  background-image: url('../../img/cab-2-ride-img.png');
+}
+
+@media only screen and (-o-min-device-pixel-ratio: 5/4),
+       only screen and (-webkit-min-device-pixel-ratio: 1.25),
+       only screen and (min-device-pixel-ratio: 1.25),
+       only screen and (min-resolution: 1.25dppx) {
+  .card__image--oincs {
+    background-image: url('../../img/img-oincs@2x.png');
+  }
+
+  .card__image--cab-2-ride {
+    background-image: url('../../img/cab-2-ride-img@2x.png');
+  }
+}
+
+@media only screen and (-o-min-device-pixel-ratio: 9/4),
+       only screen and (-webkit-min-device-pixel-ratio: 2.25),
+       only screen and (min-device-pixel-ratio: 2.25),
+       only screen and (min-resolution: 2.25dppx) {
+  .card__image--oincs {
+    background-image: url('../../img/img-oincs@3x.png');
+  }
+
+  .card__image--cab-2-ride {
+    background-image: url('../../img/cab-2-ride-img@3x.png');
+  }
 }
