@@ -62,7 +62,7 @@
   display: block;
   margin: 0;
   background-repeat: no-repeat;
-  background-size: auto 100%;
+  background-size: contain;
   background-position: right;
 }
 
@@ -97,5 +97,20 @@
 
   .card__image--cab-2-ride {
     background-image: url('../../img/cab-2-ride-img@3x.png');
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .card {
+    padding: calc(var(--vertical-header-size) + var(--base-spacing-unit));
+  }
+  .card__title {
+    font-size: 36px;
+  }
+  .card--work {
+    padding-right: 0;
+  }
+  .card__paragraph--small {
+    max-width: 80%;
   }
 }
