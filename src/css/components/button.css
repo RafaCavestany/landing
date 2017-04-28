@@ -1,0 +1,33 @@
+.button {
+  display: inline-flex;
+  height: 12px;
+  padding: 19px 15px;
+  font-size: 12px;
+  font-weight: 600;
+  font-family: 'Graphik';
+  color: var(--color-white);
+  text-transform: uppercase;
+  border: 1px solid var(--color-white);
+  margin-right: 15px;
+}
+
+.button::after {
+  mask: url(../../img/btn-arrow-white.svg) no-repeat 100% 100%;
+  -webkit-mask: url(../../img/btn-arrow-white.svg) no-repeat 100% 100%;
+  margin-left: 10px;
+  width: 36px;
+  height: 13px;
+  content: ' ';
+  display: inline-flex;
+  background-color: var(--color-white);
+}
+
+/* White theme: */
+.color-white .button {
+  border-color: var(--color-black);
+  color: var(--color-black);
+}
+
+.color-white .button::after {
+  background-color: var(--color-black);
+}
