@@ -24,6 +24,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon--medium {
+  font-size: 20px;
+}
+
 /* icomoon icons */
 .icon-mail:before {
   content: '\e900';
