@@ -42,6 +42,10 @@
   background-color: var(--color-black);
 }
 
+.color-white .card__line-break {
+  background-color: var(--color-black);
+}
+
 .color-white .hamburger:not(.active) .hamburger__item,
 .color-white .hamburger:not(.active) .hamburger__item:before,
 .color-white .hamburger:not(.active) .hamburger__item:after {
