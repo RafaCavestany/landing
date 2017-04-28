@@ -1,4 +1,7 @@
-/* colours */
+@import 'themes/default.css';
+@import 'themes/white.css';
+
+/* Colours */
 .color-black {
   background-color: var(--color-black);
 }
@@ -9,64 +12,4 @@
 
 .color-green {
   background-color: var(--color-green);
-}
-
-/* Themes with white font */
-.color-black, .color-orange, .color-green {
-  color: var(--color-white);
-}
-
-.color-black .icon,
-.color-orange .icon,
-.color-green .icon {
-  color: var(--color-white);
-}
-
-.color-black .svg-icon,
-.color-orange .svg-icon,
-.color-green .svg-icon {
-  background-color: var(--color-white);
-}
-
-/*  Themes with black font */
-.color-white {
-  background-color: var(--color-white);
-  color: var(--color-black);
-}
-
-.color-white .icon {
-  color: var(--color-black);
-}
-
-.color-white .svg-icon {
-  background-color: var(--color-black);
-}
-
-.color-white .card__line-break {
-  background-color: var(--color-black);
-}
-
-.color-white .hamburger:not(.active) .hamburger__item,
-.color-white .hamburger:not(.active) .hamburger__item:before,
-.color-white .hamburger:not(.active) .hamburger__item:after {
-  background-color: var(--color-black);
-}
-
-.vertical-header.active .vertical-header__item .icon {
-  color: var(--color-white);
-}
-
-[class^="color-"] .icon, [class*=" color-"] .icon {
-  transition: color 1s ease;
-}
-
-/* Black theme */
-.color-white .vertical-header--right:not(.active) {
-  border-color: var(--color-black-opaque);
-}
-
-.color-black .vertical-header--right:not(.active),
-.color-orange .vertical-header--right:not(.active),
-.color-green .vertical-header--right:not(.active) {
-  border-color: var(--color-white-opaque);
 }

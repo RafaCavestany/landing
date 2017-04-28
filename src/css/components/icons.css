@@ -22,6 +22,8 @@
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  transition: color 1s ease;
 }
 
 .icon--medium {

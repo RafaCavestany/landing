@@ -38,7 +38,6 @@
 .card__line-break {
   width: 40px;
   height: 1px;
-  background-color: var(--color-white);
   display: block;
   margin: 20px 0;
   border: 0;
