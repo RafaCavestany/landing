@@ -31,7 +31,8 @@
 @media only screen and (-o-min-device-pixel-ratio: 5/4),
        only screen and (-webkit-min-device-pixel-ratio: 1.25),
        only screen and (min-device-pixel-ratio: 1.25),
-       only screen and (min-resolution: 1.25dppx) {
+       only screen and (min-resolution: 1.25dppx)
+       only screen and (min-width: 768px) {
   .banner {
     background-image: url('../../img/banner@2x.jpg');
   }
@@ -50,7 +51,8 @@
 @media only screen and (-o-min-device-pixel-ratio: 9/4),
        only screen and (-webkit-min-device-pixel-ratio: 2.25),
        only screen and (min-device-pixel-ratio: 2.25),
-       only screen and (min-resolution: 2.25dppx) {
+       only screen and (min-resolution: 2.25dppx)
+       only screen and (min-width: 768px) {
   .banner {
     background-image: url('../../img/banner@3x.jpg');
   }
