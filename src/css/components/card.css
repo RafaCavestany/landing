@@ -18,8 +18,10 @@
   font-weight: 600;
   line-height: 1.27;
   margin-bottom: 20px;
-  overflow: hidden;
-  text-overflow: ellipsis;
+}
+
+.card__title__link {
+  font-size: inherit;
 }
 
 .card__paragraph {
@@ -137,5 +139,17 @@
   }
   .card__container {
     width: 100%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .card__title__link {
+    font-size: 22px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .card__title__link {
+    font-size: 18px;
   }
 }
