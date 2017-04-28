@@ -26,6 +26,10 @@
   margin-bottom: 2.5rem;
 }
 
+.card__paragraph--small {
+  max-width: 40%;
+}
+
 .card__link {
   font-size: 1rem;
   font-weight: 600;
