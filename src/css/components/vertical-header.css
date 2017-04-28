@@ -82,3 +82,9 @@
 .vertical-header__icon {
   padding-top: var(--base-spacing-unit);
 }
+
+@media screen and (max-width: 768px) {
+  .vertical-header {
+    display: none;
+  }
+}

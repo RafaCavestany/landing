@@ -113,3 +113,24 @@
     max-width: 80%;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .card {
+    padding: var(--base-spacing-unit);
+  }
+  .card--work {
+    padding-right: 0;
+    flex-direction: column;
+  }
+  .card__image {
+    height: 350px;
+    width: 100%;
+    margin-top: 30px;
+  }
+  .card__container {
+    width: 100%;
+  }
+  .vertical-header {
+    display: none;
+  }
+}
