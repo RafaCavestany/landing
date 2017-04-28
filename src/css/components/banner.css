@@ -21,6 +21,7 @@
 
 .banner__container {
   width: 70%;
+  max-width: 780px;
 }
 
 @keyframes fadeOpacity {
