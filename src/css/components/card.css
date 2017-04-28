@@ -18,6 +18,8 @@
   font-weight: 600;
   line-height: 1.27;
   margin-bottom: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .card__paragraph {
