@@ -124,7 +124,7 @@
 
 @media screen and (max-width: 768px) {
   .card {
-    padding: var(--base-spacing-unit);
+    padding: var(--big-spacing-unit) var(--base-spacing-unit);
   }
   .card--work {
     padding-right: 0;

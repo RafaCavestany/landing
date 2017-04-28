@@ -21,3 +21,7 @@
   display: inline-flex;
   background-color: inherit;
 }
+
+.button:last-child {
+  margin-right: 0;
+}
