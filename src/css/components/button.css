@@ -8,6 +8,7 @@
   text-transform: uppercase;
   border: 1px solid transparent;
   margin-right: 15px;
+  margin-bottom: 15px;
 }
 
 .button::after {
