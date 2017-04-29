@@ -29,6 +29,7 @@
   to {opacity: 1}
 }
 
+/* @2x */ 
 @media only screen and (-o-min-device-pixel-ratio: 5/4),
        only screen and (-webkit-min-device-pixel-ratio: 1.25),
        only screen and (min-device-pixel-ratio: 1.25),
@@ -49,6 +50,7 @@
   }
 }
 
+/* @3x */
 @media only screen and (-o-min-device-pixel-ratio: 9/4),
        only screen and (-webkit-min-device-pixel-ratio: 2.25),
        only screen and (min-device-pixel-ratio: 2.25),
@@ -80,7 +82,14 @@
   .banner__container {
     width: 100%;
   }
-  .banner {
-    background-image: url('../../img/banner-mobile.jpg');
+}
+
+@media screen and (max-width: 768px) {
+  .banner__container {
+    width: 100%;
   }
+}
+
+.banner {
+  background-image: url('../../img/banner-mobile.jpg');
 }
