@@ -1,13 +1,16 @@
 // This code is based on this pen: https://codepen.io/daveredfern/pen/zBGBJV
 $(document).ready(function() {
-  const $body = $('body');
-  $body.addClass('color-' + $('.js-panel').data('color'));
+  const $scrollableSections = $('.scrollable-section'),
+        $scrollablePanel = $('.js-scrollable-panel');
+  $scrollableSections.addClass('color-' + $scrollablePanel.data('color'));
 });
 
 $(window).scroll(function() {
   const $window = $(window),
     $body = $('body'),
-    $panels = $('.js-panel');
+    $panels = $('.js-panel'),
+    $scrollablePanel = $('.js-scrollable-panel'),
+    $scrollableContent = $('.js-scrollable-content');
 
   // Change 33% earlier than scroll position so colour is there when you arrive.
   const scroll = $window.scrollTop() + ($window.height() / 3);
@@ -21,12 +24,12 @@ $(window).scroll(function() {
     if ($this.position().top <= scroll && $this.position().top + $this.height() > scroll) {
 
       // Remove all classes on body with color-
-      $body.removeClass(function(index, css) {
+      $scrollableContent.removeClass(function(index, css) {
         return (css.match(/(^|\s)color-\S+/g) || []).join(' ');
       });
 
       // Add class of currently active div
-      $body.addClass('color-' + $(this).data('color'));
+      $scrollableContent.addClass('color-' + $(this).data('color'));
     }
   });
 }).scroll();

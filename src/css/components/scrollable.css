@@ -1,7 +1,26 @@
 .scrollable-section {
   position: absolute;
   width: 100%;
-  z-index: 100;
+  z-index: 300;
+}
+
+.scrollable-section .header--desktop {
+  position: absolute;
+  z-index: 302;
+}
+
+.scrollable-section .header--mobile {
+  position: absolute;
+  z-index: 303;
+}
+
+.scrollable-section .menu {
+  z-index: 302;
+}
+
+.scrollable-section .vertical-header {
+  position: absolute;
+  z-index: 301;
 }
 
 .scrollable-content {
@@ -10,4 +29,8 @@
 
 .scrollable-content.active {
   position: relative;
+}
+
+.scrollable-content {
+  transition: background-color 1s ease, color 1s ease;
 }

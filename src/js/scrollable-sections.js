@@ -68,8 +68,13 @@ function handleScroll() {
     if (cur_pos >= top && cur_pos <= bottom) {
       if (cur_pos + SCROLL_TOLERANCE < $(this).outerHeight() / 2) {
         handleNewSectionScroll(cur_pos, scrollDirection, this);
+        $scrollableContent.removeClass('active');
+        $scrollableContent.addClass('scrolling');
+        console.log(`scrolling ${cur_pos}`);
       } else {
-        $scrollableContent.toggleClass('active');
+        $scrollableContent.removeClass('scrolling');
+        $scrollableContent.addClass('active');
+        console.log(`active ${cur_pos}`);
       }
     }
   });
