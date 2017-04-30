@@ -1,7 +1,3 @@
 .h-one-third {
   height: calc(100% / 3);
 }
-
-.h-one-half {
-  height: 50%;
-}
