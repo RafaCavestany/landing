@@ -25,12 +25,10 @@
 
 .scrollable-content {
   position: absolute;
+  transition: background-color 1s ease, color 1s ease, opacity 1s ease;
+  opacity: 1;
 }
 
 .scrollable-content.active {
   position: relative;
-}
-
-.scrollable-content {
-  transition: background-color 1s ease, color 1s ease;
 }

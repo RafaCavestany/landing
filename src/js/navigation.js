@@ -1,17 +1,8 @@
 // List the sections here
-var sections = [
-  {
-    name: 'intro'
-  },
-  {
-    name: 'about'
-  },
-  {
-    name: 'work'
-  },
-  {
-    name: 'project'
-  }
+const sections = [
+  { name: 'about' },
+  { name: 'work' },
+  { name: 'project' }
 ];
 
 $(document).ready(function() {
@@ -28,21 +19,21 @@ var currentSection;
 var currentScroll;
 
 function navigate() {
-  var $window = $(window),
+  const $window = $(window),
     $sections = $('.js-section'),
     header = $('header'),
     header_height = header.outerHeight();
 
-  var cur_pos = $(this).scrollTop();
+  const cur_pos = $(this).scrollTop();
 
   currentScroll = scroll;
 
   $sections.each(function() {
-    var top = $(this).offset().top - header_height,
+    const top = $(this).offset().top - header_height,
         bottom = top + $(this).outerHeight();
 
     if (cur_pos >= top && cur_pos <= bottom) {
-      var section = $(this).data('name');
+      const section = $(this).data('name');
       // If the section is a new section
       if (section !== currentSection) {
         // Change currentSection
@@ -61,46 +52,42 @@ function handleNewSection(newSection) {
   // First page
   if (newSection === sections[0].name) {
     // If our section is intro, hide the arrow up.
-    var $arrowUp = $('.js-arrow-up');
-    $arrowUp.addClass('hidden');
+    $('.js-arrow-up').addClass('hidden');
     // Set second section as next section
     setNextSection(sections[1].name);
   }
   if (newSection !== sections[0].name) {
     //  if our section is not intro, show it.
-    var $arrowUp = $('.js-arrow-up');
-    $arrowUp.removeClass('hidden');
+    $('.js-arrow-up').removeClass('hidden');
   }
   // Last page
   if (newSection === sections[sections.length - 1].name) {
     // If our section is the last one, hide the arrow down.
-    var $arrowDown = $('.js-arrow-down');
-    $arrowDown.addClass('hidden');
+    $('.js-arrow-down').addClass('hidden');
     // Set the section before the last one as previous section
     setPreviousSection(sections[sections.length - 2].name);
   }
   if (newSection !== sections[sections.length - 1].name) {
     //  if our section is not project, show it.
-    var $arrowDown = $('.js-arrow-down');
-    $arrowDown.removeClass('hidden');
+    $('.js-arrow-down').removeClass('hidden');
   }
   if (newSection !== sections[sections.length - 1].name && (newSection !== sections[0].name)) {
+    setPreviousSection(sections[getSectionByName(newSection) - 1].name);
     setNextSection(sections[getSectionByName(newSection) + 1].name);
-    setPreviousSection(sections[getSectionByName(newSection) - 1].name)
   }
-}
-
-function setNextSection(section) {
-  $('.js-arrow-down').attr('href', `#${section}`);
 }
 
 function setPreviousSection(section) {
   $('.js-arrow-up').attr('href', `#${section}`);
 }
 
+function setNextSection(section) {
+  $('.js-arrow-down').attr('href', `#${section}`);
+}
+
 function getSectionByName(sectionName) {
-  var number = null;
-  for (var i = 0; i < sections.length; i++) {
+  let number = null;
+  for (let i = 0; i < sections.length; i++) {
     if (sections[i].name === sectionName) {
       number = i;
     }

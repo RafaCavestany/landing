@@ -35,6 +35,7 @@
   place and our UI components are often composed of Objects and Components
 */
 @import 'components/banner.css';
+@import 'components/blackout.css';
 @import 'components/button.css';
 @import 'components/card.css';
 @import 'components/hamburger.css';
