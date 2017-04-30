@@ -1,0 +1,13 @@
+.scrollable-section {
+  position: absolute;
+  width: 100%;
+  z-index: 100;
+}
+
+.scrollable-content {
+  position: absolute;
+}
+
+.scrollable-content.active {
+  position: relative;
+}

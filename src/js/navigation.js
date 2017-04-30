@@ -12,9 +12,8 @@ var sections = [
   {
     name: 'project'
   }
-]
+];
 
-// This code is based on this pen: https://codepen.io/daveredfern/pen/zBGBJV
 $(document).ready(function() {
   handleNewSection(sections[0].name);
 });
@@ -27,8 +26,6 @@ $(window).scroll(function() {
 var currentSection;
 // Save currentScroll to know our scroll;
 var currentScroll;
-// Save currentScrollDirection to know where we're going.
-var currentScrollDirection;
 
 function navigate() {
   var $window = $(window),
@@ -37,13 +34,6 @@ function navigate() {
     header_height = header.outerHeight();
 
   var cur_pos = $(this).scrollTop();
-
-  // Check for scroll direction
-  if (currentScroll > scroll) {
-    currentScrollDirection = 'up';
-  } else if (currentScroll < scroll) {
-    currentScrollDirection = 'down';
-  }
 
   currentScroll = scroll;
 
@@ -57,7 +47,7 @@ function navigate() {
       if (section !== currentSection) {
         // Change currentSection
         currentSection = section;
-        handleNewSection(currentSection, currentScrollDirection);
+        handleNewSection(currentSection);
       }
       // do nothing instead (performance)
     }
@@ -65,7 +55,7 @@ function navigate() {
 }
 
 // When a new section is selected, do whatever is necessary
-function handleNewSection(newSection, currentScrollDirection) {
+function handleNewSection(newSection) {
   // Update section name at current section text.
   $('.js-current-section').html(newSection);
   // First page
