@@ -1,31 +1,16 @@
+// We SET 5 as scroll tolerance
+const SCROLLABLE_TOLERANCE = 5;
+
+
 $(document).ready(function() {
   const $body = $('body'),
     $scrollableSections = $('.js-scrollable-section'),
-    $scrollableContent = $('.js-scrollable-content'),
-    $scrollToContent = $('.js-scroll-to-content');
-
-  $scrollToContent.click(function() {
-    scrollToContent();
-  });
+    $scrollableContent = $('.js-scrollable-content');
 
   // Here we calculate the total height of the body by calculating
   // the height of the scrollableSections and the scrollableContent.
   changeBodyHeight(getTotalHeight($scrollableSections, $scrollableContent));
 });
-
-function scrollToContent() {
-  const $window = $(window),
-      $scrollableSections = $('.js-scrollable-section'),
-      $scrollableContent = $('.js-scrollable-content');
-
-  const heightWithTolerance = $scrollableSections.height() + SCROLL_TOLERANCE;
-
-  // $scrollableSections.css('top', heightWithTolerance * -1);
-  // $scrollableContent.css(0 + SCROLL_TOLERANCE);
-    $('html, body').animate({
-      scrollTop: heightWithTolerance / 2
-  }, 1000);
-}
 
 function changeBodyHeight(newHeight, type) {
   const $body = $('body');
@@ -54,9 +39,6 @@ var lastPosition;
 var currentSection;
 // Save scrollDirection to know where we're going.
 var scrollDirection;
-
-// We SET 5 as scroll tolerance
-const SCROLL_TOLERANCE = 5;
 
 function handleScroll() {
   let $window = $(window),
@@ -88,7 +70,7 @@ function handleScroll() {
           bottom = top + $(this).outerHeight();
 
     if (cur_pos >= top && cur_pos <= bottom) {
-      if (cur_pos + SCROLL_TOLERANCE < $(this).outerHeight() / 2) {
+      if (cur_pos + SCROLLABLE_TOLERANCE < $(this).outerHeight() / 2) {
         handleNewSectionScroll(cur_pos, scrollDirection, this);
         $scrollableContent.removeClass('active');
         $scrollableContent.addClass('scrolling');
