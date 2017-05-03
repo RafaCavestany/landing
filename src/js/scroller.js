@@ -2,19 +2,32 @@
 
 // Define funcs
 const getDownArrowChild = function($ancestor) {
-  return $ancestor.getElementsByClassName('js-scroll-to-content')[0];
+  return $ancestor.getElementsByClassName('js-scroll-down')[0];
 };
 
 const getElementInfo = function($element) {
   return $element.getBoundingClientRect();
 };
 
-const scrollToContentHandler = function($section, index) {
-  if (index === 0) {
+const scrollDown = function($section, index) {
+  console.log(`Navigation from: ${index} to ${index + 1}`);
+  // We modify the current div
+  if (index === 0 || index !== 0) { // TODO: ofc delete code after ||
     // if its the first page, we only need to scroll half of the height
     // of the container
     const sectionHeight = getElementInfo($section).height;
     $section.style.top = `${sectionHeight * -1}px`;
+  }
+};
+
+const scrollUp = function($section, index) {
+  console.log(`Navigation from ${index} to: ${index-1}`);
+  // We modify the next div
+  if (index === 0 || index !== 0) { // TODO: ofc delete code after ||
+    // if its the first page, we only need to scroll half of the height
+    // of the container
+    const sectionHeight = getElementInfo($section).height;
+    $section.style.top = `0`;
   }
 };
 
@@ -34,8 +47,16 @@ window.onload = function() {
     if ($downArrow) {
       $downArrow.addEventListener('click', function(e) {
         e.preventDefault();
-        scrollToContentHandler($element, index);
+        scrollDown($element, index);
       });
     }
   });
+  // FOR NOW there is only one arrow up:
+  const $arrowDown = document.getElementsByClassName('js-scroll-up')[0];
+  $arrowDown.addEventListener('click', function(e) {
+    e.preventDefault();
+    // and belongs to the second view
+    const secondViewIndex = 1;
+    scrollUp($scrollableSections[secondViewIndex-1], secondViewIndex-1);
+  })
 };
