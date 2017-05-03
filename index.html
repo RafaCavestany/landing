@@ -15,7 +15,7 @@
   <body>
     <div class="wrapper">
       <div class="container">
-        <section id="intro" class="scrollable-section js-scrollable-section" data-name="intro">
+        <section id="intro" class="scrollable-section js-scrollable-section">
           <header class="header header--desktop">
             <a href="#project" class="header__link">
               <i class="icon icon-party-popper header__link__icon"></i>
@@ -116,15 +116,17 @@
               </div>
             </div>
             <div class="vertical-header__item h-one-third">
-              <div class="vertical-header__content vertical-header__content--rotated js-current-section">
+              <div class="vertical-header__content vertical-header__content--rotated">
+                <!--  TODO: -->
+                ?
               </div>
             </div>
             <div class="vertical-header__item h-one-third u-flex-direction-column">
               <div class="vertical-header__icons">
-                <a href="#about" class="vertical-header__icon nav-arrow js-arrow-up">
+                <a href="#about" class="vertical-header__icon nav-arrow">
                   <i class="svg-icon svg-icon-arrow-up"></i>
                 </a>
-                <a href="#work" class="vertical-header__icon nav-arrow js-arrow-down">
+                <a href="#work" class="vertical-header__icon nav-arrow">
                   <i class="svg-icon svg-icon-arrow-down"></i>
                 </a>
               </div>
@@ -133,9 +135,10 @@
           <div class="u-position-relative">
             <div class="blackout js-blackout"></div>
             <!-- Section: about -->
-            <section id="about" class="js-section" data-name="about">
+            <section id="about">
               <!-- Second article: About Rafael-->
-              <article id="aboutRafael" class="card js-panel" data-color="white">
+              <article id="aboutRafael" class="card">
+                <!-- data-color="white" -->
                 <h2 class="card__title">
                   He has led projects for companies such as Intel, AT&amp;T, Telefónica,
                   HP, Visa, Directv, Golf Channel among others.
@@ -151,8 +154,9 @@
               </article>
             </section>
             <!-- Section: work -->
-            <section id="work" class="js-section" data-name="work">
-              <article id="oincs" class="card card--work js-panel" data-color="orange">
+            <section id="work">
+              <article id="oincs" class="card card--work">
+                <!-- data-color="orange" -->
                 <div class="card__container">
                   <h2 class="card__title">Oincs</h2>
                   <label class="card__label">
@@ -172,7 +176,8 @@
                 <figure class="card__image card__image--oincs">
                 </figure>
               </article>
-              <article id="cab2ride" class="card card--work js-panel" data-color="black">
+              <article id="cab2ride" class="card card--work">
+                <!-- data-color="black" -->
                 <div class="card__container">
                   <h2 class="card__title">Cab2ride</h2>
                   <label class="card__label">
@@ -194,7 +199,8 @@
                 <figure class="card__image card__image--cab-2-ride">
                 </figure>
               </article>
-              <article id="itau" class="card card--work js-panel" data-color="white">
+              <article id="itau" class="card card--work">
+                <!-- data-color="white" -->
                 <div class="card__container">
                   <h2 class="card__title">Itaú</h2>
                   <label class="card__label">
@@ -213,7 +219,8 @@
                 <figure class="card__image card__image--itau">
                 </figure>
               </article>
-              <article id="yts" class="card card--work js-panel" data-color="black">
+              <article id="yts" class="card card--work">
+                <!-- data-color="black" -->
                 <div class="card__container">
                   <h2 class="card__title">Yts</h2>
                   <label class="card__label">
@@ -233,7 +240,8 @@
                 <figure class="card__image card__image--yts">
                 </figure>
               </article>
-              <article id="pagoo" class="card card--work js-panel" data-color="green">
+              <article id="pagoo" class="card card--work">
+                <!-- data-color="green" -->
                 <div class="card__container">
                   <h2 class="card__title">Pagoo</h2>
                   <label class="card__label">
@@ -255,23 +263,24 @@
               </article>
             </section>
             <!-- Section: project -->
-            <section id="project" class="js-section" data-name="project">
-            <article id="startProject" class="card js-panel" data-color="black">
-              <h2 class="card__title">
-                Interested in starting a project?
-              </h2>
-              <br/>
-              <h2 class="card__title">
-                Drop me a line at:
+            <section id="project">
+              <article id="startProject" class="card">
+                <!-- data-color="black" -->
+                <h2 class="card__title">
+                  Interested in starting a project?
+                </h2>
                 <br/>
-                <a href="mailto:business@rcavestany.com"
-                  class="card__title__link u-txt-underlined"
-                >
-                  business@rcavestany.com
-                </a>
-              </h2>
-            </article>
-          </section>
+                <h2 class="card__title">
+                  Drop me a line at:
+                  <br/>
+                  <a href="mailto:business@rcavestany.com"
+                    class="card__title__link u-txt-underlined"
+                  >
+                    business@rcavestany.com
+                  </a>
+                </h2>
+              </article>
+            </section>
           </div>
           <aside class="vertical-header vertical-header--right js-hamburger-container">
             <div class="hamburger js-hamburger-menu">
