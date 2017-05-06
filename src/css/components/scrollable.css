@@ -24,11 +24,12 @@
 }
 
 .scrollable-content {
-  position: absolute;
+  position: fixed;
   transition: background-color 1s ease, color 1s ease, opacity 1s ease;
   opacity: 1;
 }
 
 .scrollable-content.active {
+  top: 50vh;
   position: relative;
 }
