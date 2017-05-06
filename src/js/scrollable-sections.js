@@ -1,24 +1,25 @@
 // We SET 5 as scroll tolerance
 const SCROLLABLE_TOLERANCE = 5;
+// Save lastPosition to know our scroll;
+let lastPosition;
+// Save current section
+let currentSection;
+// Save scrollDirection to know where we're going.
+let scrollDirection;
 
 
 $(document).ready(function() {
-  const $body = $('body'),
-    $scrollableSections = $('.js-scrollable-section'),
-    $scrollableContent = $('.js-scrollable-content');
+  const $body = $('body');
+  const $scrollableContent = $('.js-scrollable-content');
 
   // Here we calculate the total height of the body by calculating
   // the height of the scrollableSections and the scrollableContent.
-  changeBodyHeight(getTotalHeight($scrollableSections, $scrollableContent));
+  setBodyHeight(getElementsHeight($scrollableContent));
 });
 
-function changeBodyHeight(newHeight, type) {
+function setBodyHeight(newHeight, type) {
   const $body = $('body');
   $body.css('height', newHeight);
-}
-
-function getTotalHeight($sections, $content) {
-  return getElementsHeight($sections) + getElementsHeight($content);
 }
 
 function getElementsHeight($elements) {
@@ -32,13 +33,6 @@ function getElementsHeight($elements) {
 $(window).scroll(function() {
   handleScroll();
 }).scroll();
-
-// Save lastPosition to know our scroll;
-var lastPosition;
-// Save current section
-var currentSection;
-// Save scrollDirection to know where we're going.
-var scrollDirection;
 
 function handleScroll() {
   let $window = $(window),
@@ -56,18 +50,12 @@ function handleScroll() {
   }
 
   let totalHeight;
-  if (scrollDirection === 'up') {
-    totalHeight = getTotalHeight($scrollableSections, $scrollableContent);
-  } else {
-    totalHeight = getElementsHeight($scrollableContent);
-  }
-  changeBodyHeight(totalHeight, 'handleNewSectionScroll');
 
   $blackout.removeClass('active');
 
   $scrollableSections.each(function() {
-    const top = $(this).offset().top,
-          bottom = top + $(this).outerHeight();
+    const top = $(this).offset().top;
+    const bottom = top + $(this).outerHeight();
 
     if (cur_pos >= top && cur_pos <= bottom) {
       if (cur_pos + SCROLLABLE_TOLERANCE < $(this).outerHeight() / 2) {
@@ -89,7 +77,6 @@ function handleScroll() {
 function handleNewSectionScroll(newScroll, scrollDirection, element) {
   const $element = $(element);
   const $scrollableContent = $('.js-scrollable-content');
-  const $scrollableSections = $('.js-scrollable-sections');
 
   $element.css('top', newScroll * -1);
   $scrollableContent.css('top', newScroll);
