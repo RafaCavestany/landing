@@ -79,5 +79,5 @@ function handleNewSectionScroll(newScroll, scrollDirection, element) {
   const $scrollableContent = $('.js-scrollable-content');
 
   $element.css('top', newScroll * -1);
-  $scrollableContent.css('top', newScroll);
+  // $scrollableContent.css('top', newScroll);
 }
