@@ -53,20 +53,38 @@ function handleScroll() {
 
   $blackout.removeClass('active');
 
-  $scrollableSections.each(function() {
-    const top = $(this).offset().top;
-    const bottom = top + $(this).outerHeight();
+  $scrollableSections.each(function(index, currentSection) {
+    const $currentSection = $(currentSection);
+    let height = $currentSection.outerHeight();
 
-    if (cur_pos >= top && cur_pos <= bottom) {
-      if (cur_pos + SCROLLABLE_TOLERANCE < $(this).outerHeight() / 2) {
-        handleNewSectionScroll(cur_pos, scrollDirection, this);
-        $scrollableContent.removeClass('active');
-        $scrollableContent.addClass('scrolling');
-        $blackout.addClass('active');
-      } else {
-        $scrollableContent.addClass('active');
-        $scrollableContent.removeClass('scrolling');
-      }
+    // The first scroll only needs to be half of the height
+    // TODO: why????
+    if(index === 0) {
+      height = height / 2;
+    }
+
+    console.log(`${cur_pos + SCROLLABLE_TOLERANCE} < ${height}`);
+
+    if (cur_pos + SCROLLABLE_TOLERANCE < height) {
+      //
+      handleNewSectionScroll(cur_pos, scrollDirection, this);
+      //
+      $scrollableContent.removeClass('active');
+      $scrollableContent.addClass('scrolling');
+      //
+      $currentSection.addClass('scrolling');
+      $currentSection.removeClass('hidden');
+      //
+      $blackout.addClass('active');
+    } else {
+      //
+      $scrollableContent.addClass('active');
+      $scrollableContent.removeClass('scrolling');
+      //
+      $currentSection.removeClass('scrolling');
+      $currentSection.addClass('hidden');
+      //
+      $blackout.removeClass('active');
     }
   });
 
