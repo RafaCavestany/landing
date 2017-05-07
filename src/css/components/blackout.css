@@ -1,15 +1,15 @@
 .blackout {
-  background: #000;
+  background: #000000;
   pointer-events: none;
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
   opacity: 0;
   z-index: 250;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 .blackout.active {
