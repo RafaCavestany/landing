@@ -11,3 +11,7 @@
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
+
+.blackout.active {
+  opacity: 0.5;
+}

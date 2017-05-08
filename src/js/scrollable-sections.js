@@ -11,11 +11,11 @@ let scrollDirection;
 
 $(document).ready(function() {
   const $body = $('body');
-  const $scrollableContent = $('.js-scrollable-content');
+  const $scrollableContents = $('.js-scrollable-content');
 
   // Here we calculate the total height of the body by calculating
-  // the height of the scrollableSections and the scrollableContent.
-  setBodyHeight(getElementsHeight($scrollableContent));
+  // the height of the scrollableSections and the scrollableContents.
+  setBodyHeight(getElementsHeight($scrollableContents));
 });
 
 function setBodyHeight(newHeight, type) {
@@ -37,7 +37,8 @@ $(window).scroll(function() {
 
 function handleScroll() {
   const $scrollableSections = $('.js-scrollable-section');
-  const $scrollableContent = $('.js-scrollable-content');
+  const $scrollableContents = $('.js-scrollable-content');
+  const $blackout = $('.js-blackout');
 
   const cur_pos = $(this).scrollTop();
 
@@ -47,8 +48,6 @@ function handleScroll() {
   } else {
     scrollDirection = 'down';
   }
-
-  let totalHeight;
 
   $scrollableSections.each(function(index, currentSection) {
     const $currentSection = $(currentSection);
@@ -61,10 +60,15 @@ function handleScroll() {
     }
 
     if (cur_pos < height + SCROLL_TOLERANCE) {
-      handleNewSectionScroll(cur_pos, scrollDirection, this);
-      $scrollableContent.removeClass('active');
+      handleNewSectionScroll(this, cur_pos, scrollDirection);
+      $scrollableContents.removeClass('active');
+      $blackout.addClass('active');
+
+      if (cur_pos > height && cur_pos < height + SCROLL_TOLERANCE) {
+        $blackout.removeClass('active');
+      }
     } else {
-      $scrollableContent.addClass('active');
+      $scrollableContents.addClass('active');
     }
   });
 
@@ -72,9 +76,8 @@ function handleScroll() {
 }
 
 // When a new section is selected, do whatever is necessary
-function handleNewSectionScroll(newScroll, scrollDirection, element) {
+function handleNewSectionScroll(element, scrolled, scrollDirection) {
   const $element = $(element);
-  const $scrollableContent = $('.js-scrollable-content');
-
-  $element.css('top', newScroll * -1);
+  $element.css('top', scrolled * -1);
+  console.log(`Scroll direction is ${scrollDirection}`);
 }
