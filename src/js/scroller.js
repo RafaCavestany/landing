@@ -15,7 +15,7 @@ const scrollDown = function($section, index) {
   if (index === 0 || index !== 0) { // TODO: ofc delete code after ||
     // if its the first page, we only need to scroll half of the height
     // of the container
-    const sectionHeight = getElementInfo($section).height;
+    const sectionHeight = getElementInfo($section).height + 100;
     $section.style.top = `${sectionHeight * -1}px`;
   }
 };
