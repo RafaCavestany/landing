@@ -51,37 +51,34 @@ function handleScroll() {
     direction = 'down';
   }
 
-  $scrollableSections.each(function(index, currentSection) {
-    const $currentSection = $(currentSection);
+  $scrollableSections.each(function(index) {
+    const $currentSection = $(this);
     let height = $currentSection.outerHeight();
+    // why?
+    height = height / 2;
 
-    // The first scroll only needs to be half of the height
-    // TODO: why????
     if(index === 0) {
-      height = height / 2;
-    }
+      if (cur_pos < height + SCROLL_TOLERANCE) {
+        handleNewSectionScroll($currentSection, cur_pos, direction);
+        $scrollableContents.removeClass('active');
+        $blackout.addClass('active');
 
-    // if index > 0
-    // scrolls from top but height does not change
-
-    // if index > 0 && index == $scrollableSections.length
-    // scrolls from bottom
-
-    if (cur_pos < height + SCROLL_TOLERANCE) {
-      handleNewSectionScroll(this, cur_pos, direction, height);
-      $scrollableContents.removeClass('active');
-      $blackout.addClass('active');
-
-      if (cur_pos > height && cur_pos < height + SCROLL_TOLERANCE) {
-        setBlackoutOpacity(0);
+        if (cur_pos > height && cur_pos < height + SCROLL_TOLERANCE) {
+          setBlackoutOpacity(0);
+        } else {
+          const visiblePercentage = getPercentageByValues(cur_pos, height);
+          // opacity is from 1 to 0, instead of 0 to 1, so we need
+          // to do 100 - x here.
+          setBlackoutOpacity(100 - visiblePercentage);
+        }
       } else {
-        const visiblePercentage = getPercentageByValues(cur_pos, height);
-        // opacity is from 1 to 0, instead of 0 to 1, so we need
-        // to do 100 - x here.
-        setBlackoutOpacity(100 - visiblePercentage);
+        $scrollableContents.addClass('active');
       }
-    } else {
-      $scrollableContents.addClass('active');
+    } else if (index === 1) {
+      if (cur_pos > height + SCROLL_TOLERANCE && cur_pos < (height * (index + 1)) + SCROLL_TOLERANCE) {
+        handleNewSectionScroll($currentSection, (cur_pos - height * index), direction);
+        $scrollableContents.removeClass('active');
+      }
     }
   });
 
@@ -96,7 +93,8 @@ function setBlackoutOpacity(value) {
 }
 
 // When a new section is selected, do whatever is necessary
-function handleNewSectionScroll(element, scroll, direction, height) {
+function handleNewSectionScroll(element, scroll, direction) {
+  console.log(element);
   const $element = $(element);
   $element.css('top', scroll * -1);
 }
