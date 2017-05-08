@@ -1,5 +1,4 @@
 'use strict';
-
 // Define funcs
 const getDownArrowChild = function($ancestor) {
   return $ancestor.getElementsByClassName('js-scroll-down')[0];
@@ -15,7 +14,8 @@ const scrollDown = function($section, index) {
   if (index === 0 || index !== 0) { // TODO: ofc delete code after ||
     // if its the first page, we only need to scroll half of the height
     // of the container
-    const sectionHeight = getElementInfo($section).height + 100;
+    const SCROLL_TOLERANCE = 100;
+    const sectionHeight = getElementInfo($section).height + SCROLL_TOLERANCE;
     $section.style.top = `${sectionHeight * -1}px`;
   }
 };
