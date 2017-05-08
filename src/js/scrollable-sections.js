@@ -59,6 +59,12 @@ function handleScroll() {
       height = height / 2;
     }
 
+    // if index > 0
+    // scrolls from top but height does not change
+
+    // if index > 0 && index == $scrollableSections.length
+    // scrolls from bottom
+
     if (cur_pos < height + SCROLL_TOLERANCE) {
       handleNewSectionScroll(this, cur_pos, scrollDirection);
       $scrollableContents.removeClass('active');
