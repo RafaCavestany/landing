@@ -5,8 +5,8 @@ const SCROLL_TOLERANCE = 100;
 // TODO: remove next, not being used ?
 // We save lastPosition to know our scroll;
 let lastPosition;
-// We save scrollDirection to know where we're going.
-let scrollDirection;
+// We save direction to know where we're going.
+let direction;
 
 
 $(document).ready(function() {
@@ -46,9 +46,9 @@ function handleScroll() {
 
   // Check for scroll direction
   if (lastPosition > cur_pos) {
-    scrollDirection = 'up';
+    direction = 'up';
   } else {
-    scrollDirection = 'down';
+    direction = 'down';
   }
 
   $scrollableSections.each(function(index, currentSection) {
@@ -68,12 +68,17 @@ function handleScroll() {
     // scrolls from bottom
 
     if (cur_pos < height + SCROLL_TOLERANCE) {
-      handleNewSectionScroll(this, cur_pos, scrollDirection);
+      handleNewSectionScroll(this, cur_pos, direction, height);
       $scrollableContents.removeClass('active');
       $blackout.addClass('active');
 
       if (cur_pos > height && cur_pos < height + SCROLL_TOLERANCE) {
-        $blackout.removeClass('active');
+        setBlackoutOpacity(0);
+      } else {
+        const visiblePercentage = getPercentageByValues(cur_pos, height);
+        // opacity is from 1 to 0, instead of 0 to 1, so we need
+        // to do 100 - x here.
+        setBlackoutOpacity(100 - visiblePercentage);
       }
     } else {
       $scrollableContents.addClass('active');
@@ -83,9 +88,19 @@ function handleScroll() {
   lastPosition = cur_pos;
 }
 
+// Receives a value from 0 to 100 and translates it to base 1
+function setBlackoutOpacity(value) {
+  const $blackout = $('.js-blackout');
+  value = value / 100;
+  $blackout.css('opacity', value);
+}
+
 // When a new section is selected, do whatever is necessary
-function handleNewSectionScroll(element, scrolled, scrollDirection) {
+function handleNewSectionScroll(element, scroll, direction, height) {
   const $element = $(element);
-  $element.css('top', scrolled * -1);
-  console.log(`Scroll direction is ${scrollDirection}`);
+  $element.css('top', scroll * -1);
+}
+
+function getPercentageByValues(val, max) {
+  return parseInt((val * 100) / max);
 }
