@@ -1,5 +1,6 @@
 // We SET 5 as scroll tolerance
-const SCROLLABLE_TOLERANCE = 5;
+const SCROLL_TOLERANCE = 5;
+const SCROLL_DELAY = 50;
 // Save lastPosition to know our scroll;
 let lastPosition;
 // Save current section
@@ -32,7 +33,7 @@ function getElementsHeight($elements) {
 
 $(window).scroll(function() {
   handleScroll();
-}).scroll();
+});
 
 function handleScroll() {
   let $window = $(window),
@@ -63,9 +64,7 @@ function handleScroll() {
       height = height / 2;
     }
 
-    console.log(`${cur_pos + SCROLLABLE_TOLERANCE} < ${height}`);
-
-    if (cur_pos + SCROLLABLE_TOLERANCE < height) {
+    if (cur_pos + SCROLL_TOLERANCE < height) {
       //
       handleNewSectionScroll(cur_pos, scrollDirection, this);
       //
@@ -73,18 +72,18 @@ function handleScroll() {
       $scrollableContent.addClass('scrolling');
       //
       $currentSection.addClass('scrolling');
-      $currentSection.removeClass('hidden');
       //
       $blackout.addClass('active');
+    } else if (cur_pos + SCROLL_TOLERANCE < height + SCROLL_DELAY) {
+      // then we've a scroll delay so the scroll does not start right away
+      // however, we hide the blackout and the current section.
+      $blackout.removeClass('active');
     } else {
       //
       $scrollableContent.addClass('active');
       $scrollableContent.removeClass('scrolling');
       //
       $currentSection.removeClass('scrolling');
-      $currentSection.addClass('hidden');
-      //
-      $blackout.removeClass('active');
     }
   });
 
@@ -97,5 +96,4 @@ function handleNewSectionScroll(newScroll, scrollDirection, element) {
   const $scrollableContent = $('.js-scrollable-content');
 
   $element.css('top', newScroll * -1);
-  // $scrollableContent.css('top', newScroll);
 }
