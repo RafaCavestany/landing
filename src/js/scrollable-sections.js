@@ -1,6 +1,4 @@
-// We SET 5 as scroll tolerance
-const SCROLL_TOLERANCE = 5;
-const SCROLL_DELAY = 50;
+const SCROLL_DELAY = 100;
 // Save lastPosition to know our scroll;
 let lastPosition;
 // Save current section
@@ -64,24 +62,18 @@ function handleScroll() {
       height = height / 2;
     }
 
-    if (cur_pos + SCROLL_TOLERANCE < height) {
+    if (cur_pos < height + SCROLL_DELAY) {
       //
       handleNewSectionScroll(cur_pos, scrollDirection, this);
       //
-      $scrollableContent.removeClass('active');
-      $scrollableContent.addClass('scrolling');
+      $scrollableContent.removeClass('active')
+                        .addClass('scrolling');
       //
       $currentSection.addClass('scrolling');
-      //
-      $blackout.addClass('active');
-    } else if (cur_pos + SCROLL_TOLERANCE < height + SCROLL_DELAY) {
-      // then we've a scroll delay so the scroll does not start right away
-      // however, we hide the blackout and the current section.
-      $blackout.removeClass('active');
     } else {
       //
-      $scrollableContent.addClass('active');
-      $scrollableContent.removeClass('scrolling');
+      $scrollableContent.addClass('active')
+                        .removeClass('scrolling');
       //
       $currentSection.removeClass('scrolling');
     }
