@@ -1,8 +1,12 @@
-const SCROLL_DELAY = 100;
-// Save lastPosition to know our scroll;
-let lastPosition; // TODO: remove, not being used
-// Save scrollDirection to know where we're going.
-let scrollDirection; // TODO: remove, not being used
+// We set an SCROLL_TOLERANCE of 100 so we don't scroll
+// to new sections right away.
+const SCROLL_TOLERANCE = 100;
+
+// TODO: remove next, not being used ?
+// We save lastPosition to know our scroll;
+let lastPosition;
+// We save scrollDirection to know where we're going.
+let scrollDirection;
 
 
 $(document).ready(function() {
@@ -32,10 +36,8 @@ $(window).scroll(function() {
 });
 
 function handleScroll() {
-  let $window = $(window),
-      $scrollableSections = $('.js-scrollable-section'),
-      $scrollableContent = $('.js-scrollable-content'),
-      $blackout = $('.js-blackout');
+  const $scrollableSections = $('.js-scrollable-section');
+  const $scrollableContent = $('.js-scrollable-content');
 
   const cur_pos = $(this).scrollTop();
 
@@ -48,8 +50,6 @@ function handleScroll() {
 
   let totalHeight;
 
-  $blackout.removeClass('active');
-
   $scrollableSections.each(function(index, currentSection) {
     const $currentSection = $(currentSection);
     let height = $currentSection.outerHeight();
@@ -60,7 +60,7 @@ function handleScroll() {
       height = height / 2;
     }
 
-    if (cur_pos < height + SCROLL_DELAY) {
+    if (cur_pos < height + SCROLL_TOLERANCE) {
       handleNewSectionScroll(cur_pos, scrollDirection, this);
       $scrollableContent.removeClass('active');
     } else {
