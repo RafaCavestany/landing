@@ -30,6 +30,6 @@
 }
 
 .scrollable-content.active {
-  top: calc(50vh + 100px);
+  top: calc(50vh + var(--scroll-tollerance));
   position: relative;
 }
