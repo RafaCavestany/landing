@@ -61,7 +61,7 @@ function handleScroll() {
       if (cur_pos < height + SCROLL_TOLERANCE) {
         handleNewSectionScroll($currentSection, cur_pos, direction);
         $scrollableContents.removeClass('active');
-        $blackout.addClass('active');
+        // $blackout.addClass('active');
 
         if (cur_pos > height && cur_pos < height + SCROLL_TOLERANCE) {
           setBlackoutOpacity(0);
@@ -76,7 +76,8 @@ function handleScroll() {
       }
     } else if (index === 1) {
       if (cur_pos > height + SCROLL_TOLERANCE && cur_pos < (height * (index + 1)) + SCROLL_TOLERANCE) {
-        handleNewSectionScroll($currentSection, (cur_pos - height * index), direction);
+        const composedScroll = (cur_pos - SCROLL_TOLERANCE) - (height * index);
+        handleNewSectionScroll($currentSection, composedScroll, direction);
         $scrollableContents.removeClass('active');
       }
     }
