@@ -1,10 +1,8 @@
 const SCROLL_DELAY = 100;
 // Save lastPosition to know our scroll;
-let lastPosition;
-// Save current section
-let currentSection;
+let lastPosition; // TODO: remove, not being used
 // Save scrollDirection to know where we're going.
-let scrollDirection;
+let scrollDirection; // TODO: remove, not being used
 
 
 $(document).ready(function() {
@@ -63,19 +61,10 @@ function handleScroll() {
     }
 
     if (cur_pos < height + SCROLL_DELAY) {
-      //
       handleNewSectionScroll(cur_pos, scrollDirection, this);
-      //
-      $scrollableContent.removeClass('active')
-                        .addClass('scrolling');
-      //
-      $currentSection.addClass('scrolling');
+      $scrollableContent.removeClass('active');
     } else {
-      //
-      $scrollableContent.addClass('active')
-                        .removeClass('scrolling');
-      //
-      $currentSection.removeClass('scrolling');
+      $scrollableContent.addClass('active');
     }
   });
 
