@@ -20,7 +20,9 @@ $(document).ready(function() {
 
 function setBodyHeight(newHeight, type) {
   const $body = $('body');
-  $body.css('height', newHeight);
+  // Following 50vh is because first scrollable section, this needs
+  // to be connected to the amount of scrollable sections
+  $body.css('height', `calc(((${newHeight} * 1px) + (${SCROLL_TOLERANCE} * 1px)) + 50vh)`);
 }
 
 function getElementsHeight($elements) {
