@@ -22,7 +22,17 @@ function setBodyHeight(newHeight, type) {
   const $body = $('body');
   // Following 50vh is because first scrollable section, this needs
   // to be connected to the amount of scrollable sections
-  $body.css('height', `calc(((${newHeight} * 1px) + (${SCROLL_TOLERANCE} * 1px)) + 50vh)`);
+  $body.css('height', `calc((${newHeight}px + ${getContentsScrollTolerance()}px) + ${getContentsHeight()}vh)`);
+}
+
+function getContentsScrollTolerance() {
+  const contentsLenght = $('.js-scrollable-content').length;
+  return contentsLenght * SCROLL_TOLERANCE;
+}
+
+function getContentsHeight() {
+  const contentsLenght = $('.js-scrollable-content').length;
+  return contentsLenght * 50;
 }
 
 function getElementsHeight($elements) {
@@ -39,7 +49,6 @@ $(window).scroll(function() {
 
 function handleScroll() {
   const $scrollableSections = $('.js-scrollable-section');
-  const $scrollableContents = $('.js-scrollable-content');
   const $blackout = $('.js-blackout');
 
   const cur_pos = $(this).scrollTop();
@@ -54,13 +63,14 @@ function handleScroll() {
   $scrollableSections.each(function(index) {
     const $currentSection = $(this);
     let height = $currentSection.outerHeight();
+    const scrollableContent = $('.js-scrollable-content')[index];
     // why?
     height = height / 2;
 
     if(index === 0) {
       if (cur_pos < height + SCROLL_TOLERANCE) {
         handleNewSectionScroll($currentSection, cur_pos, direction);
-        $scrollableContents.removeClass('active');
+        $(scrollableContent).removeClass('active');
         // $blackout.addClass('active');
 
         if (cur_pos > height && cur_pos < height + SCROLL_TOLERANCE) {
@@ -72,13 +82,15 @@ function handleScroll() {
           setBlackoutOpacity(100 - visiblePercentage);
         }
       } else {
-        $scrollableContents.addClass('active');
+        $(scrollableContent).addClass('active');
       }
     } else if (index === 1) {
-      if (cur_pos > height + SCROLL_TOLERANCE && cur_pos < (height * (index + 1)) + SCROLL_TOLERANCE) {
-        const composedScroll = (cur_pos - SCROLL_TOLERANCE) - (height * index);
+      if (cur_pos + SCROLL_TOLERANCE > height + SCROLL_TOLERANCE && cur_pos < (height * (index + 1)) + SCROLL_TOLERANCE) {
+        const composedScroll = (cur_pos) - (height * index);
         handleNewSectionScroll($currentSection, composedScroll, direction);
-        $scrollableContents.removeClass('active');
+        $(scrollableContent).removeClass('active');
+      } else {
+        $(scrollableContent).addClass('active');
       }
     }
   });
@@ -95,9 +107,9 @@ function setBlackoutOpacity(value) {
 
 // When a new section is selected, do whatever is necessary
 function handleNewSectionScroll(element, scroll, direction) {
-  console.log(element);
   const $element = $(element);
-  $element.css('top', scroll * -1);
+  scroll = scroll * - 1;
+  $element.css('top', scroll);
 }
 
 function getPercentageByValues(val, max) {

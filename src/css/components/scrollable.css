@@ -29,6 +29,7 @@
   width: 100%;
   transition: background-color 1s ease, color 1s ease, opacity 1s ease;
   opacity: 1;
+  top: 0;
 }
 
 .scrollable-content.active {
