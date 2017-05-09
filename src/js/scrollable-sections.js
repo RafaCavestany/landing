@@ -22,6 +22,7 @@ function setBodyHeight(newHeight, type) {
   const $body = $('body');
   // Following 50vh is because first scrollable section, this needs
   // to be connected to the amount of scrollable sections
+  // TODO: review this: not working!!!
   $body.css('height', `calc((${newHeight}px + ${getContentsScrollTolerance()}px) + ${getContentsHeight()}vh)`);
 }
 
