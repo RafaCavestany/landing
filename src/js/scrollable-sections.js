@@ -66,13 +66,15 @@ function handleScroll() {
     const scrollableContent = $('.js-scrollable-content')[index];
     // why?
     height = height / 2;
+    const heighthWithTolerance = withTolerance(height);
 
     if(index === 0) {
-      if (cur_pos < height + SCROLL_TOLERANCE) {
+      if (cur_pos < heighthWithTolerance) {
         handleNewSectionScroll($currentSection, cur_pos, direction);
-        $(scrollableContent).removeClass('active').css('top', '0');
+        $(scrollableContent).removeClass('active')
+        .css('top', '0');
 
-        if (cur_pos > height && cur_pos < height + SCROLL_TOLERANCE) {
+        if (cur_pos > height && cur_pos < heighthWithTolerance) {
           setBlackoutOpacity(0);
         } else {
           const visiblePercentage = getPercentageByValues(cur_pos, height);
@@ -81,26 +83,33 @@ function handleScroll() {
           setBlackoutOpacity(100 - visiblePercentage);
         }
       } else {
-        $(scrollableContent).addClass('active').css('top', (height * (index + 1)) + SCROLL_TOLERANCE);
+        $(scrollableContent).addClass('active')
+        .css('top', withTolerance(getContentTop(height, index)));
       }
     } else if (index === 1) {
-      const math = (height * (index + 2));
-      if (cur_pos >= height + SCROLL_TOLERANCE && cur_pos < math + SCROLL_TOLERANCE) {
-        console.log(`Calculation: ${cur_pos} < ${math + SCROLL_TOLERANCE}`);
-        $(scrollableContent).removeClass('active').css('top', '0');
-      } else if (cur_pos >= height + SCROLL_TOLERANCE) {
-        $(scrollableContent).addClass('active').css('top', (height * (index + 1)));
+      const math = getContentTop(height, index + 1);
+      if (cur_pos >= heighthWithTolerance && cur_pos < withTolerance(math, index)) {
+        $(scrollableContent).removeClass('active')
+        .css('top', '0');
+      } else if (cur_pos >= heighthWithTolerance) {
+        $(scrollableContent).addClass('active')
+        .css('top', withTolerance(getContentTop(height, index)));
       }
-      //   const composedScroll = (cur_pos) - (height * index);
-      //   handleNewSectionScroll($currentSection, composedScroll, direction);
-      //   $(scrollableContent).removeClass('active');
-      // } else {
-      //   $(scrollableContent).addClass('active');
-      // }
     }
   });
 
   lastPosition = cur_pos;
+}
+
+function getContentTop(height, index) {
+  return (height * (index + 1));
+}
+
+function withTolerance(value, index) {
+  if (index) {
+    return value + (SCROLL_TOLERANCE * (index + 1));
+  }
+  return value + SCROLL_TOLERANCE;
 }
 
 // Receives a value from 0 to 100 and translates it to base 1
