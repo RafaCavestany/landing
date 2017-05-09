@@ -70,8 +70,7 @@ function handleScroll() {
     if(index === 0) {
       if (cur_pos < height + SCROLL_TOLERANCE) {
         handleNewSectionScroll($currentSection, cur_pos, direction);
-        $(scrollableContent).removeClass('active');
-        // $blackout.addClass('active');
+        $(scrollableContent).removeClass('active').css('top', '0');
 
         if (cur_pos > height && cur_pos < height + SCROLL_TOLERANCE) {
           setBlackoutOpacity(0);
@@ -82,16 +81,22 @@ function handleScroll() {
           setBlackoutOpacity(100 - visiblePercentage);
         }
       } else {
-        $(scrollableContent).addClass('active');
+        $(scrollableContent).addClass('active').css('top', (height * (index + 1)) + SCROLL_TOLERANCE);
       }
     } else if (index === 1) {
-      if (cur_pos + SCROLL_TOLERANCE > height + SCROLL_TOLERANCE && cur_pos < (height * (index + 1)) + SCROLL_TOLERANCE) {
-        const composedScroll = (cur_pos) - (height * index);
-        handleNewSectionScroll($currentSection, composedScroll, direction);
-        $(scrollableContent).removeClass('active');
-      } else {
-        $(scrollableContent).addClass('active');
+      const math = (height * (index + 2));
+      if (cur_pos >= height + SCROLL_TOLERANCE && cur_pos < math + SCROLL_TOLERANCE) {
+        console.log(`Calculation: ${cur_pos} < ${math + SCROLL_TOLERANCE}`);
+        $(scrollableContent).removeClass('active').css('top', '0');
+      } else if (cur_pos >= height + SCROLL_TOLERANCE) {
+        $(scrollableContent).addClass('active').css('top', (height * (index + 1)));
       }
+      //   const composedScroll = (cur_pos) - (height * index);
+      //   handleNewSectionScroll($currentSection, composedScroll, direction);
+      //   $(scrollableContent).removeClass('active');
+      // } else {
+      //   $(scrollableContent).addClass('active');
+      // }
     }
   });
 
