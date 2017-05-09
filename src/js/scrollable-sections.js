@@ -2,53 +2,71 @@
 // to new sections right away.
 const SCROLL_TOLERANCE = 100;
 
-// TODO: remove next, not being used ?
+// TODO: next wrapped vars are not being used
+// ================================================
 // We save lastPosition to know our scroll;
 let lastPosition;
 // We save direction to know where we're going.
 let direction;
+// ================================================
 
+// Receives a height, and returns that value, multipled
+// for the current index, example:
+//
+// getContentTop(580px, 0);
+// => 580px;
+// getContentTop(580px, 1);
+// => 1060px;
+//
+const getContentTop = function(height, index) {
+  // index + 1 is because all indexes starts from 0
+  return (height * (index + 1));
+};
 
-$(document).ready(function() {
-  const $body = $('body');
-  const $scrollableContents = $('.js-scrollable-content');
+// Receives a value and a max value, and receives
+// value's respective percentage in between a range from 0 to max
+// example:
+//
+// getPercentageByValues(240, 480)
+// => 50%;
+//
+const getPercentageByValues = function(val, max) {
+  return parseInt((val * 100) / max);
+};
 
-  // Here we calculate the total height of the body by calculating
-  // the height of the scrollableSections and the scrollableContents.
-  setBodyHeight(getElementsHeight($scrollableContents));
-});
+// Receives a value from 0 to 100, translates it to base 1
+// and changes $blackout's opacity.
+const setBlackoutOpacity = function(value) {
+  const $blackout = $('.js-blackout');
+  value = value / 100;
+  $blackout.css('opacity', value);
+};
 
-function setBodyHeight(newHeight, type) {
-  const $body = $('body');
-  // Following 50vh is because first scrollable section, this needs
-  // to be connected to the amount of scrollable sections
-  // TODO: review this: not working!!!
-  $body.css('height', `calc((${newHeight}px + ${getContentsScrollTolerance()}px) + ${getContentsHeight()}vh)`);
-}
+// When a new scrollable section is scrolled, we change its top based
+// on the scrolled count.
+const handleNewSectionScroll = function(element, scroll, direction) {
+  const $element = $(element);
+  scroll = scroll * - 1;
+  $element.css('top', scroll);
+};
 
-function getContentsScrollTolerance() {
-  const contentsLenght = $('.js-scrollable-content').length;
-  return contentsLenght * SCROLL_TOLERANCE;
-}
+// Receives a value, and returns it with + SCROLL_TOLERANCE
+// and an index (optional).
+//
+// example:
+// withTolerance(50)
+// => 50 + SCROLL_TOLERANCE
+// withTolerance(50, 1)
+// => 50 + (SCROLL_TOLERANCE * 2)
+//
+const withTolerance = function(value, index) {
+  if (index) {
+    return value + (SCROLL_TOLERANCE * (index + 1));
+  }
+  return value + SCROLL_TOLERANCE;
+};
 
-function getContentsHeight() {
-  const contentsLenght = $('.js-scrollable-content').length;
-  return contentsLenght * 50;
-}
-
-function getElementsHeight($elements) {
-  let totalHeight = 0;
-  $elements.each(function() {
-    totalHeight += $(this).height();
-  });
-  return totalHeight;
-}
-
-$(window).scroll(function() {
-  handleScroll();
-});
-
-function handleScroll() {
+const handleScroll = function() {
   const $scrollableSections = $('.js-scrollable-section');
   const $blackout = $('.js-blackout');
 
@@ -65,7 +83,7 @@ function handleScroll() {
     const $currentSection = $(this);
     let height = $currentSection.outerHeight();
     const scrollableContent = $('.js-scrollable-content')[index];
-    // why?
+    // TODO: find out why we need to divide height / 2
     height = height / 2;
     const heighthWithTolerance = withTolerance(height);
 
@@ -100,33 +118,44 @@ function handleScroll() {
   });
 
   lastPosition = cur_pos;
-}
+};
 
-function getContentTop(height, index) {
-  return (height * (index + 1));
-}
+const getElementsHeight = function($elements) {
+  let totalHeight = 0;
+  $elements.each(function() {
+    totalHeight += $(this).height();
+  });
+  return totalHeight;
+};
 
-function withTolerance(value, index) {
-  if (index) {
-    return value + (SCROLL_TOLERANCE * (index + 1));
-  }
-  return value + SCROLL_TOLERANCE;
-}
+const getContentsHeight = function() {
+  const contentsLenght = $('.js-scrollable-content').length;
+  return contentsLenght * 50;
+};
 
-// Receives a value from 0 to 100 and translates it to base 1
-function setBlackoutOpacity(value) {
-  const $blackout = $('.js-blackout');
-  value = value / 100;
-  $blackout.css('opacity', value);
-}
+const getContentsScrollTolerance = function() {
+  const contentsLenght = $('.js-scrollable-content').length;
+  return contentsLenght * SCROLL_TOLERANCE;
+};
 
-// When a new section is selected, do whatever is necessary
-function handleNewSectionScroll(element, scroll, direction) {
-  const $element = $(element);
-  scroll = scroll * - 1;
-  $element.css('top', scroll);
-}
+const setBodyHeight = function(newHeight, type) {
+  const $body = $('body');
+  // Following 50vh is because first scrollable section, this needs
+  // to be connected to the amount of scrollable sections
+  // TODO: review this: not working!!!
+  $body.css('height', `calc((${newHeight}px + ${getContentsScrollTolerance()}px) + ${getContentsHeight()}vh)`);
+};
 
-function getPercentageByValues(val, max) {
-  return parseInt((val * 100) / max);
-}
+$(document).ready(function() {
+  const $body = $('body');
+  const $scrollableContents = $('.js-scrollable-content');
+
+  // Here we calculate the total height of the body by calculating
+  // the height of the scrollableSections and the scrollableContents.
+  setBodyHeight(getElementsHeight($scrollableContents));
+
+  // bind events:
+  $(this).scroll(function() {
+    handleScroll();
+  });
+});
