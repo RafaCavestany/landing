@@ -67,8 +67,9 @@ const withTolerance = function(value, index) {
 };
 
 const handleScroll = function() {
-  const $scrollableSections = $('.js-scrollable-section');
+  const $body = $('body');
   const $blackout = $('.js-blackout');
+  const $scrollableSections = $('.js-scrollable-section');
 
   const cur_pos = $(this).scrollTop();
 
@@ -107,12 +108,18 @@ const handleScroll = function() {
       }
     } else if (index === 1) {
       const math = getContentTop(height, index + 1);
+      // ?
+      const totalHeight = $body.height() - (height * 5);
       if (cur_pos >= heighthWithTolerance && cur_pos < withTolerance(math, index)) {
         $(scrollableContent).removeClass('active')
+        .removeClass('bottom')
         .css('top', '0');
-      } else if (cur_pos >= heighthWithTolerance) {
+      } else if (cur_pos >= heighthWithTolerance && cur_pos < ($('body').height() - (height * 5))) {
         $(scrollableContent).addClass('active')
+        .removeClass('bottom')
         .css('top', withTolerance(getContentTop(height, index)));
+      } else {
+        $(scrollableContent).addClass('bottom');
       }
     }
   });
@@ -128,31 +135,30 @@ const getElementsHeight = function($elements) {
   return totalHeight;
 };
 
-const getContentsHeight = function() {
-  const contentsLenght = $('.js-scrollable-content').length;
-  return contentsLenght * 50;
-};
-
-const getContentsScrollTolerance = function() {
+const getContentsTollerance = function() {
   const contentsLenght = $('.js-scrollable-content').length;
   return contentsLenght * SCROLL_TOLERANCE;
 };
 
-const setBodyHeight = function(newHeight, type) {
+const setBodyHeight = function() {
   const $body = $('body');
-  // Following 50vh is because first scrollable section, this needs
-  // to be connected to the amount of scrollable sections
-  // TODO: review this: not working!!!
-  $body.css('height', `calc((${newHeight}px + ${getContentsScrollTolerance()}px) + ${getContentsHeight()}vh)`);
+  const $scrollableSections = $('.js-scrollable-section');
+  const $scrollableContents = $('.js-scrollable-content');
+  const $scrollableFooter = $('.js-scrollable-footer');
+
+  const sectionsHeight = getElementsHeight($scrollableSections) * ($scrollableSections.length + 0.5);
+  const contentsHeight = getElementsHeight($scrollableContents);
+  const footerHeight = getElementsHeight($scrollableFooter);
+
+  const totalTolerance = getContentsTollerance();
+  const composedHeight = sectionsHeight + contentsHeight + totalTolerance + footerHeight;
+  $body.css('height', `${composedHeight}px`);
 };
 
 $(document).ready(function() {
-  const $body = $('body');
-  const $scrollableContents = $('.js-scrollable-content');
-
   // Here we calculate the total height of the body by calculating
   // the height of the scrollableSections and the scrollableContents.
-  setBodyHeight(getElementsHeight($scrollableContents));
+  setBodyHeight();
 
   // bind events:
   $(this).scroll(function() {
