@@ -16,7 +16,7 @@
   <body>
     <div class="wrapper">
       <div class="container">
-        <section id="intro" class="color-black scrollable-section js-scrollable-section">
+        <section id="intro" class="color-black scrollable-section js-scrollable-section" style="z-index: 80;">
           <!-- Headers: -->
           <header class="header header--desktop">
             <a href="#project" class="header__link">
@@ -92,9 +92,10 @@
             </div>
           </aside>
         </section>
-        <section id="content" class="scrollable-content js-scrollable-content">
+        <section id="content" class="scrollable-content js-scrollable-content" style="z-index: 50;">
           <div>
-            <section id="about" class="color-white scrollable-section js-scrollable-section">
+            <div class="blackout js-blackout"></div>
+            <section id="about" class="color-white scrollable-section js-scrollable-section" style="z-index: 70;">
               <!-- Headers: -->
               <header class="header header--desktop">
                 <a href="#project" class="header__link">
@@ -173,7 +174,7 @@
                 </div>
               </aside>
             </section>
-            <section id="work" class="color-orange scrollable-content js-scrollable-content">
+            <section id="work" class="color-orange scrollable-content js-scrollable-content" style="z-index: 60;">
               <!-- Headers: -->
               <header class="header header--desktop">
                 <a href="#project" class="header__link">
@@ -341,87 +342,87 @@
             </section>
           </div>
         </section>
+        <footer class="scrollable-footer js-scrollable-footer color-black" style="z-index: 20;">
+          <header class="header header--desktop">
+            <a href="#project" class="header__link">
+              <i class="icon icon-party-popper header__link__icon"></i>
+              <span class="header__link__text">
+                Start a Project
+              </span>
+            </a>
+          </header>
+          <header class="header header--mobile js-hamburger-container">
+            <a href="#project" class="header__link">
+              <span class="header__txt">
+                Rafa Cavestany
+              </span>
+            </a>
+            <div class="hamburger js-hamburger-menu">
+              <div class="hamburger__container">
+                <span class="hamburger__item"></span>
+              </div>
+            </div>
+          </header>
+          <aside class="vertical-header vertical-header--left">
+            <div class="vertical-header__item h-one-third">
+              <div class="vertical-header__content vertical-header__content--rotated u-flex-align-start">
+                Rafa Cavestany
+              </div>
+            </div>
+            <div class="vertical-header__item h-one-third">
+              <div class="vertical-header__content vertical-header__content--rotated">
+                Project
+              </div>
+            </div>
+            <div class="vertical-header__item h-one-third u-flex-direction-column">
+              <div class="vertical-header__icons">
+                <a href="#about" class="vertical-header__icon nav-arrow js-scroll-up">
+                  <i class="svg-icon svg-icon-arrow-up"></i>
+                </a>
+                <a href="#work" class="vertical-header__icon nav-arrow">
+                  <i class="svg-icon svg-icon-arrow-down"></i>
+                </a>
+              </div>
+            </div>
+          </aside>
+          <article id="startProject" class="card">
+            <h2 class="card__title">
+              Interested in starting a project?
+            </h2>
+            <br/>
+            <h2 class="card__title">
+              Drop me a line at:
+              <br/>
+              <a href="mailto:business@rcavestany.com"
+                class="card__title__link u-txt-underlined"
+              >
+                business@rcavestany.com
+              </a>
+            </h2>
+          </article>
+          <aside class="vertical-header vertical-header--right js-hamburger-container">
+            <div class="hamburger js-hamburger-menu">
+              <div class="hamburger__container">
+                <span class="hamburger__item"></span>
+              </div>
+            </div>
+            <div class="vertical-header__item u-flex-direction-column">
+              <div class="vertical-header__icons">
+                <a href="https://twitter.com/rcavestany" class="vertical-header__icon">
+                  <i class="icon icon--medium icon-twitter"></i>
+                </a>
+                <a href="mailto:business@rcavestany.com" class="vertical-header__icon">
+                  <i class="icon icon--medium icon-mail"></i>
+                </a>
+                <a href="https://dribbble.com/rcavestany" class="vertical-header__icon">
+                  <i class="icon icon--medium icon-dribbble"></i>
+                </a>
+              </div>
+            </div>
+          </aside>
+        </footer>
       </div>
     </div>
-    <footer class="scrollable-footer js-scrollable-footer color-black">
-      <header class="header header--desktop">
-        <a href="#project" class="header__link">
-          <i class="icon icon-party-popper header__link__icon"></i>
-          <span class="header__link__text">
-            Start a Project
-          </span>
-        </a>
-      </header>
-      <header class="header header--mobile js-hamburger-container">
-        <a href="#project" class="header__link">
-          <span class="header__txt">
-            Rafa Cavestany
-          </span>
-        </a>
-        <div class="hamburger js-hamburger-menu">
-          <div class="hamburger__container">
-            <span class="hamburger__item"></span>
-          </div>
-        </div>
-      </header>
-      <aside class="vertical-header vertical-header--left">
-        <div class="vertical-header__item h-one-third">
-          <div class="vertical-header__content vertical-header__content--rotated u-flex-align-start">
-            Rafa Cavestany
-          </div>
-        </div>
-        <div class="vertical-header__item h-one-third">
-          <div class="vertical-header__content vertical-header__content--rotated">
-            Project
-          </div>
-        </div>
-        <div class="vertical-header__item h-one-third u-flex-direction-column">
-          <div class="vertical-header__icons">
-            <a href="#about" class="vertical-header__icon nav-arrow js-scroll-up">
-              <i class="svg-icon svg-icon-arrow-up"></i>
-            </a>
-            <a href="#work" class="vertical-header__icon nav-arrow">
-              <i class="svg-icon svg-icon-arrow-down"></i>
-            </a>
-          </div>
-        </div>
-      </aside>
-      <article id="startProject" class="card">
-        <h2 class="card__title">
-          Interested in starting a project?
-        </h2>
-        <br/>
-        <h2 class="card__title">
-          Drop me a line at:
-          <br/>
-          <a href="mailto:business@rcavestany.com"
-            class="card__title__link u-txt-underlined"
-          >
-            business@rcavestany.com
-          </a>
-        </h2>
-      </article>
-      <aside class="vertical-header vertical-header--right js-hamburger-container">
-        <div class="hamburger js-hamburger-menu">
-          <div class="hamburger__container">
-            <span class="hamburger__item"></span>
-          </div>
-        </div>
-        <div class="vertical-header__item u-flex-direction-column">
-          <div class="vertical-header__icons">
-            <a href="https://twitter.com/rcavestany" class="vertical-header__icon">
-              <i class="icon icon--medium icon-twitter"></i>
-            </a>
-            <a href="mailto:business@rcavestany.com" class="vertical-header__icon">
-              <i class="icon icon--medium icon-mail"></i>
-            </a>
-            <a href="https://dribbble.com/rcavestany" class="vertical-header__icon">
-              <i class="icon icon--medium icon-dribbble"></i>
-            </a>
-          </div>
-        </div>
-      </aside>
-    </footer>
     <div class="menu js-menu-overlay">
       <ul class="menu__list">
         <li class="menu__item">
@@ -438,7 +439,6 @@
         </li>
       </ul>
     </div>
-    <div class="blackout js-blackout"></div>
 
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

@@ -1,27 +1,23 @@
 .scrollable-section {
   position: absolute;
   width: 100%;
-  z-index: 300;
   background-color: #fff;
 }
 
 .scrollable-section .header--desktop {
   position: absolute;
-  z-index: 302;
 }
 
 .scrollable-section .header--mobile {
   position: absolute;
-  z-index: 303;
 }
 
 .scrollable-section .menu {
-  z-index: 302;
+  /**/
 }
 
 .scrollable-section .vertical-header {
   position: absolute;
-  z-index: 301;
 }
 
 .scrollable-content {
@@ -51,8 +47,6 @@
 .scrollable-footer {
   position: fixed;
   bottom: 0;
-  /* TODO: review z-index on next line */
-  z-index: -1;
   width: 100%;
   height: 100%;
 }

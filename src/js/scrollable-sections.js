@@ -35,7 +35,7 @@ const getReversedPercentage = function(percentage) {
 
 // Receives a value from 0 to 100, translates it to base 1
 // and changes $blackout's opacity.
-const setBlackoutOpacity = function(value, action) {
+const setBlackoutOpacity = function(value, zIndex) {
   const $blackout = $('.js-blackout');
   // we receive the percentage of how much we want it visible.
   // so for example, if we want 64% of visibility, we need to set
@@ -43,7 +43,10 @@ const setBlackoutOpacity = function(value, action) {
   // ^ that value is given by getReversedPercentage
   value = getReversedPercentage(value);
   value = value / 100;
-  $blackout.css('opacity', value);
+  $blackout.css({
+    'opacity': value,
+    'z-index': zIndex
+  });
 };
 
 // When a new scrollable section is scrolled, we change its top based
@@ -96,9 +99,9 @@ const handleScroll = function() {
         if (cur_pos < firstSectionDistance - SCROLL_TOLERANCE) {
           const minValue = index * halfHeight;
           const visiblePercentage = getPercentageByRange(cur_pos, minValue, halfHeight);
-          setBlackoutOpacity(visiblePercentage);
+          setBlackoutOpacity(visiblePercentage, 75);
         } else {
-          setBlackoutOpacity(100);
+          setBlackoutOpacity(100, 75);
         }
 
       } else {
@@ -118,9 +121,9 @@ const handleScroll = function() {
         if (cur_pos < secondSectionDistance - SCROLL_TOLERANCE) {
           const minValue = index * firstSectionDistance;
           const visiblePercentage = getPercentageByRange(cur_pos, minValue, secondSectionDistance - SCROLL_TOLERANCE);
-          setBlackoutOpacity(visiblePercentage);
+          setBlackoutOpacity(visiblePercentage, 65);
         } else {
-          setBlackoutOpacity(100);
+          setBlackoutOpacity(100, 65);
         }
       } else if (cur_pos >= secondSectionDistance && cur_pos < thirdSectionDistance) {
         $(scrollableContent).addClass('active')
