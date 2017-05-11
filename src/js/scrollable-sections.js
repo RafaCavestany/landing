@@ -33,19 +33,35 @@ const getReversedPercentage = function(percentage) {
   return 100 - percentage;
 };
 
-// Receives a value from 0 to 100, translates it to base 1
-// and changes $blackout's opacity.
-const setBlackoutOpacity = function(value, zIndex) {
-  const $blackout = $('.js-blackout');
+const getOpacity = function(value) {
   // we receive the percentage of how much we want it visible.
   // so for example, if we want 64% of visibility, we need to set
   // an opacity of 0.36, which will be 36% (100 - 64%)
   // ^ that value is given by getReversedPercentage
   value = getReversedPercentage(value);
-  value = value / 100;
+  // Changes value to base 1
+  return value / 100;
+};
+
+// Receives a value from 0 to 100 representing how much the div is visible,
+// changes $blackout's opacity based on that.
+// Receives zIndex as well.
+const setBlackoutOpacity = function(value, zIndex) {
+  const $blackout = $('.js-blackout');
+  const newOpacity = getOpacity(value);
   $blackout.css({
-    'opacity': value,
+    'opacity': newOpacity,
     'z-index': zIndex
+  });
+};
+
+// Receives a value from 0 to 100 representing how much the div is visible,
+// changes $blackout's opacity based on that.
+const setFooterBlackoutOpacity = function(value) {
+  const $footerBlackout = $('.js-footer-blackout');
+  const newOpacity = getOpacity(value);
+  $footerBlackout.css({
+    'opacity': newOpacity
   });
 };
 
@@ -98,7 +114,11 @@ const handleScroll = function() {
         // But we don't include the tollerance to hide the blackout
         if (cur_pos < firstSectionDistance - SCROLL_TOLERANCE) {
           const minValue = index * halfHeight;
-          const visiblePercentage = getPercentageByRange(cur_pos, minValue, halfHeight);
+          const visiblePercentage = getPercentageByRange(
+            cur_pos,
+            minValue,
+            halfHeight
+          );
           setBlackoutOpacity(visiblePercentage, 75);
         } else {
           setBlackoutOpacity(100, 75);
@@ -120,7 +140,11 @@ const handleScroll = function() {
         .css('top', '0');
         if (cur_pos < secondSectionDistance - SCROLL_TOLERANCE) {
           const minValue = index * firstSectionDistance;
-          const visiblePercentage = getPercentageByRange(cur_pos, minValue, secondSectionDistance - SCROLL_TOLERANCE);
+          const visiblePercentage = getPercentageByRange(
+            cur_pos,
+            minValue,
+            secondSectionDistance - SCROLL_TOLERANCE
+          );
           setBlackoutOpacity(visiblePercentage, 65);
         } else {
           setBlackoutOpacity(100, 65);
@@ -131,6 +155,18 @@ const handleScroll = function() {
         .css('top', withTolerance(getContentTop(halfHeight, index)));
       } else {
         $(scrollableContent).addClass('bottom');
+
+        if (cur_pos >= thirdSectionDistance && cur_pos < thirdSectionDistance + height) {
+          const minValue = thirdSectionDistance;
+          const visiblePercentage = getPercentageByRange(
+            cur_pos,
+            minValue,
+            thirdSectionDistance + height
+          );
+          setFooterBlackoutOpacity(visiblePercentage);
+        } else {
+          setFooterBlackoutOpacity(100);
+        }
       }
     }
   });
