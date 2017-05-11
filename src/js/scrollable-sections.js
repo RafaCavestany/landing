@@ -2,14 +2,6 @@
 // to new sections right away.
 const SCROLL_TOLERANCE = 100;
 
-// TODO: next wrapped vars are not being used
-// ================================================
-// We save lastPosition to know our scroll;
-let lastPosition;
-// We save direction to know where we're going.
-let direction;
-// ================================================
-
 // Receives a height, and returns that value, multipled
 // for the current index, example:
 //
@@ -27,24 +19,36 @@ const getContentTop = function(height, index) {
 // value's respective percentage in between a range from 0 to max
 // example:
 //
-// getPercentageByValues(240, 480)
+// getPercentageByRange(240, 0, 480)
 // => 50%;
 //
-const getPercentageByValues = function(val, max) {
-  return parseInt((val * 100) / max);
+const getPercentageByRange = function(val, min, max) {
+  const range = max - min;
+  return parseInt(((val - min) / range) * 100);
+};
+
+// Reversed percentage is needed when you, have for example a value: 64,
+// and you want to know what is the remaining value to get to 100.
+const getReversedPercentage = function(percentage) {
+  return 100 - percentage;
 };
 
 // Receives a value from 0 to 100, translates it to base 1
 // and changes $blackout's opacity.
-const setBlackoutOpacity = function(value) {
+const setBlackoutOpacity = function(value, action) {
   const $blackout = $('.js-blackout');
+  // we receive the percentage of how much we want it visible.
+  // so for example, if we want 64% of visibility, we need to set
+  // an opacity of 0.36, which will be 36% (100 - 64%)
+  // ^ that value is given by getReversedPercentage
+  value = getReversedPercentage(value);
   value = value / 100;
   $blackout.css('opacity', value);
 };
 
 // When a new scrollable section is scrolled, we change its top based
 // on the scrolled count.
-const handleNewSectionScroll = function(element, scroll, direction) {
+const handleNewSectionScroll = function(element, scroll) {
   const $element = $(element);
   scroll = scroll * - 1;
   $element.css('top', scroll);
@@ -70,61 +74,63 @@ const handleScroll = function() {
   const $body = $('body');
   const $blackout = $('.js-blackout');
   const $scrollableSections = $('.js-scrollable-section');
-
   const cur_pos = $(this).scrollTop();
-
-  // Check for scroll direction
-  if (lastPosition > cur_pos) {
-    direction = 'up';
-  } else {
-    direction = 'down';
-  }
 
   $scrollableSections.each(function(index) {
     const $currentSection = $(this);
-    let height = $currentSection.outerHeight();
     const scrollableContent = $('.js-scrollable-content')[index];
-    // TODO: find out why we need to divide height / 2
-    height = height / 2;
-    const heighthWithTolerance = withTolerance(height);
+    const height = $currentSection.outerHeight();
+    const halfHeight = height / 2;
+    // First section only needs to be scrolled half.
+    const firstSectionDistance = halfHeight + SCROLL_TOLERANCE;
 
     if(index === 0) {
-      if (cur_pos < heighthWithTolerance) {
-        handleNewSectionScroll($currentSection, cur_pos, direction);
+      if (cur_pos < firstSectionDistance) {
+        // We let them scroll until halfHeight + SCROLL_TOLERANCE
+        handleNewSectionScroll($currentSection, cur_pos);
+
         $(scrollableContent).removeClass('active')
         .css('top', '0');
 
-        if (cur_pos > height && cur_pos < heighthWithTolerance) {
-          setBlackoutOpacity(0);
+        // But we don't include the tollerance to hide the blackout
+        if (cur_pos < firstSectionDistance - SCROLL_TOLERANCE) {
+          const minValue = index * halfHeight;
+          const visiblePercentage = getPercentageByRange(cur_pos, minValue, halfHeight);
+          setBlackoutOpacity(visiblePercentage);
         } else {
-          const visiblePercentage = getPercentageByValues(cur_pos, height);
-          // opacity is from 1 to 0, instead of 0 to 1, so we need
-          // to do 100 - x here.
-          setBlackoutOpacity(100 - visiblePercentage);
+          setBlackoutOpacity(100);
         }
+
       } else {
         $(scrollableContent).addClass('active')
-        .css('top', withTolerance(getContentTop(height, index)));
+        .css('top', withTolerance(getContentTop(halfHeight, index)));
       }
     } else if (index === 1) {
-      const math = getContentTop(height, index + 1);
-      // ?
-      const totalHeight = $body.height() - (height * 5);
-      if (cur_pos >= heighthWithTolerance && cur_pos < withTolerance(math, index)) {
+      // TODO: explain this
+      const math = getContentTop(halfHeight, index + 1);
+      const secondSectionDistance = withTolerance(math, index);
+      const thirdSectionDistance = $body.height() - (halfHeight * 5);
+
+      if (cur_pos >= firstSectionDistance && cur_pos < secondSectionDistance) {
         $(scrollableContent).removeClass('active')
         .removeClass('bottom')
         .css('top', '0');
-      } else if (cur_pos >= heighthWithTolerance && cur_pos < ($('body').height() - (height * 5))) {
+        if (cur_pos < secondSectionDistance - SCROLL_TOLERANCE) {
+          const minValue = index * firstSectionDistance;
+          const visiblePercentage = getPercentageByRange(cur_pos, minValue, secondSectionDistance - SCROLL_TOLERANCE);
+          setBlackoutOpacity(visiblePercentage);
+        } else {
+          setBlackoutOpacity(100);
+        }
+      } else if (cur_pos >= secondSectionDistance && cur_pos < thirdSectionDistance) {
         $(scrollableContent).addClass('active')
         .removeClass('bottom')
-        .css('top', withTolerance(getContentTop(height, index)));
+        .css('top', withTolerance(getContentTop(halfHeight, index)));
       } else {
         $(scrollableContent).addClass('bottom');
       }
     }
   });
-
-  lastPosition = cur_pos;
 };
 
 const getElementsHeight = function($elements) {
