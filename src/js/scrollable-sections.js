@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 // We set an SCROLL_TOLERANCE of 100 so we don't scroll
 // to new sections right away.
 const SCROLL_TOLERANCE = 100;
@@ -24,7 +26,7 @@ const getContentTop = function(height, index) {
 //
 const getPercentageByRange = function(val, min, max) {
   const range = max - min;
-  return parseInt(((val - min) / range) * 100);
+  return parseInt(((val - min) / range) * 100, 10);
 };
 
 // Reversed percentage is needed when you, have for example a value: 64,
@@ -69,7 +71,7 @@ const setFooterBlackoutOpacity = function(value) {
 // on the scrolled count.
 const handleNewSectionScroll = function(element, scroll) {
   const $element = $(element);
-  scroll = scroll * - 1;
+  scroll *= - 1;
   $element.css('top', scroll);
 };
 
@@ -89,11 +91,10 @@ const withTolerance = function(value, index) {
   return value + SCROLL_TOLERANCE;
 };
 
-const handleScroll = function() {
+const handleScroll = function(element) {
   const $body = $('body');
-  const $blackout = $('.js-blackout');
   const $scrollableSections = $('.js-scrollable-section');
-  const cur_pos = $(this).scrollTop();
+  const cur_pos = $(element).scrollTop();
 
   $scrollableSections.each(function(index) {
     const $currentSection = $(this);
@@ -207,6 +208,6 @@ $(document).ready(function() {
 
   // bind events:
   $(this).scroll(function() {
-    handleScroll();
+    handleScroll(this);
   });
 });
