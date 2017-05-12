@@ -13,3 +13,7 @@
 .u-overflow-hidden {
   overflow: hidden;
 }
+
+.u-txt-capitalize {
+  text-transform: capitalize;
+}

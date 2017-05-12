@@ -1,15 +1,49 @@
 import React, { Component } from 'react';
 
+import { animateScroll } from 'react-scroll';
+
+import $ from 'jquery';
+
 class MenuHeader extends Component {
 
   constructor (props) {
     super(props);
+    this.scrollTollerance = 100;
     this._initState = {
       isMenuActive: false
     };
     this.state = this._initState;
     this.handleClose = this.handleClose.bind(this);
     this.handleMenuClick = this.handleMenuClick.bind(this);
+  };
+
+  // Receives a height, and returns that value, multipled
+  // for the current index, example:
+  //
+  // getContentTop(580px, 0);
+  // => 580px;
+  // getContentTop(580px, 1);
+  // => 1060px;
+  //
+  getContentTop(height, index) {
+    // index + 1 is because all indexes starts from 0
+    return (height * (index + 1));
+  };
+
+  // Receives a value, and returns it with + this.scrollTollerance
+  // and an index (optional).
+  //
+  // example:
+  // withTolerance(50)
+  // => 50 + this.scrollTollerance
+  // withTolerance(50, 1)
+  // => 50 + (this.scrollTollerance * 2)
+  //
+  withTolerance(value, index) {
+    if (index) {
+      return value + (this.scrollTollerance * (index + 1));
+    }
+    return value + this.scrollTollerance;
   };
 
   componentDidMount() {
@@ -33,13 +67,50 @@ class MenuHeader extends Component {
   getActiveClass() {
     const {isMenuActive} = this.state;
     return isMenuActive ? 'active' : '';
-  }
+  };
 
   getZIndex(zIndex) {
     if (isNaN(zIndex)) {
       return 'inherit';
     }
     return zIndex;
+  };
+
+  handleNavClick(ev, navIndex) {
+    ev.preventDefault();
+    const $scrollableSections = $('.js-scrollable-section');
+    const height = $scrollableSections.outerHeight();
+    const halfHeight = height / 2;
+    const math = this.getContentTop(halfHeight, 2);
+    const secondSectionDistance = this.withTolerance(math, 1);
+
+    if (navIndex === 0) {
+      animateScroll.scrollToTop();
+    } else if (navIndex === 1) {
+      animateScroll.scrollTo(halfHeight);
+    } else if (navIndex === 2) {
+      animateScroll.scrollTo(secondSectionDistance);
+    } else if (navIndex === 3) {
+      animateScroll.scrollToBottom();
+    }
+  };
+
+  renderMenuItems() {
+    const sections = [
+      { name: 'intro'},
+      { name: 'about'},
+      { name: 'work'},
+      { name: 'project'}
+    ];
+    return sections.map((section, index) => {
+      return (
+        <li className="menu__item" key={`${section.name}-${index}`}>
+          <a href="#" onClick={(ev) => this.handleNavClick(ev, index)} className="u-txt-capitalize">
+            {section.name}
+          </a>
+        </li>
+      );
+    });
   }
 
   renderMenu(zIndex) {
@@ -50,26 +121,7 @@ class MenuHeader extends Component {
     return (
       <div className={`menu ${this.getActiveClass()}`} style={menuStyle}>
         <ul className="menu__list">
-          <li className="menu__item">
-            <a href="#intro" onClick={this.handleClose}>
-              Intro
-            </a>
-          </li>
-          <li className="menu__item">
-            <a href="#about" onClick={this.handleClose}>
-              About
-            </a>
-          </li>
-          <li className="menu__item">
-            <a href="#work" onClick={this.handleClose}>
-              Work
-            </a>
-          </li>
-          <li className="menu__item">
-            <a href="#project" onClick={this.handleClose}>
-              Project
-            </a>
-          </li>
+          {this.renderMenuItems()}
         </ul>
       </div>
     );
