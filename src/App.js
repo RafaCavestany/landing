@@ -6,6 +6,7 @@ import NavHeader from './components/NavHeader';
 import MenuHeader from './components/MenuHeader';
 
 import './js/scrollable-sections';
+import './js/scrollable-colors';
 
 class App extends Component {
   render() {
@@ -51,11 +52,11 @@ class App extends Component {
               </article>
               <MenuHeader zIndex={72}/>
             </section>
-            <section id="work" className="color-orange scrollable-content js-scrollable-content" style={{zIndex: 60}}>
+            <section id="work" className="color-orange scrollable-content js-scrollable-content js-work-container" style={{zIndex: 60}}>
               <Header />
               <MobileHeader />
               <NavHeader navIndex={2} title="Work" arrowUp={true} arrowDown={true} />
-              <article id="oincs" className="card card--work">
+              <article id="oincs" className="card card--work js-work" data-color="orange">
                 <div className="card__container">
                   <h2 className="card__title">Oincs</h2>
                   <label className="card__label">
@@ -75,7 +76,7 @@ class App extends Component {
                 <figure className="card__image card__image--oincs">
                 </figure>
               </article>
-              <article id="cab2ride" className="card card--work">
+              <article id="cab2ride" className="card card--work js-work" data-color="black">
                 <div className="card__container">
                   <h2 className="card__title">Cab2ride</h2>
                   <label className="card__label">
@@ -97,7 +98,7 @@ class App extends Component {
                 <figure className="card__image card__image--cab-2-ride">
                 </figure>
               </article>
-              <article id="itau" className="card card--work">
+              <article id="itau" className="card card--work js-work" data-color="white">
                 <div className="card__container">
                   <h2 className="card__title">Itaú</h2>
                   <label className="card__label">
@@ -116,7 +117,7 @@ class App extends Component {
                 <figure className="card__image card__image--itau">
                 </figure>
               </article>
-              <article id="yts" className="card card--work">
+              <article id="yts" className="card card--work js-work" data-color="green">
                 <div className="card__container">
                   <h2 className="card__title">Yts</h2>
                   <label className="card__label">

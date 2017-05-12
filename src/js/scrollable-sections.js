@@ -156,7 +156,6 @@ const handleScroll = function(element) {
         .css('top', withTolerance(getContentTop(halfHeight, index)));
       } else {
         $(scrollableContent).addClass('bottom');
-        setBlackoutOpacity(100, 75);
 
         if (cur_pos >= thirdSectionDistance && cur_pos < thirdSectionDistance + height) {
           const minValue = thirdSectionDistance;
