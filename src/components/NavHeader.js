@@ -21,10 +21,10 @@ class NavHeader extends Component {
         </div>
         <div className="vertical-header__item h-one-third u-flex-direction-column">
           <div className="vertical-header__icons">
-            <a href="#" className={`vertical-header__icon nav-arrow js-scroll-up ${arrowUpClass}`}>
+            <a href="#" className={`vertical-header__icon nav-arrow ${arrowUpClass}`}>
               <i className="svg-icon svg-icon-arrow-up"></i>
             </a>
-            <a href="#" className={`vertical-header__icon nav-arrow js-scroll-down ${arrowDownClass}`}>
+            <a href="#" className={`vertical-header__icon nav-arrow ${arrowDownClass}`}>
               <i className="svg-icon svg-icon-arrow-down"></i>
             </a>
           </div>
