@@ -1,34 +1,52 @@
 .scrollable-section {
   position: absolute;
   width: 100%;
-  z-index: 300;
+  background-color: #fff;
 }
 
 .scrollable-section .header--desktop {
   position: absolute;
-  z-index: 302;
 }
 
 .scrollable-section .header--mobile {
   position: absolute;
-  z-index: 303;
 }
 
 .scrollable-section .menu {
-  z-index: 302;
+  /**/
 }
 
 .scrollable-section .vertical-header {
   position: absolute;
-  z-index: 301;
 }
 
 .scrollable-content {
-  position: absolute;
+  position: fixed;
+  width: 100%;
   transition: background-color 1s ease, color 1s ease, opacity 1s ease;
   opacity: 1;
+  top: 0;
+  height: 100%;
 }
 
 .scrollable-content.active {
   position: relative;
+}
+
+.scrollable-content.bottom .vertical-header {
+  position: absolute;
+  bottom: 0;
+}
+
+.scrollable-content.bottom .header {
+  position: absolute;
+  top: calc(100% - 100vh);
+  animation-fill-mode: none;
+}
+
+.scrollable-footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
 }

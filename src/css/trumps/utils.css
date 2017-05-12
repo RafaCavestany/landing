@@ -9,3 +9,7 @@
 .u-position-relative {
   position: relative;
 }
+
+.u-overflow-hidden {
+  overflow: hidden;
+}

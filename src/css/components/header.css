@@ -1,5 +1,6 @@
 .header {
   position: fixed;
+  z-index: inherit;
   top: calc(var(--header-size) * -1);
   right: 0;
   left: 0;
@@ -18,7 +19,6 @@
 }
 
 .header--desktop {
-  z-index: 202;
   width: calc(100% - (var(--vertical-header-size) * 2));
   height: var(--header-size);
   margin-right: var(--vertical-header-size);
@@ -26,7 +26,6 @@
 }
 
 .header--mobile {
-  z-index: 203;
   width: 100%;
   height: var(--header-size);
   margin-right: 0;
