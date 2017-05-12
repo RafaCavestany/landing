@@ -5,8 +5,8 @@
     <title>Rafael Cavestany</title>
     <script src="vendor/jquery-3.2.1.min.js" type="text/javascript"></script>
     <script src="src/js/scrollable-sections.js" type="text/javascript"></script>
-    <!-- <script src="src/js/scroller.js" type="text/javascript"></script> -->
     <script src="src/js/hamburger-menu.js" type="text/javascript"></script>
+    <!-- <script src="src/js/scroller.js" type="text/javascript"></script> -->
     <!-- <script src="src/js/scrollable-colors.js" type="text/javascript"></script> -->
     <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="src/css/index.css">
@@ -70,7 +70,7 @@
             </h1>
           </article>
           <!-- Vertical header right: -->
-          <aside class="vertical-header vertical-header--right js-hamburger-container">
+          <aside class="vertical-header vertical-header--right js-hamburger-container" style="z-index: 82;">
             <div class="hamburger js-hamburger-menu">
               <div class="hamburger__container">
                 <span class="hamburger__item"></span>
@@ -90,6 +90,22 @@
               </div>
             </div>
           </aside>
+          <div class="menu js-menu-overlay" style="z-index: 81;">
+            <ul class="menu__list">
+              <li class="menu__item">
+                <a href="#intro" class="js-menu-item">Intro</a>
+              </li>
+              <li class="menu__item">
+                <a href="#about" class="js-menu-item">About</a>
+              </li>
+              <li class="menu__item">
+                <a href="#work" class="js-menu-item">Work</a>
+              </li>
+              <li class="menu__item">
+                <a href="#project" class="js-menu-item">Project</a>
+              </li>
+            </ul>
+          </div>
         </section>
         <section id="content" class="scrollable-content js-scrollable-content" style="z-index: 50;">
           <div>
@@ -428,22 +444,6 @@
           </aside>
         </footer>
       </div>
-    </div>
-    <div class="menu js-menu-overlay">
-      <ul class="menu__list">
-        <li class="menu__item">
-          <a href="#intro" class="js-menu-item">Intro</a>
-        </li>
-        <li class="menu__item">
-          <a href="#about" class="js-menu-item">About</a>
-        </li>
-        <li class="menu__item">
-          <a href="#work" class="js-menu-item">Work</a>
-        </li>
-        <li class="menu__item">
-          <a href="#project" class="js-menu-item">Project</a>
-        </li>
-      </ul>
     </div>
 
     <script>
