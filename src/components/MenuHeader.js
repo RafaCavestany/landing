@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import $ from 'jquery';
 
 class MenuHeader extends Component {
 
@@ -11,6 +10,36 @@ class MenuHeader extends Component {
     this.state = this._initState;
     this.handleClose = this.handleClose.bind(this);
     this.handleMenuClick = this.handleMenuClick.bind(this);
+  };
+
+  componentDidMount() {
+    window.addEventListener('scroll', this.handleClose);
+  };
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleClose);
+  };
+
+  handleClose() {
+    this.setState(this._initState);
+  };
+
+  handleMenuClick() {
+    this.setState({
+      isMenuActive: !this.state.isMenuActive
+    })
+  };
+
+  getActiveClass() {
+    const {isMenuActive} = this.state;
+    return isMenuActive ? 'active' : '';
+  }
+
+  getZIndex(zIndex) {
+    if (isNaN(zIndex)) {
+      return 'inherit';
+    }
+    return zIndex;
   }
 
   renderMenu(zIndex) {
@@ -45,36 +74,6 @@ class MenuHeader extends Component {
       </div>
     );
   };
-
-  handleKeyDown(e) {
-    if (e.keyCode === 27) {
-      this.setState(this._initState);
-    }
-  }
-
-  handleClose() {
-    this.setState(this._initState);
-  };
-
-  handleMenuClick() {
-    $('html').toggleClass('u-overflow-hidden');
-
-    this.setState({
-      isMenuActive: !this.state.isMenuActive
-    })
-  };
-
-  getActiveClass() {
-    const {isMenuActive} = this.state;
-    return isMenuActive ? 'active' : '';
-  }
-
-  getZIndex(zIndex) {
-    if (isNaN(zIndex)) {
-      return 'inherit';
-    }
-    return zIndex;
-  }
 
   render() {
     const {zIndex} = this.props;
