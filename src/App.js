@@ -14,7 +14,7 @@ class App extends Component {
         <section id="intro" className="color-black scrollable-section js-scrollable-section" style={{zIndex: 80}}>
           <Header />
           <MobileHeader />
-          <NavHeader title="Intro" arrowUp={false}  arrowDown={true} />
+          <NavHeader navIndex={0} title="Intro"  arrowDown={true} />
           <article id="rafael" className="card banner">
             <h1 className="card__title banner__title">
               <div className="banner__container">
@@ -34,7 +34,7 @@ class App extends Component {
             <section id="about" className="color-white scrollable-section js-scrollable-section" style={{zIndex: 70}}>
               <Header />
               <MobileHeader />
-              <NavHeader title="About" arrowUp={true} arrowDown={true} />
+              <NavHeader navIndex={1} title="About" arrowUp={true} arrowDown={true} />
               <article id="aboutRafael" className="card">
                 <h2 className="card__title">
                   He has led projects for companies such as Intel, AT&amp;T, Telefónica,
@@ -54,7 +54,7 @@ class App extends Component {
             <section id="work" className="color-orange scrollable-content js-scrollable-content" style={{zIndex: 60}}>
               <Header />
               <MobileHeader />
-              <NavHeader title="Work" arrowUp={true} arrowDown={true} />
+              <NavHeader navIndex={2} title="Work" arrowUp={true} arrowDown={true} />
               <article id="oincs" className="card card--work">
                 <div className="card__container">
                   <h2 className="card__title">Oincs</h2>
@@ -164,7 +164,7 @@ class App extends Component {
           <div className="blackout js-footer-blackout"></div>
           <Header />
           <MobileHeader />
-          <NavHeader title="Project" arrowUp={true} arrowDown={false} />
+          <NavHeader navIndex={3} title="Project" arrowUp={true} arrowDown={false} />
           <article id="project" className="card">
             <h2 className="card__title">
               {`Interested in starting a project?`}
