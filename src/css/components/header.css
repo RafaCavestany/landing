@@ -1,5 +1,6 @@
 .header {
   position: fixed;
+  z-index: inherit;
   top: calc(var(--header-size) * -1);
   right: 0;
   left: 0;
