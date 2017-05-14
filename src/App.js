@@ -14,11 +14,11 @@ class App extends Component {
       <div className="container">
         <section id="intro"
           style={{zIndex: 80}}
-          className="color-black scrollable-section js-scrollable js-scrollable-section"
+          className="scrollable-section color-black js-scrollable js-scrollable-section"
         >
           <Header />
           <MobileHeader />
-          <NavHeader navIndex={0} title="Intro"  arrowDown={true} />
+          <NavHeader navIndex={0} title="Intro" arrowDown={true} />
           <article id="rafael" className="card banner">
             <h1 className="card__title banner__title">
               <div className="banner__container">
@@ -36,7 +36,7 @@ class App extends Component {
           <div>
             <div className="blackout js-blackout"></div>
             <section id="about"
-              className="color-white scrollable-section js-scrollable js-scrollable-section"
+              className="scrollable-section color-white js-scrollable js-scrollable-section"
               style={{zIndex: 70}}
             >
               <Header />
@@ -60,7 +60,7 @@ class App extends Component {
             </section>
             <section id="work"
               style={{zIndex: 60}}
-              className="color-orange scrollable-content js-scrollable-content js-work-container">
+              className="scrollable-content js-scrollable-content js-work-container">
               <Header />
               <MobileHeader />
               <NavHeader navIndex={2} title="Work" arrowUp={true} arrowDown={true} />
@@ -171,7 +171,7 @@ class App extends Component {
         </section>
         <footer id="footer"
           style={{zIndex: 40}}
-          className="scrollable-footer js-scrollable js-scrollable-footer color-black"
+          className="scrollable-footer color-black js-scrollable js-scrollable-footer"
         >
           <div className="blackout js-footer-blackout"></div>
           <Header />

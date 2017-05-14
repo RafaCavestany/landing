@@ -2,33 +2,22 @@ import $ from 'jquery';
 
 const SCROLL_TOLERANCE = 100;
 
-// Receives a height, and returns that value, multipled
-// for the current index, example:
-//
-// getContentTop(580px, 0);
-// => 580px;
-// getContentTop(580px, 1);
-// => 1060px;
-//
-const getContentTop = function(height, index) {
-  // index + 1 is because all indexes starts from 0
-  return (height * (index + 1));
+const getElementsHeight = function($elements) {
+  let totalHeight = 0;
+  $elements.each(function() {
+    totalHeight += $(this).outerHeight();
+  });
+  return totalHeight;
 };
 
-// Receives a value, and returns it with + SCROLL_TOLERANCE
-// and an index (optional).
-//
-// example:
-// withTolerance(50)
-// => 50 + SCROLL_TOLERANCE
-// withTolerance(50, 1)
-// => 50 + (SCROLL_TOLERANCE * 2)
-//
-const withTolerance = function(value, index) {
-  if (index) {
-    return value + (SCROLL_TOLERANCE * (index + 1));
-  }
-  return value + SCROLL_TOLERANCE;
+const getDistance = function($elements, currentIndex) {
+  let totalHeight = 0;
+  $elements.each(function(index) {
+    if (index < currentIndex) {
+      totalHeight += $(this).outerHeight();
+    }
+  });
+  return totalHeight;
 };
 
 // This code is based on this pen: https://codepen.io/daveredfern/pen/zBGBJV
@@ -41,24 +30,33 @@ $(document).ready(function() {
 
 $(window).scroll(function() {
   const $window = $(window);
-  const $body = $('body');
-  const $panels = $('.js-work');
+  const $workSections = $('.js-work');
   const $workContainer = $('.js-work-container');
-  const cur_pos = $window.scrollTop();
+  //
+  let cur_pos = $window.scrollTop();
+  // First section only needs to be scrolled half.
+  const height = $('.js-scrollable-section').outerHeight();
+  const firstSectionScroll = height / 2;
+  const firstSectionDistance = firstSectionScroll + SCROLL_TOLERANCE;
+  // After second section its not necessary
+  const secondSectionScroll = firstSectionScroll + height
+  const secondSectionDistance = secondSectionScroll + SCROLL_TOLERANCE;
+  const thirdSectionScroll = getElementsHeight($workSections);
+  const $scrollableFooter = $('.js-scrollable-footer');
+  const footerHeight = getElementsHeight($scrollableFooter);
+  const thirdSectionDistance = secondSectionDistance + thirdSectionScroll;
 
-  $panels.each(function(index) {
+  $workSections.each(function(index) {
     const $this = $(this);
-    const height = $this.outerHeight();
-    const halfHeight = height / 2;
-    // First section only needs to be scrolled half.
-    const math = getContentTop(halfHeight, 2);
-    const secondSectionDistance = withTolerance(math, 1);
-    const thirdSectionDistance = $body.height() - (halfHeight * ($('.js-work').length + 1));
-
     if (cur_pos >= secondSectionDistance && cur_pos < thirdSectionDistance) {
-      const workDistance = cur_pos - secondSectionDistance;
-      const top = (height * index);
-      const bottom = (height * (index + 1));
+      const workDistance = cur_pos - secondSectionScroll;
+      let top = getDistance($workSections, index);
+      let bottom = getDistance($workSections, index + 1);
+      if (index === 0) {
+        bottom -= 300;
+      } else {
+        top -= 300;
+      }
       if (workDistance >= top && workDistance < bottom) {
         // Remove all classes on body with color-
         $workContainer.removeClass(function(index, css) {

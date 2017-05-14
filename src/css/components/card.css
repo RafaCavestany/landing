@@ -11,19 +11,14 @@
 .card--work {
   flex-direction: row;
   min-height: 100vh;
-  padding-top: 50vh;
-  padding-bottom: 50vh;
+  padding-top: calc(50vh + var(--padding-card));
+  padding-bottom: calc(50vh + var(--padding-card));
   padding-right: 0;
+  justify-content: center;
 }
 
 .card--work:first-of-type {
   padding-top: var(--padding-card);
-  padding-bottom: 50vh;
-}
-
-.card--work:last-of-type {
-  padding-top: 50vh;
-  padding-bottom: var(--padding-card);
 }
 
 .card__title {

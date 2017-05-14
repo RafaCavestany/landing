@@ -80,14 +80,16 @@ class MenuHeader extends Component {
     ev.preventDefault();
     const $scrollableSections = $('.js-scrollable-section');
     const height = $scrollableSections.outerHeight();
-    const halfHeight = height / 2;
-    const math = this.getContentTop(halfHeight, 2);
-    const secondSectionDistance = this.withTolerance(math, 1);
+    const firstSectionScroll = height / 2;
+    const firstSectionDistance = firstSectionScroll + this.scrollTollerance;
+    // After second section its not necessary
+    const secondSectionScroll = firstSectionDistance + height;
+    const secondSectionDistance = secondSectionScroll + this.scrollTollerance;
 
     if (navIndex === 0) {
       animateScroll.scrollToTop();
     } else if (navIndex === 1) {
-      animateScroll.scrollTo(halfHeight);
+      animateScroll.scrollTo(firstSectionScroll);
     } else if (navIndex === 2) {
       animateScroll.scrollTo(secondSectionDistance);
     } else if (navIndex === 3) {

@@ -4,6 +4,40 @@ import $ from 'jquery';
 // to new sections right away.
 const SCROLL_TOLERANCE = 100;
 
+const getElementsHeight = function($elements) {
+  let totalHeight = 0;
+  $elements.each(function() {
+    totalHeight += $(this).outerHeight();
+  });
+  return totalHeight;
+};
+
+const getScrollableTollerance = function() {
+  const scrollableCount = $('.js-scrollable').length;
+  return scrollableCount * SCROLL_TOLERANCE;
+};
+
+const setBodyHeight = function() {
+  const $body = $('body');
+  // Intro and about:
+  const $scrollableSections = $('.js-scrollable-section');
+  const sectionsHeight = getElementsHeight($scrollableSections);
+  // Work section (main)
+  const $workSections = $('.js-work');
+  const workSectionsHeight = getElementsHeight($workSections);
+  // Footer
+  const $scrollableFooter = $('.js-scrollable-footer');
+  const footerHeight = getElementsHeight($scrollableFooter);
+  // Tollerance:
+  const totalTollerance = getScrollableTollerance();
+  // Math:
+  const composedHeight = sectionsHeight +
+                         workSectionsHeight +
+                         footerHeight +
+                         totalTollerance;
+  $body.css('height', `${composedHeight}px`);
+};
+
 // Receives a height, and returns that value, multipled
 // for the current index, example:
 //
@@ -75,24 +109,7 @@ const handleNewSectionScroll = function(element, scroll) {
   $element.css('top', scroll);
 };
 
-// Receives a value, and returns it with + SCROLL_TOLERANCE
-// and an index (optional).
-//
-// example:
-// withTolerance(50)
-// => 50 + SCROLL_TOLERANCE
-// withTolerance(50, 1)
-// => 50 + (SCROLL_TOLERANCE * 2)
-//
-const withTolerance = function(value, index) {
-  if (index) {
-    return value + (SCROLL_TOLERANCE * (index + 1));
-  }
-  return value + SCROLL_TOLERANCE;
-};
-
 const handleScroll = function(element) {
-  const $body = $('body');
   const $scrollableSections = $('.js-scrollable-section');
   const $workSections = $('.js-work');
   const cur_pos = $(element).scrollTop();
@@ -135,7 +152,7 @@ const handleScroll = function(element) {
 
       } else {
         $($scrollableContent).addClass('active')
-        .css('top', withTolerance(getContentTop(firstSectionScroll, index)));
+        .css('top', getContentTop(firstSectionScroll, index) + SCROLL_TOLERANCE);
       }
     } else if (index === 1) {
       if (cur_pos >= firstSectionDistance && cur_pos < secondSectionDistance) {
@@ -156,7 +173,7 @@ const handleScroll = function(element) {
       } else if (cur_pos >= secondSectionDistance && cur_pos < thirdSectionDistance) {
         $($scrollableContent).addClass('active')
         .removeClass('bottom')
-        .css('top', withTolerance(getContentTop(firstSectionScroll, index)));
+        .css('top', getContentTop(firstSectionScroll, index) + SCROLL_TOLERANCE);
       } else {
         $($scrollableContent).addClass('bottom');
 
@@ -174,40 +191,6 @@ const handleScroll = function(element) {
       }
     }
   });
-};
-
-const getElementsHeight = function($elements) {
-  let totalHeight = 0;
-  $elements.each(function() {
-    totalHeight += $(this).outerHeight();
-  });
-  return totalHeight;
-};
-
-const getScrollableTollerance = function() {
-  const scrollableCount = $('.js-scrollable').length;
-  return scrollableCount * SCROLL_TOLERANCE;
-};
-
-const setBodyHeight = function() {
-  const $body = $('body');
-  // Intro and about:
-  const $scrollableSections = $('.js-scrollable-section');
-  const sectionsHeight = getElementsHeight($scrollableSections);
-  // Work section (main)
-  const $workSections = $('.js-work');
-  const workSectionsHeight = getElementsHeight($workSections);
-  // Footer
-  const $scrollableFooter = $('.js-scrollable-footer');
-  const footerHeight = getElementsHeight($scrollableFooter);
-  // Tollerance:
-  const totalTollerance = getScrollableTollerance();
-  // Math:
-  const composedHeight = sectionsHeight +
-                         workSectionsHeight +
-                         footerHeight +
-                         totalTollerance;
-  $body.css('height', `${composedHeight}px`);
 };
 
 $(document).ready(function() {
