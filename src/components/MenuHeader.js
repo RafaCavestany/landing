@@ -133,7 +133,7 @@ class MenuHeader extends Component {
     const {zIndex} = this.props;
 
     const verticalHeaderStyle = {
-      zIndex: this.getZIndex(zIndex)
+      zIndex: this.getZIndex(zIndex + 2)
     };
 
     return (
@@ -158,7 +158,7 @@ class MenuHeader extends Component {
             </div>
           </div>
         </aside>
-        {this.renderMenu(zIndex - 1)}
+        {this.renderMenu(zIndex + 1)}
       </div>
     );
   };

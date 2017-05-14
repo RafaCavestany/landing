@@ -4,6 +4,8 @@ import Header from './components/Header';
 import MobileHeader from './components/MobileHeader';
 import NavHeader from './components/NavHeader';
 import MenuHeader from './components/MenuHeader';
+import About from './components/About';
+
 
 import './js/scrollable-sections';
 import './js/scrollable-colors';
@@ -35,29 +37,7 @@ class App extends Component {
         <section id="content" className="scrollable-content js-main-container js-scrollable-content" style={{zIndex: 50}}>
           <div>
             <div className="blackout js-blackout"></div>
-            <section id="about"
-              className="scrollable-section color-white js-scrollable js-scrollable-section"
-              style={{zIndex: 70}}
-            >
-              <Header />
-              <MobileHeader />
-              <NavHeader navIndex={1} title="About" arrowUp={true} arrowDown={true} />
-              <article id="aboutRafael" className="card">
-                <h2 className="card__title">
-                  He has led projects for companies such as Intel, AT&amp;T, Telefónica,
-                  HP, Visa, Directv, Golf Channel among others.
-                </h2>
-                <p className="card__paragraph card__paragraph--small">
-                  With over a decade of experience, Rafa has helped clients of all sizes
-                  to plan, create and grow their ideas in to digital products, bla bla
-                  human center approach, user experience, etc.
-                </p>
-                <a href="#work" className="card__link">
-                  See some of his projects below.
-                </a>
-              </article>
-              <MenuHeader zIndex={72}/>
-            </section>
+            <About zIndex={70} />
             <section id="work"
               style={{zIndex: 60}}
               className="scrollable-content js-scrollable-content js-work-container">
@@ -165,7 +145,7 @@ class App extends Component {
                 <figure className="card__image card__image--pagoo">
                 </figure>
               </article>
-              <MenuHeader zIndex={62}/>
+              <MenuHeader zIndex={60}/>
             </section>
           </div>
         </section>
@@ -192,7 +172,7 @@ class App extends Component {
               </a>
             </h2>
           </article>
-          <MenuHeader zIndex={42}/>
+          <MenuHeader zIndex={40}/>
         </footer>
       </div>
     );
