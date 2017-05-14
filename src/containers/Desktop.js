@@ -1,20 +1,20 @@
 import React, { Component } from 'react';
 
-import Header from './components/Header';
-import MobileHeader from './components/MobileHeader';
-import NavHeader from './components/NavHeader';
-import MenuHeader from './components/MenuHeader';
+import Header from '../components/Header';
+import MobileHeader from '../components/MobileHeader';
+import NavHeader from '../components/NavHeader';
+import MenuHeader from '../components/MenuHeader';
 
-import Intro from './components/Intro';
-import About from './components/About';
-import Work from './components/Work';
-import Project from './components/Project';
+import Intro from '../components/Intro';
+import About from '../components/About';
+import Work from '../components/Work';
+import Project from '../components/Project';
 
 
-import './js/scrollable-sections';
-import './js/scrollable-colors';
+import '../js/scrollable-sections';
+import '../js/scrollable-colors';
 
-class App extends Component {
+class Desktop extends Component {
   render() {
     return (
       <div className="container">
@@ -68,4 +68,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Desktop;

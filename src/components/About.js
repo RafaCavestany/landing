@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { animateScroll, Element } from 'react-scroll';
+import { animateScroll } from 'react-scroll';
 
 import $ from 'jquery';
 
