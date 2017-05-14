@@ -57,7 +57,7 @@ class App extends Component {
                     accidents, robberies, garbage in the street among others incidents,
                     to create a better city life experience.
                   </p>
-                  <a href="http://oincs.com/" className="button">
+                  <a href="http://oincs.com/" target="_blank" className="button">
                     Website
                   </a>
                 </div>
@@ -76,10 +76,10 @@ class App extends Component {
                     one click and in seconds. The app uses GPS technology to directly
                     connect you with the nearest driver right when you need it.
                   </p>
-                  <a href="http://oincs.com/" className="button">
+                  <a href="http://oincs.com/" target="_blank" className="button">
                     Appstore
                   </a>
-                  <a href="http://oincs.com/" className="button">
+                  <a href="http://oincs.com/" target="_blank" className="button">
                     Playstore
                   </a>
                 </div>
@@ -98,7 +98,7 @@ class App extends Component {
                     one click and in seconds. The app uses GPS technology to directly
                     connect you with the nearest driver right when you need it.
                   </p>
-                  <a href="http://oincs.com/" className="button">
+                  <a href="http://oincs.com/" target="_blank" className="button">
                     Website
                   </a>
                 </div>
@@ -118,7 +118,7 @@ class App extends Component {
                     accidents, robberies, garbage in the street among others incidents,
                     to create a better city life experience.
                   </p>
-                  <a href="http://oincs.com/" className="button">
+                  <a href="http://oincs.com/" target="_blank" className="button">
                     Website
                   </a>
                 </div>
@@ -138,7 +138,7 @@ class App extends Component {
                     accidents, robberies, garbage in the street among others incidents,
                     to create a better city life experience.
                   </p>
-                  <a href="http://oincs.com/" className="button">
+                  <a href="http://oincs.com/" target="_blank" className="button">
                     Website
                   </a>
                 </div>
