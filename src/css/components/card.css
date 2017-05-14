@@ -9,6 +9,7 @@
 }
 
 .card--work {
+  min-height: 200vh;
   flex-direction: row;
   padding-right: 0;
 }
@@ -66,7 +67,7 @@
   margin: 0;
   background-repeat: no-repeat;
   background-size: contain;
-  background-position: right;
+  background-position: right top;
 }
 
 .card__image--oincs {

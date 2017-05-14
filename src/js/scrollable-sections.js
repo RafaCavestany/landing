@@ -134,6 +134,7 @@ const handleScroll = function(element) {
       const math = getContentTop(halfHeight, index + 1);
       const secondSectionDistance = withTolerance(math, index);
       const thirdSectionDistance = $body.height() - (halfHeight * 5);
+      console.log($('.js-work').length);
 
       if (cur_pos >= firstSectionDistance && cur_pos < secondSectionDistance) {
         $(scrollableContent).removeClass('active')

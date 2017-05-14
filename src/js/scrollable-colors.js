@@ -53,7 +53,7 @@ $(window).scroll(function() {
     // First section only needs to be scrolled half.
     const math = getContentTop(halfHeight, 2);
     const secondSectionDistance = withTolerance(math, 1);
-    const thirdSectionDistance = $body.height() - (halfHeight * 5);
+    const thirdSectionDistance = $body.height() - (halfHeight * ($('.js-work').length + 1));
 
     if (cur_pos >= secondSectionDistance && cur_pos < thirdSectionDistance) {
       const workDistance = cur_pos - secondSectionDistance;
