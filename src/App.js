@@ -173,7 +173,7 @@ class App extends Component {
           style={{zIndex: 40}}
           className="scrollable-footer color-black js-scrollable js-scrollable-footer"
         >
-          <div className="blackout js-footer-blackout"></div>
+          <div className="blackout js-footer-blackout" style={{zIndex: 43}}></div>
           <Header />
           <MobileHeader />
           <NavHeader navIndex={3} title="Project" arrowUp={true} arrowDown={false} />

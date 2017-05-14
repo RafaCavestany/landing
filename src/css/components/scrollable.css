@@ -32,7 +32,7 @@
 
 .scrollable-content.active {
   position: relative;
-  height: calc(100% - 200vh);
+  height: calc(100% - 200vh - 200px);
 }
 
 .scrollable-content.bottom .vertical-header {
