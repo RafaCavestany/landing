@@ -1,6 +1,42 @@
+import $ from 'jquery';
+
 // We set an SCROLL_TOLERANCE of 100 so we don't scroll
 // to new sections right away.
 const SCROLL_TOLERANCE = 100;
+
+const getElementsHeight = function($elements) {
+  let totalHeight = 0;
+  $elements.each(function() {
+    totalHeight += $(this).outerHeight();
+  });
+  return totalHeight;
+};
+
+const getScrollableTollerance = function() {
+  const scrollableCount = $('.js-scrollable').length;
+  return scrollableCount * SCROLL_TOLERANCE;
+};
+
+const setBodyHeight = function() {
+  const $body = $('body');
+  // Intro and about:
+  const $scrollableSections = $('.js-scrollable-section');
+  const sectionsHeight = getElementsHeight($scrollableSections);
+  // Work section (main)
+  const $workSections = $('.js-work');
+  const workSectionsHeight = getElementsHeight($workSections);
+  // Footer
+  const $scrollableFooter = $('.js-scrollable-footer');
+  const footerHeight = getElementsHeight($scrollableFooter);
+  // Tollerance:
+  const totalTollerance = getScrollableTollerance();
+  // Math:
+  const composedHeight = sectionsHeight +
+                         workSectionsHeight +
+                         footerHeight +
+                         totalTollerance;
+  $body.css('height', `${composedHeight}px`);
+};
 
 // Receives a height, and returns that value, multipled
 // for the current index, example:
@@ -24,7 +60,7 @@ const getContentTop = function(height, index) {
 //
 const getPercentageByRange = function(val, min, max) {
   const range = max - min;
-  return parseInt(((val - min) / range) * 100);
+  return parseInt(((val - min) / range) * 100, 10);
 };
 
 // Reversed percentage is needed when you, have for example a value: 64,
@@ -69,55 +105,45 @@ const setFooterBlackoutOpacity = function(value) {
 // on the scrolled count.
 const handleNewSectionScroll = function(element, scroll) {
   const $element = $(element);
-  scroll = scroll * - 1;
+  scroll *= - 1;
   $element.css('top', scroll);
 };
 
-// Receives a value, and returns it with + SCROLL_TOLERANCE
-// and an index (optional).
-//
-// example:
-// withTolerance(50)
-// => 50 + SCROLL_TOLERANCE
-// withTolerance(50, 1)
-// => 50 + (SCROLL_TOLERANCE * 2)
-//
-const withTolerance = function(value, index) {
-  if (index) {
-    return value + (SCROLL_TOLERANCE * (index + 1));
-  }
-  return value + SCROLL_TOLERANCE;
-};
-
-const handleScroll = function() {
-  const $body = $('body');
-  const $blackout = $('.js-blackout');
+const handleScroll = function(element) {
   const $scrollableSections = $('.js-scrollable-section');
-  const cur_pos = $(this).scrollTop();
+  const $workSections = $('.js-work');
+  const cur_pos = $(element).scrollTop();
 
   $scrollableSections.each(function(index) {
     const $currentSection = $(this);
-    const scrollableContent = $('.js-scrollable-content')[index];
+    const $scrollableContent = $('.js-scrollable-content')[index];
     const height = $currentSection.outerHeight();
-    const halfHeight = height / 2;
     // First section only needs to be scrolled half.
-    const firstSectionDistance = halfHeight + SCROLL_TOLERANCE;
+    const firstSectionScroll = height / 2;
+    const firstSectionDistance = firstSectionScroll + SCROLL_TOLERANCE;
+    // After second section its not necessary
+    const secondSectionScroll = firstSectionDistance + height;
+    const secondSectionDistance = secondSectionScroll + SCROLL_TOLERANCE;
+    const thirdSectionScroll = getElementsHeight($workSections);
+    const $scrollableFooter = $('.js-scrollable-footer');
+    const footerHeight = getElementsHeight($scrollableFooter);
+    const thirdSectionDistance = secondSectionDistance + thirdSectionScroll - footerHeight;
 
     if(index === 0) {
       if (cur_pos < firstSectionDistance) {
-        // We let them scroll until halfHeight + SCROLL_TOLERANCE
+        // We let them scroll until firstSectionScroll + SCROLL_TOLERANCE
         handleNewSectionScroll($currentSection, cur_pos);
 
-        $(scrollableContent).removeClass('active')
+        $($scrollableContent).removeClass('active')
         .css('top', '0');
 
         // But we don't include the tollerance to hide the blackout
         if (cur_pos < firstSectionDistance - SCROLL_TOLERANCE) {
-          const minValue = index * halfHeight;
+          const minValue = index * firstSectionScroll;
           const visiblePercentage = getPercentageByRange(
             cur_pos,
             minValue,
-            halfHeight
+            firstSectionScroll
           );
           setBlackoutOpacity(visiblePercentage, 75);
         } else {
@@ -125,17 +151,12 @@ const handleScroll = function() {
         }
 
       } else {
-        $(scrollableContent).addClass('active')
-        .css('top', withTolerance(getContentTop(halfHeight, index)));
+        $($scrollableContent).addClass('active')
+        .css('top', getContentTop(firstSectionScroll, index) + SCROLL_TOLERANCE);
       }
     } else if (index === 1) {
-      // TODO: explain this
-      const math = getContentTop(halfHeight, index + 1);
-      const secondSectionDistance = withTolerance(math, index);
-      const thirdSectionDistance = $body.height() - (halfHeight * 5);
-
       if (cur_pos >= firstSectionDistance && cur_pos < secondSectionDistance) {
-        $(scrollableContent).removeClass('active')
+        $($scrollableContent).removeClass('active')
         .removeClass('bottom')
         .css('top', '0');
         if (cur_pos < secondSectionDistance - SCROLL_TOLERANCE) {
@@ -150,11 +171,11 @@ const handleScroll = function() {
           setBlackoutOpacity(100, 65);
         }
       } else if (cur_pos >= secondSectionDistance && cur_pos < thirdSectionDistance) {
-        $(scrollableContent).addClass('active')
+        $($scrollableContent).addClass('active')
         .removeClass('bottom')
-        .css('top', withTolerance(getContentTop(halfHeight, index)));
+        .css('top', getContentTop(firstSectionScroll, index) + SCROLL_TOLERANCE);
       } else {
-        $(scrollableContent).addClass('bottom');
+        $($scrollableContent).addClass('bottom');
 
         if (cur_pos >= thirdSectionDistance && cur_pos < thirdSectionDistance + height) {
           const minValue = thirdSectionDistance;
@@ -172,34 +193,6 @@ const handleScroll = function() {
   });
 };
 
-const getElementsHeight = function($elements) {
-  let totalHeight = 0;
-  $elements.each(function() {
-    totalHeight += $(this).height();
-  });
-  return totalHeight;
-};
-
-const getContentsTollerance = function() {
-  const contentsLenght = $('.js-scrollable-content').length;
-  return contentsLenght * SCROLL_TOLERANCE;
-};
-
-const setBodyHeight = function() {
-  const $body = $('body');
-  const $scrollableSections = $('.js-scrollable-section');
-  const $scrollableContents = $('.js-scrollable-content');
-  const $scrollableFooter = $('.js-scrollable-footer');
-
-  const sectionsHeight = getElementsHeight($scrollableSections) * ($scrollableSections.length + 0.5);
-  const contentsHeight = getElementsHeight($scrollableContents);
-  const footerHeight = getElementsHeight($scrollableFooter);
-
-  const totalTolerance = getContentsTollerance();
-  const composedHeight = sectionsHeight + contentsHeight + totalTolerance + footerHeight;
-  $body.css('height', `${composedHeight}px`);
-};
-
 $(document).ready(function() {
   // Here we calculate the total height of the body by calculating
   // the height of the scrollableSections and the scrollableContents.
@@ -207,6 +200,6 @@ $(document).ready(function() {
 
   // bind events:
   $(this).scroll(function() {
-    handleScroll();
+    handleScroll(this);
   });
 });

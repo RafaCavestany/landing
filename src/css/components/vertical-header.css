@@ -28,8 +28,8 @@
   border-color: var(--color-white-opaque);
 }
 
-.color-black .vertical-header--right.active .vertical-header__item .icon {
-  color: var(--color-white);
+.vertical-header--right.active .vertical-header__item .icon {
+  color: var(--color-white) !important;
 }
 
 .vertical-header--left {
