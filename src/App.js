@@ -12,7 +12,10 @@ class App extends Component {
   render() {
     return (
       <div className="container">
-        <section id="intro" className="color-black scrollable-section js-scrollable-section" style={{zIndex: 80}}>
+        <section id="intro"
+          style={{zIndex: 80}}
+          className="color-black scrollable-section js-scrollable js-scrollable-section"
+        >
           <Header />
           <MobileHeader />
           <NavHeader navIndex={0} title="Intro"  arrowDown={true} />
@@ -29,10 +32,13 @@ class App extends Component {
           </article>
           <MenuHeader zIndex={82}/>
         </section>
-        <section id="content" className="scrollable-content js-scrollable-content" style={{zIndex: 50}}>
+        <section id="content" className="scrollable-content js-main-container js-scrollable-content" style={{zIndex: 50}}>
           <div>
             <div className="blackout js-blackout"></div>
-            <section id="about" className="color-white scrollable-section js-scrollable-section" style={{zIndex: 70}}>
+            <section id="about"
+              className="color-white scrollable-section js-scrollable js-scrollable-section"
+              style={{zIndex: 70}}
+            >
               <Header />
               <MobileHeader />
               <NavHeader navIndex={1} title="About" arrowUp={true} arrowDown={true} />
@@ -52,7 +58,9 @@ class App extends Component {
               </article>
               <MenuHeader zIndex={72}/>
             </section>
-            <section id="work" className="color-orange scrollable-content js-scrollable-content js-work-container" style={{zIndex: 60}}>
+            <section id="work"
+              style={{zIndex: 60}}
+              className="color-orange scrollable-content js-scrollable-content js-work-container">
               <Header />
               <MobileHeader />
               <NavHeader navIndex={2} title="Work" arrowUp={true} arrowDown={true} />
@@ -117,7 +125,7 @@ class App extends Component {
                 <figure className="card__image card__image--itau">
                 </figure>
               </article>
-              <article id="yts" className="card card--work js-work" data-color="green">
+              <article id="yts" className="card card--work js-work" data-color="black">
                 <div className="card__container">
                   <h2 className="card__title">Yts</h2>
                   <label className="card__label">
@@ -137,7 +145,7 @@ class App extends Component {
                 <figure className="card__image card__image--yts">
                 </figure>
               </article>
-              <article id="pagoo" className="card card--work">
+              <article id="pagoo" className="card card--work js-work" data-color="green">
                 <div className="card__container">
                   <h2 className="card__title">Pagoo</h2>
                   <label className="card__label">
@@ -161,7 +169,10 @@ class App extends Component {
             </section>
           </div>
         </section>
-        <footer className="scrollable-footer js-scrollable-footer color-black" style={{zIndex: 40}}>
+        <footer id="footer"
+          style={{zIndex: 40}}
+          className="scrollable-footer js-scrollable js-scrollable-footer color-black"
+        >
           <div className="blackout js-footer-blackout"></div>
           <Header />
           <MobileHeader />
