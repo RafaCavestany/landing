@@ -153,9 +153,6 @@
 }
 
 @media screen and (max-width: 1024px) {
-  .card {
-    padding: calc(var(--vertical-header-size) + var(--base-spacing-unit));
-  }
   .card__title {
     font-size: 36px;
   }
