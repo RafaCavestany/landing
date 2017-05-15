@@ -10,8 +10,8 @@ import Work from '../components/Work';
 import Project from '../components/Project';
 
 
-import '../js/scrollable-sections';
-import '../js/scrollable-colors';
+import '../utils/scrollable-sections';
+import '../utils/scrollable-colors';
 
 class Desktop extends Component {
   render() {
