@@ -61,7 +61,7 @@ class MenuHeader extends Component {
   handleMenuClick() {
     this.setState({
       isMenuActive: !this.state.isMenuActive
-    })
+    });
   };
 
   getActiveClass() {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { animateScroll, Element } from 'react-scroll';
+import { animateScroll } from 'react-scroll';
 
 import $ from 'jquery';
 
@@ -12,6 +12,9 @@ class About extends Component {
   };
 
   handleGoToWork(ev) {
+    if (this.props.isMobile) {
+      return;
+    }
     ev.preventDefault();
     const $scrollableSections = $('.js-scrollable-section');
     const height = $scrollableSections.outerHeight();
@@ -35,7 +38,7 @@ class About extends Component {
           to plan, create and grow their ideas in to digital products, bla bla
           human center approach, user experience, etc.
         </p>
-        <a href="#" className="card__link" onClick={this.handleGoToWork}>
+        <a href="#work" className="card__link" onClick={this.handleGoToWork}>
           See some of his projects below.
         </a>
       </article>
