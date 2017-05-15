@@ -36,12 +36,18 @@ const setBodyHeight = function() {
                          footerHeight +
                          totalTollerance;
 
-  $body.css('height', `${composedHeight}px`);
+  $body.css({
+    'height': composedHeight,
+    'overflow-x': 'hidden'
+  });
 };
 
 const clearBodyHeight = function() {
   const $body = $('body');
-  $body.css('height', '');
+  $body.css({
+    'height': '',
+    'overflow-x': ''
+  });
 }
 
 export {
