@@ -28,11 +28,11 @@ export const WORK_SECTIONS = [
     buttons: [
       {
         name: 'Appstore',
-        link: 'http://oincs.com/'
+        link: 'https://itunes.apple.com/uy/app/cab2ride-passenger/id1104853598?mt=8'
       },
       {
         name: 'Playstore',
-        link: 'http://oincs.com/'
+        link: 'https://play.google.com/store/apps/details?id=com.cab2ride.passenger'
       }
     ],
     color: 'black'
