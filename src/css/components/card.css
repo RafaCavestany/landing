@@ -11,8 +11,8 @@
 .card--work {
   flex-direction: row;
   min-height: 150vh;
-  padding-top: calc(25vh + var(--padding-card));
-  padding-bottom: calc(25vh + var(--padding-card));
+  padding-top: calc(50vh + var(--padding-card));
+  padding-bottom: calc(50vh + var(--padding-card));
   padding-right: 0;
   justify-content: center;
   align-items: flex-start;
@@ -21,6 +21,10 @@
 .card--work:first-of-type {
   padding-top: var(--padding-card);
   align-items: flex-start;
+}
+
+.card--work:last-of-type {
+  padding-bottom: var(--padding-card);
 }
 
 .card__title {
@@ -92,10 +96,6 @@
   background-image: url('../../img/img-cab-2-ride.png');
 }
 
-.card__image--yts {
-  background-image: url('../../img/img-yts.png');
-}
-
 .card__image--pagoo {
   background-image: url('../../img/img-pagoo.png');
 }
@@ -114,10 +114,6 @@
 
   .card__image--cab2ride {
     background-image: url('../../img/img-cab-2-ride@2x.png');
-  }
-
-  .card__image--yts {
-    background-image: url('../../img/img-yts@2x.png');
   }
 
   .card__image--pagoo {
@@ -141,10 +137,6 @@
     background-image: url('../../img/img-cab-2-ride@3x.png');
   }
 
-  .card__image--yts {
-    background-image: url('../../img/img-yts@3x.png');
-  }
-
   .card__image--pagoo {
     background-image: url('../../img/img-pagoo@3x.png');
   }
@@ -161,9 +153,6 @@
 }
 
 @media screen and (max-width: 1024px) {
-  .card {
-    padding: calc(var(--vertical-header-size) + var(--base-spacing-unit));
-  }
   .card__title {
     font-size: 36px;
   }
@@ -182,7 +171,7 @@
   .card--work {
     padding-right: 0;
     flex-direction: column;
-    min-height: 200vh;
+    min-height: 100vh;
   }
   .card__image {
     height: 350px;
