@@ -32,7 +32,6 @@
   margin-left: 0;
   display: none;
   flex-direction: row;
-  z-index: 999;
 }
 
 .header__link {

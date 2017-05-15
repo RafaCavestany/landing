@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 
+import cn from 'classnames';
+
 class MobileHeader extends Component {
   constructor (props) {
     super(props);
-    this.scrollTollerance = 100;
+    this.zIndex = 100;
     this._initState = {
       isMenuActive: false
     };
@@ -55,7 +57,7 @@ class MobileHeader extends Component {
 
   renderMenu(zIndex) {
     return (
-      <div className={`menu ${this.getActiveClass()}`}>
+      <div className={`menu ${this.getActiveClass()}`} style={{zIndex: this.zIndex - 1}}>
         <ul className="menu__list">
           {this.renderMenuItems()}
         </ul>
@@ -64,20 +66,29 @@ class MobileHeader extends Component {
   };
 
   render() {
+    const {isMenuActive} = this.state;
+    const headerClassName = cn(
+      'header',
+      'header--mobile',
+      isMenuActive ? '' : 'color-black'
+    );
+
     return (
-      <header className="header header--mobile">
-        <a href="#project" className="header__link">
-          <span className="header__txt">
-            Rafa Cavestany
-          </span>
-        </a>
-        <div className={`hamburger ${this.getActiveClass()}`} onClick={this.handleMenuClick}>
-          <div className="hamburger__container">
-            <span className="hamburger__item"></span>
+      <div>
+        <header className={headerClassName} style={{zIndex: this.zIndex}}>
+          <a href="#project" className="header__link">
+            <span className="header__txt">
+              Rafa Cavestany
+            </span>
+          </a>
+          <div className={`hamburger ${this.getActiveClass()}`} onClick={this.handleMenuClick}>
+            <div className="hamburger__container">
+              <span className="hamburger__item"></span>
+            </div>
           </div>
-        </div>
+        </header>
         {this.renderMenu()}
-      </header>
+      </div>
     );
   }
 }
