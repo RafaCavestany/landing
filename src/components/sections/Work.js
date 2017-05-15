@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import cn from 'classnames';
+import Button from '../Button';
 
 import {WORK_SECTIONS} from './workSections';
 
@@ -20,13 +20,11 @@ class Work extends Component {
   renderWorkButtons(buttons, sectionName) {
     return buttons.map(function(button, index) {
       return (
-        <a href={button.link}
-          target="_blank"
-          className="button"
+        <Button
           key={`btn-${sectionName}-${index}`}
-        >
-          {button.name}
-        </a>
+          link={button.link}
+          name={button.name}
+        />
       );
     });
   };

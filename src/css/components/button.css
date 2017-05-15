@@ -9,9 +9,14 @@
   border: 1px solid transparent;
   margin-right: 15px;
   margin-bottom: 15px;
+  cursor: default;
 }
 
-.button::after {
+.button--cta {
+  cursor: pointer;
+}
+
+.button--cta::after {
   mask: url(../../img/btn-arrow-white.svg) no-repeat 100% 100%;
   -webkit-mask: url(../../img/btn-arrow-white.svg) no-repeat 100% 100%;
   margin-left: 10px;
