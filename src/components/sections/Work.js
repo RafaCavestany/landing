@@ -36,7 +36,7 @@ class Work extends Component {
       <article
         id={workSection.name}
         key={workSection.name}
-        className="card card--work js-work"
+        className="card card--work js-work js-scrollable-color"
         data-color={workSection.color}
       >
         <div className="card__container">
