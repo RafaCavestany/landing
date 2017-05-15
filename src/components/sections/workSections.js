@@ -38,7 +38,7 @@ export const WORK_SECTIONS = [
     color: 'black'
   },
   {
-    name: 'itaú',
+    name: 'itau',
     roles: ['Product Manager', 'Designer'],
     description: `Itaú Bank Uruguay requested solutions for their
                   clients products. Rafa teamed up with other members of
