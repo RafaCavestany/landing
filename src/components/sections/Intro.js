@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class Intro extends Component {
   render() {
     return (
-      <article id="rafael" className="card banner">
+      <article id="intro" className="card banner">
         <h1 className="card__title banner__title">
           <div className="banner__container">
             Rafa Cavestany is an Award-winning <span className="u-inline-block u-txt-underlined">

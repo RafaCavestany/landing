@@ -28,7 +28,7 @@ class About extends Component {
 
   render() {
     return (
-      <article id="aboutRafael" className="card">
+      <article id="about" className="card">
         <h2 className="card__title">
           He has led projects for companies such as Intel, AT&amp;T, Telefónica,
           HP, Visa, Directv, Golf Channel among others.

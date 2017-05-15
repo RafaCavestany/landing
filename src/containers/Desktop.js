@@ -29,7 +29,7 @@ class Desktop extends Component {
     return (
       <div className="wrapper">
         <div className="container">
-          <section id="intro"
+          <section
             style={{zIndex: 80}}
             className="scrollable-section color-black js-scrollable js-scrollable-section"
           >
@@ -41,9 +41,8 @@ class Desktop extends Component {
           <section id="content" className="scrollable-content js-main-container js-scrollable-content" style={{zIndex: 50}}>
             <div>
               <div className="blackout js-blackout"></div>
-              <section id="about"
+              <section style={{zIndex: 70}}
                 className="scrollable-section color-white js-scrollable js-scrollable-section"
-                style={{zIndex: 70}}
               >
                 <Header />
                 <NavHeader navIndex={1} title="About" arrowUp={true} arrowDown={true} />
