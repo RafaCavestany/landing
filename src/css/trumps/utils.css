@@ -17,3 +17,7 @@
 .u-txt-capitalize {
   text-transform: capitalize;
 }
+
+.u-inline-block {
+  display: inline-block;
+}
