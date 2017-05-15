@@ -8,10 +8,6 @@ class Button extends Component {
     super(props);
   };
 
-  handleClick(ev) {
-    ev.preventDefault();
-  }
-
   render() {
     const {link, name} = this.props;
 
@@ -21,7 +17,7 @@ class Button extends Component {
     );
 
     return (
-      <a href={link ? link : '#'}
+      <a href={link ? link : 'javascript:'}
         target="_blank"
         className={btnClassName}
         onClick={this.handleClick}
