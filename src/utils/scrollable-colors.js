@@ -22,16 +22,16 @@ const getDistance = function($elements, currentIndex) {
 
 // This code is based on this pen: https://codepen.io/daveredfern/pen/zBGBJV
 $(document).ready(function() {
-  const $workContainer = $('.js-work-container');
-  const $panel = $('.js-work');
+  const $workContainer = $('.js-scrollable-color-container');
+  const $panel = $('.js-scrollable-color');
 
   $workContainer.addClass('color-' + $panel.data('color'));
 });
 
 $(window).scroll(function() {
   const $window = $(window);
-  const $workSections = $('.js-work');
-  const $workContainer = $('.js-work-container');
+  const $workSections = $('.js-scrollable-color');
+  const $workContainer = $('.js-scrollable-color-container');
   //
   let cur_pos = $window.scrollTop();
   // First section only needs to be scrolled half.

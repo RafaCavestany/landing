@@ -23,7 +23,7 @@ const setBodyHeight = function() {
   const $scrollableSections = $('.js-scrollable-section');
   const sectionsHeight = getElementsHeight($scrollableSections);
   // Work section (main)
-  const $workSections = $('.js-work');
+  const $workSections = $('.js-scrollable-color');
   const workSectionsHeight = getElementsHeight($workSections);
   // Footer
   const $scrollableFooter = $('.js-scrollable-footer');

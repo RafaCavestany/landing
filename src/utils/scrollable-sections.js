@@ -85,7 +85,7 @@ const handleNewSectionScroll = function(element, scroll) {
 
 const handleScroll = function(element) {
   const $scrollableSections = $('.js-scrollable-section');
-  const $workSections = $('.js-work');
+  const $workSections = $('.js-scrollable-color');
   const cur_pos = $(element).scrollTop();
 
   $scrollableSections.each(function(index) {

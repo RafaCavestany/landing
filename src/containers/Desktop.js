@@ -52,7 +52,7 @@ class Desktop extends Component {
               </section>
               <section id="work"
                 style={{zIndex: 60}}
-                className="scrollable-content js-scrollable-content js-work-container">
+                className="scrollable-content js-scrollable-content js-scrollable-color-container">
                 <Header />
                 <NavHeader navIndex={2} title="Work" arrowUp={true} arrowDown={true} />
                 <Work zIndex={60} />
