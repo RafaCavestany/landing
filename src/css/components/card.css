@@ -178,6 +178,9 @@
     width: 100%;
     margin-top: 30px;
   }
+  .card__image--itau {
+    background-position: center;
+  }
   .card__container {
     width: 100%;
   }
