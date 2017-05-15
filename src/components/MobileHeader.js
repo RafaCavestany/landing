@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import $ from 'jquery';
+
 import cn from 'classnames';
 
 class MobileHeader extends Component {
@@ -7,12 +9,44 @@ class MobileHeader extends Component {
     super(props);
     this.zIndex = 100;
     this._initState = {
-      isMenuActive: false
+      isMenuActive: false,
+      isHeaderVisible: true
     };
-    this.state = this._initState;
+    this.state = {
+      ...this._initState,
+      currentPosition: 0,
+      isHeaderAtTop: false
+    };
     this.handleClose = this.handleClose.bind(this);
+    this.handleScroll = this.handleScroll.bind(this);
     this.handleNavClick = this.handleNavClick.bind(this);
     this.handleMenuClick = this.handleMenuClick.bind(this);
+  };
+
+  componentDidMount() {
+    window.addEventListener('scroll', this.handleScroll);
+  };
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll);
+  };
+
+  handleScroll() {
+    const {currentPosition} = this.state;
+    const newPosition = $(window).scrollTop();
+    let isHeaderVisible = false;
+    let isHeaderAtTop = false;
+    if (newPosition < currentPosition) {
+      isHeaderVisible = true;
+    }
+    if (newPosition === 0) {
+      isHeaderAtTop = true;
+    }
+    this.setState({
+      currentPosition: newPosition,
+      isHeaderVisible: isHeaderVisible,
+      isHeaderAtTop: isHeaderAtTop
+    });
   };
 
   handleNavClick(ev) {
@@ -66,11 +100,13 @@ class MobileHeader extends Component {
   };
 
   render() {
-    const {isMenuActive} = this.state;
+    const {isMenuActive, isHeaderVisible, isHeaderAtTop} = this.state;
     const headerClassName = cn(
       'header',
       'header--mobile',
-      isMenuActive ? '' : 'color-black'
+      isMenuActive ? '' : 'color-black',
+      isHeaderVisible ? 'active' : '',
+      isHeaderAtTop ? 'at-top' : ''
     );
 
     return (

@@ -10,6 +10,10 @@
   align-items: center;
   z-index: inherit;
   font-family: 'Roboto Mono', monospace;
+  animation-duration: .3s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  transition: background-color .3s ease;
 }
 
 .header--desktop {
@@ -18,11 +22,7 @@
   margin-right: var(--vertical-header-size);
   margin-left: var(--vertical-header-size);
   top: calc(var(--header-size) * -1);
-  animation-duration: 0.3s;
   animation-delay: 1.1s;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-  animation-name: slideFromTop;
 }
 
 .header--mobile {
@@ -32,6 +32,16 @@
   margin-left: 0;
   display: none;
   flex-direction: row;
+  top: calc(var(--header-size) * -1);
+  animation-name: slideFromBottom;
+}
+
+.header--desktop, .header--mobile.active {
+  animation-name: slideFromTop;
+}
+
+.header--mobile.at-top {
+  background-color: transparent;
 }
 
 .header__link {
@@ -76,5 +86,14 @@
   }
   to {
     top: 0
+  }
+}
+
+@keyframes slideFromBottom {
+  from {
+    top: 0
+  }
+  to {
+    top: calc(var(--header-size) * -1)
   }
 }
