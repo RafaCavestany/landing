@@ -6,10 +6,10 @@ import Header from '../components/Header';
 import NavHeader from '../components/NavHeader';
 import MenuHeader from '../components/MenuHeader';
 
-import Intro from '../components/Intro';
-import About from '../components/About';
-import Work from '../components/Work';
-import Project from '../components/Project';
+import Intro from '../components/sections/Intro';
+import About from '../components/sections/About';
+import Work from '../components/sections/Work';
+import Project from '../components/sections/Project';
 
 import {setBodyHeight, clearBodyHeight} from '../utils/set-body-height';
 
