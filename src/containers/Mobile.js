@@ -10,13 +10,13 @@ import Project from '../components/Project';
 class Mobile extends Component {
   render() {
     return (
-      <div>
+      <section>
         <MobileHeader />
         <Intro />
         <About />
         <Work />
         <Project />
-      </div>
+      </section>
     );
   }
 }
