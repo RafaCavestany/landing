@@ -1,3 +1,8 @@
+.root {
+  height: 100%;
+  position: relative;
+}
+
 .wrapper {
   display: flex;
   flex-direction: row;
