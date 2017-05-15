@@ -4,7 +4,7 @@ import cn from 'classnames';
 
 import {WORK_SECTIONS} from './workSections';
 
-class Work extends Component {
+class MobileWork extends Component {
   getRoles(roles) {
     let rolesString = ``;
     roles.map(function(role, index) {
@@ -32,11 +32,16 @@ class Work extends Component {
   };
 
   renderWorkSection(workSection) {
+    const mobileWorkClassName = cn(
+      'card',
+      'card--work',
+      `color-${workSection.color}`
+    );
     return (
       <article
         id={workSection.name}
         key={workSection.name}
-        className="card card--work js-work"
+        className={mobileWorkClassName}
         data-color={workSection.color}
       >
         <div className="card__container">
@@ -67,4 +72,4 @@ class Work extends Component {
   }
 }
 
-export default Work;
+export default MobileWork;

@@ -4,7 +4,7 @@ import MobileHeader from '../components/MobileHeader';
 
 import Intro from '../components/Intro';
 import About from '../components/About';
-import Work from '../components/Work';
+import MobileWork from '../components/MobileWork';
 import Project from '../components/Project';
 
 class Mobile extends Component {
@@ -16,7 +16,7 @@ class Mobile extends Component {
           <Intro />
         </section>
         <About />
-        <Work isMobile="true" />
+        <MobileWork />
         <footer className="color-black">
           <Project />
         </footer>
