@@ -35,6 +35,7 @@ const setBodyHeight = function() {
                          workSectionsHeight +
                          footerHeight +
                          totalTollerance;
+
   $body.css('height', `${composedHeight}px`);
 };
 

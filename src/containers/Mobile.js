@@ -15,7 +15,9 @@ class Mobile extends Component {
         <section className="color-black">
           <Intro />
         </section>
-        <About />
+        <section className="color-white">
+          <About />
+        </section>
         <MobileWork />
         <footer className="color-black">
           <Project />
