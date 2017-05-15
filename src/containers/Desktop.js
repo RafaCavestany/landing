@@ -9,7 +9,7 @@ import About from '../components/About';
 import Work from '../components/Work';
 import Project from '../components/Project';
 
-
+import '../utils/set-body-height';
 import '../utils/scrollable-sections';
 import '../utils/scrollable-colors';
 
