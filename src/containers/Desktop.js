@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import $ from 'jquery';
+
 import Header from '../components/Header';
 import NavHeader from '../components/NavHeader';
 import MenuHeader from '../components/MenuHeader';
@@ -9,11 +11,20 @@ import About from '../components/About';
 import Work from '../components/Work';
 import Project from '../components/Project';
 
-import '../utils/set-body-height';
+import {setBodyHeight, clearBodyHeight} from '../utils/set-body-height';
+
 import '../utils/scrollable-sections';
 import '../utils/scrollable-colors';
 
 class Desktop extends Component {
+  componentDidMount() {
+    setBodyHeight();
+  }
+
+  componentWillUnmount() {
+    clearBodyHeight();
+  }
+
   render() {
     return (
       <div className="wrapper">

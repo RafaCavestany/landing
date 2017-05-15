@@ -38,10 +38,12 @@ const setBodyHeight = function() {
   $body.css('height', `${composedHeight}px`);
 };
 
+const clearBodyHeight = function() {
+  const $body = $('body');
+  $body.css('height', '');
+}
 
-
-$(document).ready(function() {
-  // Here we calculate the total height of the body by calculating
-  // the height of the scrollableSections and the scrollableContents.
-  setBodyHeight();
-});
+export {
+  setBodyHeight,
+  clearBodyHeight
+}
