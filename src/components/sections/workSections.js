@@ -47,21 +47,6 @@ export const WORK_SECTIONS = [
     color: 'white'
   },
   {
-    name: 'yts',
-    roles: ['Designer'],
-    description: `Oincs it’s a mobile crowdsourcing platform that helps people move
-                  around safely by sharing real time information such as danger zones,
-                  accidents, robberies, garbage in the street among others incidents,
-                  to create a better city life experience.`,
-    buttons: [
-      {
-        name: 'Website',
-        link: 'http://oincs.com/'
-      }
-    ],
-    color: 'black'
-  },
-  {
     name: 'pagoo',
     roles: ['Designer'],
     description: `Oincs it’s a mobile crowdsourcing platform that helps people move
