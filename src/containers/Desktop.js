@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { animateScroll } from 'react-scroll';
 
 import $ from 'jquery';
 
@@ -19,6 +20,9 @@ import '../utils/scrollable-colors';
 class Desktop extends Component {
   componentDidMount() {
     setBodyHeight();
+    animateScroll.scrollTo('top', {
+      delay: 0
+    });
   }
 
   componentWillUnmount() {

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import { animateScroll } from 'react-scroll';
 
 import $ from 'jquery';

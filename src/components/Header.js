@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import { animateScroll } from 'react-scroll';
 
 class Header extends Component {
