@@ -30,13 +30,12 @@ class NavHeader extends Component {
 
   renderArrowUp() {
     const {navIndex} = this.props;
-    let className = ''
     if (navIndex === 0) {
-      className = 'hidden';
+      return null;
     }
     return (
       <a href="#"
-        className={`vertical-header__icon nav-arrow ${className}`}
+        className="vertical-header__icon"
         onClick={(ev) => this.handleArrowUp(ev, navIndex)}
       >
         <i className="svg-icon svg-icon-arrow-up"></i>
@@ -94,13 +93,12 @@ class NavHeader extends Component {
 
   renderArrowDown() {
     const {navIndex} = this.props;
-    let className = ''
     if (navIndex === 3) {
-      className = 'hidden';
+      return null;
     }
     return (
       <a href="#"
-        className={`vertical-header__icon nav-arrow ${className}`}
+        className="vertical-header__icon"
         onClick={(ev) => this.handleArrowDown(ev, navIndex)}
       >
         <i className="svg-icon svg-icon-arrow-down"></i>
