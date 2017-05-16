@@ -69,7 +69,7 @@ class Desktop extends Component {
           >
             <div className="blackout js-footer-blackout" style={{zIndex: 43}}></div>
             <Header />
-            <NavHeader navIndex={3} title="Project" arrowUp={true} arrowDown={false} />
+            <NavHeader navIndex={3} title="Start a Project" arrowUp={true} arrowDown={false} />
             <Project />
             <MenuHeader zIndex={40} />
           </footer>

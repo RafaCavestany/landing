@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 
+import cn from 'classnames';
 import $ from 'jquery';
 
-import cn from 'classnames';
+import {MENU_SECTIONS} from './menuSections';
 
 class MobileHeader extends Component {
   constructor (props) {
@@ -69,20 +70,14 @@ class MobileHeader extends Component {
   };
 
   renderMenuItems() {
-    const sections = [
-      { name: 'intro'},
-      { name: 'about'},
-      { name: 'work'},
-      { name: 'project'}
-    ];
-    return sections.map((section, index) => {
+    return MENU_SECTIONS.map((section, index) => {
       return (
         <li key={`${section.name}-${index}`}
           className="menu__item"
           onClick={this.handleNavClick}
         >
-          <a href={`#${section.name}`} className="u-txt-capitalize">
-            {section.name}
+          <a href={`#${section.name}`}>
+            {section.title}
           </a>
         </li>
       );

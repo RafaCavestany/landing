@@ -3,6 +3,8 @@ import { animateScroll } from 'react-scroll';
 
 import $ from 'jquery';
 
+import {MENU_SECTIONS} from './menuSections';
+
 class MenuHeader extends Component {
 
   constructor (props) {
@@ -97,17 +99,11 @@ class MenuHeader extends Component {
   };
 
   renderMenuItems() {
-    const sections = [
-      { name: 'intro'},
-      { name: 'about'},
-      { name: 'work'},
-      { name: 'project'}
-    ];
-    return sections.map((section, index) => {
+    return MENU_SECTIONS.map((section, index) => {
       return (
         <li className="menu__item" key={`${section.name}-${index}`}>
-          <a href="#" onClick={(ev) => this.handleNavClick(ev, index)} className="u-txt-capitalize">
-            {section.name}
+          <a href="#" onClick={(ev) => this.handleNavClick(ev, index)}>
+            {section.title}
           </a>
         </li>
       );

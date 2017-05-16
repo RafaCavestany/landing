@@ -65,7 +65,6 @@
 .vertical-header__content {
   align-self: center;
   white-space: nowrap;
-  text-transform: capitalize;
 }
 
 .vertical-header__content--rotated {

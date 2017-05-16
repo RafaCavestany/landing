@@ -65,5 +65,5 @@ export const WORK_SECTIONS = [
       }
     ],
     color: 'green'
-  },
+  }
 ];
