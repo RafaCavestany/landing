@@ -20,8 +20,8 @@
 }
 
 .c-button--cta::after {
-  mask: url(../../img/btn-arrow-white.svg) no-repeat 100% 100%;
-  -webkit-mask: url(../../img/btn-arrow-white.svg) no-repeat 100% 100%;
+  mask: url('../img/btn-arrow-white.svg') no-repeat 100% 100%;
+  -webkit-mask: url('../img/btn-arrow-white.svg') no-repeat 100% 100%;
   margin-left: 10px;
   width: 36px;
   height: 13px;

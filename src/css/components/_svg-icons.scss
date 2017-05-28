@@ -1,0 +1,13 @@
+[class*='svg-icon-arrow-'] {
+  width: 13px;
+  height: 36px;
+  display: inline-flex;
+}
+.svg-icon-arrow-down {
+  mask: url('../img/icon-arrow-down.svg') no-repeat 100% 100%;
+  -webkit-mask: url('../img/icon-arrow-down.svg') no-repeat 100% 100%;
+}
+.svg-icon-arrow-up {
+  mask: url('../img/icon-arrow-up.svg') no-repeat 100% 100%;
+  -webkit-mask: url('../img/icon-arrow-up.svg') no-repeat 100% 100%;
+}

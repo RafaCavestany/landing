@@ -1,6 +1,6 @@
 .c-banner {
   background-size: cover;
-  background-image: url('../../img/banner.jpg');
+  background-image: url('../img/banner.jpg');
   background-repeat: no-repeat;
   background-position: center;
   animation-name: fadeOpacity;
@@ -36,7 +36,7 @@
        only screen and (min-resolution: 1.25dppx),
        only screen and (min-width: 768px) {
   .c-banner {
-    background-image: url('../../img/banner@2x.jpg');
+    background-image: url('../img/banner@2x.jpg');
   }
 }
 
@@ -46,7 +46,7 @@
        only screen and (min-resolution: 1.25dppx),
        only screen and (max-width: 768px) {
   .c-banner {
-    background-image: url('../../img/banner-mobile@2x.jpg');
+    background-image: url('../img/banner-mobile@2x.jpg');
   }
 }
 
@@ -57,7 +57,7 @@
        only screen and (min-resolution: 2.25dppx),
        only screen and (min-width: 768px) {
   .c-banner {
-    background-image: url('../../img/banner@3x.jpg');
+    background-image: url('../img/banner@3x.jpg');
   }
 }
 
@@ -67,7 +67,7 @@
        only screen and (min-resolution: 2.25dppx),
        only screen and (max-width: 768px) {
   .c-banner {
-    background-image: url('../../img/banner-mobile@3x.jpg');
+    background-image: url('../img/banner-mobile@3x.jpg');
   }
 }
 
@@ -89,6 +89,6 @@
     width: 100%;
   }
   .c-banner {
-    background-image: url('../../img/banner-mobile.jpg');
+    background-image: url('../img/banner-mobile.jpg');
   }
 }

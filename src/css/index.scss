@@ -1,56 +1,51 @@
+@charset 'UTF-8';
 /*
   We are using an architecture of file import following ITCSS:
   https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/
 */
-
 /*
   Settings – contain fonts, colors definitions, etc.
 */
-@import 'settings/colors.css';
-@import 'settings/fonts.css';
-@import 'settings/variables.css';
-
+@import 'settings/colors';
+@import 'settings/fonts';
+@import 'settings/variables';
 /*
   Generic – reset and/or normalize styles, box-sizing definition, etc.
   This is the first layer which generates actual CSS.
 */
-@import 'generic/reset.css';
-@import 'generic/normalize.css';
-@import 'generic/page.css';
-
+@import 'generic/reset';
+@import 'generic/normalize';
+@import 'generic/page';
 /*
   Elements – styling for bare HTML elements (like H1, A, etc.).
   These come with default styling from the browser so we can redefine them here.
 */
-@import 'elements/headings.css';
-@import 'elements/link.css';
-
+@import 'elements/headings';
+@import 'elements/link';
 /*
   Objects – class-based selectors which define undecorated design patterns.
 */
-@import 'objects/layout.css';
-
+@import 'objects/layout';
 /*
   Components – specific UI components. This is where majority of our work takes
   place and our UI components are often composed of Objects and Components
 */
-@import 'components/banner.css';
-@import 'components/blackout.css';
-@import 'components/button.css';
-@import 'components/card.css';
-@import 'components/hamburger.css';
-@import 'components/header.css';
-@import 'components/icons.css';
-@import 'components/menu.css';
-@import 'components/project.css';
-@import 'components/svg-icons.css';
-@import 'components/scrollable.css';
-@import 'components/vertical-header.css';
-
+@import 'components/banner';
+@import 'components/blackout';
+@import 'components/button';
+@import 'components/card';
+@import 'components/hamburger';
+@import 'components/header';
+@import 'components/icons';
+@import 'components/menu';
+@import 'components/project';
+@import 'components/svg-icons';
+@import 'components/scrollable';
+@import 'components/vertical-header';
 /*
   Trumps – utilities and helper classes with ability to override anything
    which goes before in the cascade, eg. hide helper class
 */
-@import 'trumps/sizes.css';
-@import 'trumps/utils.css';
-@import 'trumps/themes.css';
+@import 'trumps/sizes';
+@import 'trumps/utils';
+@import 'trumps/themes';
