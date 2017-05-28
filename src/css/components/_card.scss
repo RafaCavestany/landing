@@ -119,6 +119,24 @@
     }
   }
 
+  @media screen and (max-width: 1280px) {
+    &__title {
+      font-size: 48px;
+    }
+  }
+
+  @media screen and (max-width: 1024px) {
+    &__title {
+      font-size: 36px;
+    }
+    &--work {
+      padding-right: 0;
+    }
+    &__paragraph--small {
+      max-width: 80%;
+    }
+  }
+
   @media screen and (max-width: 768px) {
     padding: var(--big-spacing-unit) var(--base-spacing-unit);
     &--work {
@@ -136,24 +154,6 @@
     }
     &__container {
       width: 100%;
-    }
-  }
-
-  @media screen and (max-width: 1024px) {
-    &__title {
-      font-size: 36px;
-    }
-    &--work {
-      padding-right: 0;
-    }
-    &__paragraph--small {
-      max-width: 80%;
-    }
-  }
-
-  @media screen and (max-width: 1280px) {
-    &__title {
-      font-size: 48px;
     }
   }
 }
