@@ -4,6 +4,7 @@ class Intro extends Component {
   render() {
     return (
       <article id="project" className="card">
+        <div className="project__bg"></div>
         <h2 className="card__title">
           {`Interested in starting a project?`}
         </h2>
