@@ -16,6 +16,7 @@ class Work extends Component {
     );
     return (
       <WorkSection
+        key={workSection.name}
         workSection={workSection}
         workSectionClassName={workSectionClassName}
       />
@@ -25,7 +26,7 @@ class Work extends Component {
   render() {
     return (
       <section id="work">
-        {WORK_SECTIONS.map(this.renderWorkSection, this)}
+        {WORK_SECTIONS.map(this.renderWorkSection)}
       </section>
     );
   }
