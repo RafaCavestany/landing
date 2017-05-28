@@ -3,22 +3,36 @@ import React, { Component } from 'react';
 import cn from 'classnames';
 
 class Button extends Component {
-  render() {
-    const {link, name} = this.props;
-
+  renderClickableButton(link, name) {
     const btnClassName = cn(
       'button',
-      link ? 'button--cta' : ''
+      'button--cta'
     );
 
     return (
-      <a href={link ? link : 'javascript:'}
+      <a href={link}
         target="_blank"
         className={btnClassName}
-        onClick={this.handleClick}
       >
         {name}
       </a>
+    );
+  }
+
+  renderNormalButton(name) {
+    return (
+      <span className="button">
+        {name}
+      </span>
+    );
+  }
+
+  render() {
+    const {link, name} = this.props;
+
+    return (
+      link ? this.renderClickableButton(link, name) :
+             this.renderNormalButton(name)
     );
   };
 }
