@@ -18,22 +18,24 @@
   visibility: hidden;
   font-family: 'Roboto Mono', monospace;
 
+  // .c-menu.active {
   &.active {
     opacity: 0.9;
     visibility: visible;
   }
 
+  // .c-menu__list {
   &__list {
     display: flex;
     flex-direction: column;
   }
 
+  // .c-menu__item {
   &__item {
     padding-bottom: var(--base-spacing-unit);
     text-align: right;
   }
 
-  // Responsive:
   @media screen and (max-width: 768px) {
     padding: var(--big-spacing-unit);
   }
