@@ -12,24 +12,24 @@
   border-width: 1px;
   border-color: transparent;
   border-style: dashed;
-}
 
-.c-button--cta {
-  border-style: solid;
-  cursor: pointer;
-}
+  &:last-child {
+    margin-right: 0;
+  }
 
-.c-button--cta::after {
-  mask: url('../img/btn-arrow-white.svg') no-repeat 100% 100%;
-  -webkit-mask: url('../img/btn-arrow-white.svg') no-repeat 100% 100%;
-  margin-left: 10px;
-  width: 36px;
-  height: 13px;
-  content: ' ';
-  display: inline-flex;
-  background-color: inherit;
-}
-
-.c-button:last-child {
-  margin-right: 0;
+  // .c-button--cta {
+  &--cta {
+    border-style: solid;
+    cursor: pointer;
+    &::after {
+      mask: url('../img/btn-arrow-white.svg') no-repeat 100% 100%;
+      -webkit-mask: url('../img/btn-arrow-white.svg') no-repeat 100% 100%;
+      margin-left: 10px;
+      width: 36px;
+      height: 13px;
+      content: ' ';
+      display: inline-flex;
+      background-color: inherit;
+    }
+  }
 }

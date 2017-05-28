@@ -50,7 +50,7 @@ class WorkSection extends Component {
           </p>
           {this.renderButtons(workSection.buttons, workSection.name)}
         </div>
-        <figure className={`c-card__image c-card__image--${workSection.name}`}>
+        <figure className={`c-card-image c-card-image--${workSection.name}`}>
         </figure>
       </article>
     );

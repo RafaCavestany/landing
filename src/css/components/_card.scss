@@ -6,196 +6,154 @@
   flex-direction: column;
   justify-content: center;
   z-index: 1;
-}
 
-.c-card--work {
-  flex-direction: row;
-  min-height: 150vh;
-  padding-top: calc(50vh + var(--padding-card));
-  padding-bottom: calc(50vh + var(--padding-card));
-  padding-right: 0;
-  justify-content: center;
-  align-items: flex-start;
-}
-
-.c-card--work:first-of-type {
-  padding-top: var(--padding-card);
-  align-items: flex-start;
-}
-
-.c-card--work:last-of-type {
-  padding-bottom: var(--padding-card);
-}
-
-.c-card__title {
-  font-size: 60px;
-  font-weight: 600;
-  line-height: 1.27;
-  margin-bottom: 20px;
-}
-
-.c-card--work .c-card__title {
-  text-transform: capitalize;
-}
-
-.c-card__title__link {
-  font-size: inherit;
-}
-
-.c-card__paragraph {
-  font-size: 1rem;
-  line-height: 1.5rem;
-  margin-bottom: 2.5rem;
-}
-
-.c-card__paragraph--small {
-  max-width: 40%;
-}
-
-.c-card__link {
-  font-size: 1rem;
-  font-weight: 600;
-}
-
-.c-card__line-break {
-  width: 40px;
-  height: 1px;
-  display: block;
-  margin: 20px 0;
-  border: 0;
-}
-
-.c-card__label {
-  margin: 0;
-  font-size: 13px;
-  font-weight: 600;
-  text-transform: uppercase;
-  font-family: 'Roboto Mono', monospace;
-}
-
-.c-card__container {
-  width: 40%;
-  padding-right: 30px;
-  box-sizing: border-box;
-}
-
-.c-card__image {
-  width: 60%;
-  display: block;
-  margin: 0;
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: right top;
-  height: 70vh;
-}
-
-.c-card__image--oincs {
-  background-image: url('../img/img-oincs.png');
-}
-
-.c-card__image--cab2ride {
-  background-image: url('../img/img-cab-2-ride.png');
-}
-
-.c-card__image--pagoo {
-  background-image: url('../img/img-pagoo.png');
-}
-
-.c-card__image--itau {
-  background-image: url('../img/img-itau.png');
-  background-position: center;
-}
-
-@media only screen and (-o-min-device-pixel-ratio: 5/4),
-       only screen and (-webkit-min-device-pixel-ratio: 1.25),
-       only screen and (min-device-pixel-ratio: 1.25),
-       only screen and (min-resolution: 1.25dppx) {
-  .c-card__image--oincs {
-    background-image: url('../img/img-oincs@2x.png');
-  }
-
-  .c-card__image--cab2ride {
-    background-image: url('../img/img-cab-2-ride@2x.png');
-  }
-
-  .c-card__image--pagoo {
-    background-image: url('../img/img-pagoo@2x.png');
-  }
-
-  .c-card__image--itau {
-    background-image: url('../img/img-itau@2x.png');
-  }
-}
-
-@media only screen and (-o-min-device-pixel-ratio: 9/4),
-       only screen and (-webkit-min-device-pixel-ratio: 2.25),
-       only screen and (min-device-pixel-ratio: 2.25),
-       only screen and (min-resolution: 2.25dppx) {
-  .c-card__image--oincs {
-    background-image: url('../img/img-oincs@3x.png');
-  }
-
-  .c-card__image--cab2ride {
-    background-image: url('../img/img-cab-2-ride@3x.png');
-  }
-
-  .c-card__image--pagoo {
-    background-image: url('../img/img-pagoo@3x.png');
-  }
-
-  .c-card__image--itau {
-    background-image: url('../img/img-itau@3x.png');
-  }
-}
-
-@media screen and (max-width: 1280px) {
-  .c-card__title {
-    font-size: 48px;
-  }
-}
-
-@media screen and (max-width: 1024px) {
-  .c-card__title {
-    font-size: 36px;
-  }
-  .c-card--work {
+  &--work {
+    flex-direction: row;
+    min-height: 150vh;
+    padding-top: calc(50vh + var(--padding-card));
+    padding-bottom: calc(50vh + var(--padding-card));
     padding-right: 0;
-  }
-  .c-card__paragraph--small {
-    max-width: 80%;
-  }
-}
+    justify-content: center;
+    align-items: flex-start;
 
-@media screen and (max-width: 768px) {
-  .c-card {
+    &:first-of-type {
+      padding-top: var(--padding-card);
+      align-items: flex-start;
+    }
+
+    &:last-of-type {
+      padding-bottom: var(--padding-card);
+    }
+
+    .c-card__title {
+      text-transform: capitalize;
+    }
+  }
+  // .c-card__title {
+  &__title {
+    font-size: 60px;
+    font-weight: 600;
+    line-height: 1.27;
+    margin-bottom: 20px;
+    // .c-card__title__link {
+    &__link {
+      font-size: inherit;
+
+      @media screen and (max-width: 480px) {
+        font-size: 22px;
+      }
+      @media screen and (max-width: 320px) {
+        font-size: 18px;
+      }
+    }
+  }
+
+  // .c-card__paragraph {
+  &__paragraph {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  // .c-card__paragraph--small {
+  &__paragraph--small {
+    max-width: 40%;
+  }
+
+  // .c-card__link {
+  &__link {
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  // .c-card__line-break {
+  &__line-break {
+    width: 40px;
+    height: 1px;
+    display: block;
+    margin: 20px 0;
+    border: 0;
+  }
+
+  // .c-card__label {
+  &__label {
+    margin: 0;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-family: 'Roboto Mono', monospace;
+  }
+
+  // .c-card__container {
+  &__container {
+    width: 40%;
+    padding-right: 30px;
+    box-sizing: border-box;
+  }
+
+  // .c-card-image {
+  &-image {
+    width: 60%;
+    display: block;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: right top;
+    height: 70vh;
+
+    &--oincs {
+      @include retina('img-oincs', 'png');
+    }
+
+    &--cab2ride {
+      @include retina('img-cab-2-ride', 'png');
+    }
+
+    &--pagoo {
+      @include retina('img-pagoo', 'png');
+    }
+
+    &--itau {
+      @include retina('img-itau', 'png');
+      background-position: center;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
     padding: var(--big-spacing-unit) var(--base-spacing-unit);
+    &--work {
+      padding-right: 0;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    &-image {
+      height: 350px;
+      width: 100%;
+      margin-top: 30px;
+    }
+    &-image--itau {
+      background-position: center;
+    }
+    &__container {
+      width: 100%;
+    }
   }
-  .c-card--work {
-    padding-right: 0;
-    flex-direction: column;
-    min-height: 100vh;
-  }
-  .c-card__image {
-    height: 350px;
-    width: 100%;
-    margin-top: 30px;
-  }
-  .c-card__image--itau {
-    background-position: center;
-  }
-  .c-card__container {
-    width: 100%;
-  }
-}
 
-@media screen and (max-width: 480px) {
-  .c-card__title__link {
-    font-size: 22px;
+  @media screen and (max-width: 1024px) {
+    &__title {
+      font-size: 36px;
+    }
+    &--work {
+      padding-right: 0;
+    }
+    &__paragraph--small {
+      max-width: 80%;
+    }
   }
-}
 
-@media screen and (max-width: 320px) {
-  .c-card__title__link {
-    font-size: 18px;
+  @media screen and (max-width: 1280px) {
+    &__title {
+      font-size: 48px;
+    }
   }
 }

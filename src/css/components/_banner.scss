@@ -1,94 +1,45 @@
 .c-banner {
-  background-size: cover;
-  background-image: url('../img/banner.jpg');
-  background-repeat: no-repeat;
-  background-position: center;
   animation-name: fadeOpacity;
   animation-duration: 0.5s;
   animation-iteration-count: 1;
   opacity: 0;
   animation-fill-mode: forwards;
-}
 
-.c-banner__title {
-  animation-name: fadeOpacity;
-  animation-duration: 0.3s;
-  animation-delay: 0.3s;
-  animation-iteration-count: 1;
-  opacity: 0;
-  animation-fill-mode: forwards;
-}
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  @include retina('banner', 'jpg');
 
-.c-banner__container {
-  width: 70%;
-  max-width: 780px;
+  // .c-banner__title {
+  &__title {
+    animation-name: fadeOpacity;
+    animation-duration: 0.3s;
+    animation-delay: 0.3s;
+    animation-iteration-count: 1;
+    opacity: 0;
+    animation-fill-mode: forwards;
+  }
+  // .c-banner__container {
+  &__container {
+    width: 70%;
+    max-width: 780px;
+  }
+
+  @media only screen and (max-width: 768px) {
+    @include retina('banner-mobile', 'jpg');
+    &__container {
+      width: 100%;
+    }
+  }
+
+  @media only screen and (max-width: 1024px) {
+    &__container {
+      width: 80%;
+    }
+  }
 }
 
 @keyframes fadeOpacity {
   from {opacity: 0}
   to {opacity: 1}
-}
-
-/* @2x */
-@media only screen and (-o-min-device-pixel-ratio: 5/4),
-       only screen and (-webkit-min-device-pixel-ratio: 1.25),
-       only screen and (min-device-pixel-ratio: 1.25),
-       only screen and (min-resolution: 1.25dppx),
-       only screen and (min-width: 768px) {
-  .c-banner {
-    background-image: url('../img/banner@2x.jpg');
-  }
-}
-
-@media only screen and (-o-min-device-pixel-ratio: 5/4),
-       only screen and (-webkit-min-device-pixel-ratio: 1.25),
-       only screen and (min-device-pixel-ratio: 1.25),
-       only screen and (min-resolution: 1.25dppx),
-       only screen and (max-width: 768px) {
-  .c-banner {
-    background-image: url('../img/banner-mobile@2x.jpg');
-  }
-}
-
-/* @3x */
-@media only screen and (-o-min-device-pixel-ratio: 9/4),
-       only screen and (-webkit-min-device-pixel-ratio: 2.25),
-       only screen and (min-device-pixel-ratio: 2.25),
-       only screen and (min-resolution: 2.25dppx),
-       only screen and (min-width: 768px) {
-  .c-banner {
-    background-image: url('../img/banner@3x.jpg');
-  }
-}
-
-@media only screen and (-o-min-device-pixel-ratio: 9/4),
-       only screen and (-webkit-min-device-pixel-ratio: 2.25),
-       only screen and (min-device-pixel-ratio: 2.25),
-       only screen and (min-resolution: 2.25dppx),
-       only screen and (max-width: 768px) {
-  .c-banner {
-    background-image: url('../img/banner-mobile@3x.jpg');
-  }
-}
-
-
-@media only screen and (max-width: 1024px) {
-  .c-banner__container {
-    width: 80%;
-  }
-}
-
-@media only screen and (max-width: 768px) {
-  .c-banner__container {
-    width: 100%;
-  }
-}
-
-@media only screen and (max-width: 768px) {
-  .c-banner__container {
-    width: 100%;
-  }
-  .c-banner {
-    background-image: url('../img/banner-mobile.jpg');
-  }
 }
