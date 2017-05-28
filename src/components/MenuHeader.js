@@ -59,7 +59,8 @@ class MenuHeader extends Component {
     this.setState(this._initState);
   };
 
-  handleMenuClick() {
+  handleMenuClick(ev) {
+    ev.preventDefault();
     this.setState({
       isMenuActive: !this.state.isMenuActive
     });
@@ -134,10 +135,10 @@ class MenuHeader extends Component {
     return (
       <div>
         <aside className={`vertical-header vertical-header--right ${this.getActiveClass()}`} style={verticalHeaderStyle}>
-          <div className={`hamburger ${this.getActiveClass()}`} onClick={this.handleMenuClick}>
-            <div className="hamburger__container">
+          <div className={`hamburger ${this.getActiveClass()}`}>
+            <a href="#" className="hamburger__container" onClick={this.handleMenuClick}>
               <span className="hamburger__item"></span>
-            </div>
+            </a>
           </div>
           <div className="vertical-header__item u-flex-direction-column">
             <div className="vertical-header__icons">
