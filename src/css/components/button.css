@@ -1,4 +1,4 @@
-.button {
+.c-button {
   display: inline-flex;
   height: 12px;
   padding: 19px 15px;
@@ -14,12 +14,12 @@
   border-style: dashed;
 }
 
-.button--cta {
+.c-button--cta {
   border-style: solid;
   cursor: pointer;
 }
 
-.button--cta::after {
+.c-button--cta::after {
   mask: url(../../img/btn-arrow-white.svg) no-repeat 100% 100%;
   -webkit-mask: url(../../img/btn-arrow-white.svg) no-repeat 100% 100%;
   margin-left: 10px;
@@ -30,6 +30,6 @@
   background-color: inherit;
 }
 
-.button:last-child {
+.c-button:last-child {
   margin-right: 0;
 }

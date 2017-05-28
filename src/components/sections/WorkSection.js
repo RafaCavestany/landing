@@ -37,20 +37,20 @@ class WorkSection extends Component {
         className={workSectionClassName}
         data-color={workSection.color}
       >
-        <div className="card__container">
-          <h2 className="card__title">
+        <div className="c-card__container">
+          <h2 className="c-card__title">
             {workSection.name}
           </h2>
-          <label className="card__label">
+          <label className="c-card__label">
             {`ROLES: ${this.getRolesString(workSection.roles)}`}
           </label>
-          <hr className="card__line-break"></hr>
-          <p className="card__paragraph">
+          <hr className="c-card__line-break"></hr>
+          <p className="c-card__paragraph">
             {workSection.description}
           </p>
           {this.renderButtons(workSection.buttons, workSection.name)}
         </div>
-        <figure className={`card__image card__image--${workSection.name}`}>
+        <figure className={`c-card__image c-card__image--${workSection.name}`}>
         </figure>
       </article>
     );

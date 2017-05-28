@@ -1,4 +1,4 @@
-.card {
+.c-card {
   min-height: 100vh;
   box-sizing: border-box;
   padding: var(--padding-card) calc(var(--padding-card) + var(--vertical-header-size));
@@ -8,7 +8,7 @@
   z-index: 1;
 }
 
-.card--work {
+.c-card--work {
   flex-direction: row;
   min-height: 150vh;
   padding-top: calc(50vh + var(--padding-card));
@@ -18,46 +18,46 @@
   align-items: flex-start;
 }
 
-.card--work:first-of-type {
+.c-card--work:first-of-type {
   padding-top: var(--padding-card);
   align-items: flex-start;
 }
 
-.card--work:last-of-type {
+.c-card--work:last-of-type {
   padding-bottom: var(--padding-card);
 }
 
-.card__title {
+.c-card__title {
   font-size: 60px;
   font-weight: 600;
   line-height: 1.27;
   margin-bottom: 20px;
 }
 
-.card--work .card__title {
+.c-card--work .c-card__title {
   text-transform: capitalize;
 }
 
-.card__title__link {
+.c-card__title__link {
   font-size: inherit;
 }
 
-.card__paragraph {
+.c-card__paragraph {
   font-size: 1rem;
   line-height: 1.5rem;
   margin-bottom: 2.5rem;
 }
 
-.card__paragraph--small {
+.c-card__paragraph--small {
   max-width: 40%;
 }
 
-.card__link {
+.c-card__link {
   font-size: 1rem;
   font-weight: 600;
 }
 
-.card__line-break {
+.c-card__line-break {
   width: 40px;
   height: 1px;
   display: block;
@@ -65,7 +65,7 @@
   border: 0;
 }
 
-.card__label {
+.c-card__label {
   margin: 0;
   font-size: 13px;
   font-weight: 600;
@@ -73,13 +73,13 @@
   font-family: 'Roboto Mono', monospace;
 }
 
-.card__container {
+.c-card__container {
   width: 40%;
   padding-right: 30px;
   box-sizing: border-box;
 }
 
-.card__image {
+.c-card__image {
   width: 60%;
   display: block;
   margin: 0;
@@ -89,19 +89,19 @@
   height: 70vh;
 }
 
-.card__image--oincs {
+.c-card__image--oincs {
   background-image: url('../../img/img-oincs.png');
 }
 
-.card__image--cab2ride {
+.c-card__image--cab2ride {
   background-image: url('../../img/img-cab-2-ride.png');
 }
 
-.card__image--pagoo {
+.c-card__image--pagoo {
   background-image: url('../../img/img-pagoo.png');
 }
 
-.card__image--itau {
+.c-card__image--itau {
   background-image: url('../../img/img-itau.png');
   background-position: center;
 }
@@ -110,19 +110,19 @@
        only screen and (-webkit-min-device-pixel-ratio: 1.25),
        only screen and (min-device-pixel-ratio: 1.25),
        only screen and (min-resolution: 1.25dppx) {
-  .card__image--oincs {
+  .c-card__image--oincs {
     background-image: url('../../img/img-oincs@2x.png');
   }
 
-  .card__image--cab2ride {
+  .c-card__image--cab2ride {
     background-image: url('../../img/img-cab-2-ride@2x.png');
   }
 
-  .card__image--pagoo {
+  .c-card__image--pagoo {
     background-image: url('../../img/img-pagoo@2x.png');
   }
 
-  .card__image--itau {
+  .c-card__image--itau {
     background-image: url('../../img/img-itau@2x.png');
   }
 }
@@ -131,71 +131,71 @@
        only screen and (-webkit-min-device-pixel-ratio: 2.25),
        only screen and (min-device-pixel-ratio: 2.25),
        only screen and (min-resolution: 2.25dppx) {
-  .card__image--oincs {
+  .c-card__image--oincs {
     background-image: url('../../img/img-oincs@3x.png');
   }
 
-  .card__image--cab2ride {
+  .c-card__image--cab2ride {
     background-image: url('../../img/img-cab-2-ride@3x.png');
   }
 
-  .card__image--pagoo {
+  .c-card__image--pagoo {
     background-image: url('../../img/img-pagoo@3x.png');
   }
 
-  .card__image--itau {
+  .c-card__image--itau {
     background-image: url('../../img/img-itau@3x.png');
   }
 }
 
 @media screen and (max-width: 1280px) {
-  .card__title {
+  .c-card__title {
     font-size: 48px;
   }
 }
 
 @media screen and (max-width: 1024px) {
-  .card__title {
+  .c-card__title {
     font-size: 36px;
   }
-  .card--work {
+  .c-card--work {
     padding-right: 0;
   }
-  .card__paragraph--small {
+  .c-card__paragraph--small {
     max-width: 80%;
   }
 }
 
 @media screen and (max-width: 768px) {
-  .card {
+  .c-card {
     padding: var(--big-spacing-unit) var(--base-spacing-unit);
   }
-  .card--work {
+  .c-card--work {
     padding-right: 0;
     flex-direction: column;
     min-height: 100vh;
   }
-  .card__image {
+  .c-card__image {
     height: 350px;
     width: 100%;
     margin-top: 30px;
   }
-  .card__image--itau {
+  .c-card__image--itau {
     background-position: center;
   }
-  .card__container {
+  .c-card__container {
     width: 100%;
   }
 }
 
 @media screen and (max-width: 480px) {
-  .card__title__link {
+  .c-card__title__link {
     font-size: 22px;
   }
 }
 
 @media screen and (max-width: 320px) {
-  .card__title__link {
+  .c-card__title__link {
     font-size: 18px;
   }
 }

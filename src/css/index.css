@@ -45,7 +45,6 @@
 @import 'components/project.css';
 @import 'components/svg-icons.css';
 @import 'components/scrollable.css';
-@import 'components/themes.css';
 @import 'components/vertical-header.css';
 
 /*
@@ -54,3 +53,4 @@
 */
 @import 'trumps/sizes.css';
 @import 'trumps/utils.css';
+@import 'trumps/themes.css';

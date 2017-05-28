@@ -1,0 +1,72 @@
+/*-------------*/
+/* BLACK THEMES */
+/*-------------*/
+.t-color-black,
+.t-color-orange,
+.t-color-green {
+  background-color: inherit;
+  color: var(--color-white);
+}
+
+/* Icons: */
+.t-color-black .icon,
+.t-color-orange .icon,
+.t-color-green .icon {
+  color: var(--color-white);
+}
+
+/* Svg icons: */
+.t-color-black .svg-icon,
+.t-color-orange .svg-icon,
+.t-color-green .svg-icon {
+  background-color: var(--color-white);
+}
+
+/* Button */
+.t-color-black .c-button,
+.t-color-orange .c-button,
+.t-color-green .c-button {
+  color: var(--color-white);
+  border-color: var(--color-white);
+}
+
+/* Button arrow */
+.t-color-black .c-button::after,
+.t-color-orange .c-button::after,
+.t-color-green .c-button::after {
+  background-color: var(--color-white);
+}
+
+/* c-card line-break */
+.t-color-black .c-card__line-break,
+.t-color-orange .c-card__line-break,
+.t-color-green .c-card__line-break {
+  background-color: var(--color-white);
+}
+
+/*c-hamburger*/
+.t-color-black .c-hamburger:not(.active) .c-hamburger__item,
+.t-color-black .c-hamburger:not(.active) .c-hamburger__item:before,
+.t-color-black .c-hamburger:not(.active) .c-hamburger__item:after,
+.t-color-orange .c-hamburger:not(.active) .c-hamburger__item,
+.t-color-orange .c-hamburger:not(.active) .c-hamburger__item:before,
+.t-color-orange .c-hamburger:not(.active) .c-hamburger__item:after,
+.t-color-green .c-hamburger:not(.active) .c-hamburger__item,
+.t-color-green .c-hamburger:not(.active) .c-hamburger__item:before,
+.t-color-green .c-hamburger:not(.active) .c-hamburger__item:after {
+  background-color: var(--color-white);
+}
+
+/* Vertical header right:  */
+.t-color-black .c-vertical-header--right:not(.active),
+.t-color-orange .c-vertical-header--right:not(.active),
+.t-color-green .c-vertical-header--right:not(.active) {
+  border-color: var(--color-white-opaque);
+}
+
+/* Vertical header icons (social media icons) */
+.t-color-black .c-vertical-header.active .c-vertical-header__item .icon,
+.t-color-orange .c-vertical-header.active .c-vertical-header__item .icon,
+.t-color-green .c-vertical-header.active .c-vertical-header__item .icon {
+  color: var(--color-white);
+}

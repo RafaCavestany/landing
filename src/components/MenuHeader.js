@@ -102,7 +102,7 @@ class MenuHeader extends Component {
   renderMenuItems() {
     return MENU_SECTIONS.map((section, index) => {
       return (
-        <li className="menu__item" key={`${section.name}-${index}`}>
+        <li className="c-menu__item" key={`${section.name}-${index}`}>
           <a href="#" onClick={(ev) => this.handleNavClick(ev, index)}>
             {section.title}
           </a>
@@ -117,8 +117,8 @@ class MenuHeader extends Component {
     };
 
     return (
-      <div className={`menu ${this.getActiveClass()}`} style={menuStyle}>
-        <ul className="menu__list">
+      <div className={`c-menu ${this.getActiveClass()}`} style={menuStyle}>
+        <ul className="c-menu__list">
           {this.renderMenuItems()}
         </ul>
       </div>
@@ -134,21 +134,21 @@ class MenuHeader extends Component {
 
     return (
       <div>
-        <aside className={`vertical-header vertical-header--right ${this.getActiveClass()}`} style={verticalHeaderStyle}>
-          <div className={`hamburger ${this.getActiveClass()}`}>
-            <a href="#" className="hamburger__container" onClick={this.handleMenuClick}>
-              <span className="hamburger__item"></span>
+        <aside className={`c-vertical-header c-vertical-header--right ${this.getActiveClass()}`} style={verticalHeaderStyle}>
+          <div className={`c-hamburger ${this.getActiveClass()}`}>
+            <a href="#" className="c-hamburger__container" onClick={this.handleMenuClick}>
+              <span className="c-hamburger__item"></span>
             </a>
           </div>
-          <div className="vertical-header__item u-flex-direction-column">
-            <div className="vertical-header__icons">
-              <a href="https://twitter.com/rcavestany" target="_blank" className="vertical-header__icon">
+          <div className="c-vertical-header__item u-flex-direction-column">
+            <div className="c-vertical-header__icons">
+              <a href="https://twitter.com/rcavestany" target="_blank" className="c-vertical-header__icon">
                 <i className="icon icon--medium icon-twitter"></i>
               </a>
-              <a href="mailto:business@rcavestany.com" target="_blank" className="vertical-header__icon">
+              <a href="mailto:business@rcavestany.com" target="_blank" className="c-vertical-header__icon">
                 <i className="icon icon--medium icon-mail"></i>
               </a>
-              <a href="https://dribbble.com/rcavestany" target="_blank" className="vertical-header__icon">
+              <a href="https://dribbble.com/rcavestany" target="_blank" className="c-vertical-header__icon">
                 <i className="icon icon--medium icon-dribbble"></i>
               </a>
             </div>

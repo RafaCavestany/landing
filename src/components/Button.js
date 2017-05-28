@@ -5,8 +5,8 @@ import cn from 'classnames';
 class Button extends Component {
   renderClickableButton(link, name) {
     const btnClassName = cn(
-      'button',
-      'button--cta'
+      'c-button',
+      'c-button--cta'
     );
 
     return (
@@ -21,7 +21,7 @@ class Button extends Component {
 
   renderNormalButton(name) {
     return (
-      <span className="button">
+      <span className="c-button">
         {name}
       </span>
     );

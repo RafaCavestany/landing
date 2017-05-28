@@ -2,8 +2,6 @@
   width: 13px;
   height: 36px;
   display: inline-flex;
-  /* TODO: remove next */
-  background-color: #000000;
 }
 .svg-icon-arrow-down {
   mask: url('../../img/icon-arrow-down.svg') no-repeat 100% 100%;

@@ -1,4 +1,4 @@
-.hamburger {
+.c-hamburger {
   width: var(--big-spacing-unit);
   height: var(--big-spacing-unit);
   justify-content: center;
@@ -8,7 +8,7 @@
   box-sizing: border-box;
 }
 
-.hamburger__container {
+.c-hamburger__container {
   width: 20px;
   height: 14px;
   display: block;
@@ -17,19 +17,19 @@
   margin-left: -1px;
 }
 
-.hamburger.active .hamburger__item {
+.c-hamburger.active .c-hamburger__item {
     background: transparent;
 }
 
-.hamburger.active .hamburger__item:before {
+.c-hamburger.active .c-hamburger__item:before {
   transform: translateY(6px) translateX(1px) rotate(45deg);
 }
 
-.hamburger.active .hamburger__item:after {
+.c-hamburger.active .c-hamburger__item:after {
   transform: translateY(-6px) translateX(1px) rotate(-45deg);
 }
 
-.hamburger__item {
+.c-hamburger__item {
   height: 2px;
   position: absolute;
   background: var(--color-white);
@@ -38,7 +38,7 @@
   transition: all 0.5s cubic-bezier(0, 0.275, 0.125, 1);
 }
 
-.hamburger__item:before, .hamburger__item:after {
+.c-hamburger__item:before, .c-hamburger__item:after {
   content: '';
   height: 2px;
   background: var(--color-white);
@@ -49,6 +49,6 @@
   transition: all 0.5s cubic-bezier(0, 0.275, 0.125, 1);
 }
 
-.hamburger__item:after {
+.c-hamburger__item:after {
    top: 6px;
 }

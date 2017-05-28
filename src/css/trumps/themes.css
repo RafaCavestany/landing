@@ -2,14 +2,14 @@
 @import 'themes/white.css';
 
 /* Colours */
-.color-black {
+.t-color-black {
   background-color: var(--color-black);
 }
 
-.color-orange {
+.t-color-orange {
   background-color: var(--color-orange);
 }
 
-.color-green {
+.t-color-green {
   background-color: var(--color-green);
 }

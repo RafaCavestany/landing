@@ -27,17 +27,17 @@ class About extends Component {
 
   render() {
     return (
-      <article id="about" className="card">
-        <h2 className="card__title">
+      <article id="about" className="c-card">
+        <h2 className="c-card__title">
           He has led projects for companies such as Intel, AT&amp;T, Telefónica,
           HP, Visa, Directv, Golf Channel among others.
         </h2>
-        <p className="card__paragraph card__paragraph--small">
+        <p className="c-card__paragraph c-card__paragraph--small">
           With over a decade of experience, Rafa has helped clients of all sizes
           to plan, create and grow their ideas in to digital products, bla bla
           human center approach, user experience, etc.
         </p>
-        <a href="#work" className="card__link" onClick={this.handleGoToWork}>
+        <a href="#work" className="c-card__link" onClick={this.handleGoToWork}>
           See some of his projects below.
         </a>
       </article>

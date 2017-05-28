@@ -12,14 +12,14 @@ class Mobile extends Component {
     return (
       <section>
         <MobileHeader />
-        <section className="color-black">
+        <section className="t-color-black">
           <Intro />
         </section>
-        <section className="color-white">
+        <section className="t-color-white">
           <About isMobile="true" />
         </section>
         <MobileWork />
-        <footer className="color-black">
+        <footer className="t-color-black">
           <Project />
         </footer>
       </section>

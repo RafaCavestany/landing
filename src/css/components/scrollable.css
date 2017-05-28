@@ -1,27 +1,23 @@
-.scrollable-section {
+.c-scrollable-section {
   position: absolute;
   width: 100%;
-  background-color: #fff;
+  background-color: var(--color-white);
   top: inherit;
 }
 
-.scrollable-section .header--desktop {
+.c-scrollable-section .c-header--desktop {
   position: absolute;
 }
 
-.scrollable-section .header--mobile {
+.c-scrollable-section .c-header--mobile {
   position: absolute;
 }
 
-.scrollable-section .menu {
-  /**/
-}
-
-.scrollable-section .vertical-header {
+.c-scrollable-section .c-vertical-header {
   position: absolute;
 }
 
-.scrollable-content {
+.c-scrollable-content {
   position: fixed;
   width: 100%;
   transition: background-color 1s ease, color 1s ease, opacity 1s ease;
@@ -30,17 +26,17 @@
   height: 100%;
 }
 
-.scrollable-content.active {
+.c-scrollable-content.active {
   position: relative;
   height: calc(100% - 200vh - 200px);
 }
 
-.scrollable-content.bottom .vertical-header {
+.c-scrollable-content.bottom .c-vertical-header {
   position: absolute;
   bottom: 0;
 }
 
-.scrollable-content.bottom .header {
+.c-scrollable-content.bottom .c-header {
   position: absolute;
   top: calc(100% - 100vh);
   animation-fill-mode: none;

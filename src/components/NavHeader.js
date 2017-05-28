@@ -35,7 +35,7 @@ class NavHeader extends Component {
     }
     return (
       <a href="#"
-        className="vertical-header__icon"
+        className="c-vertical-header__icon"
         onClick={(ev) => this.handleArrowUp(ev, navIndex)}
       >
         <i className="svg-icon svg-icon-arrow-up"></i>
@@ -98,7 +98,7 @@ class NavHeader extends Component {
     }
     return (
       <a href="#"
-        className="vertical-header__icon"
+        className="c-vertical-header__icon"
         onClick={(ev) => this.handleArrowDown(ev, navIndex)}
       >
         <i className="svg-icon svg-icon-arrow-down"></i>
@@ -109,19 +109,19 @@ class NavHeader extends Component {
   render() {
     const {title} = this.props;
     return (
-      <aside className="vertical-header vertical-header--left">
-        <div className="vertical-header__item h-one-third">
-          <div className="vertical-header__content vertical-header__content--rotated u-flex-align-start">
+      <aside className="c-vertical-header c-vertical-header--left">
+        <div className="c-vertical-header__item h-one-third">
+          <div className="c-vertical-header__content c-vertical-header__content--rotated u-flex-align-start">
             Rafa Cavestany
           </div>
         </div>
-        <div className="vertical-header__item h-one-third">
-          <div className="vertical-header__content vertical-header__content--rotated">
+        <div className="c-vertical-header__item h-one-third">
+          <div className="c-vertical-header__content c-vertical-header__content--rotated">
             {title}
           </div>
         </div>
-        <div className="vertical-header__item h-one-third u-flex-direction-column">
-          <div className="vertical-header__icons">
+        <div className="c-vertical-header__item h-one-third u-flex-direction-column">
+          <div className="c-vertical-header__icons">
             {this.renderArrowUp()}
             {this.renderArrowDown()}
           </div>

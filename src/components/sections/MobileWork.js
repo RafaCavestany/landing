@@ -9,9 +9,9 @@ import {WORK_SECTIONS} from './workSections';
 class MobileWork extends Component {
   renderWorkSection(workSection) {
     const mobileWorkClassName = cn(
-      'card',
-      'card--work',
-      `color-${workSection.color}`
+      'c-card',
+      'c-card--work',
+      `t-color-${workSection.color}`
     );
     return (
       <WorkSection

@@ -3,17 +3,17 @@ import React, { Component } from 'react';
 class Intro extends Component {
   render() {
     return (
-      <article id="project" className="card project">
-        <div className="project__bg"></div>
-        <h2 className="card__title">
+      <article id="project" className="c-card c-project">
+        <div className="c-project__bg"></div>
+        <h2 className="c-card__title">
           {`Interested in starting a project?`}
         </h2>
         <br/>
-        <h2 className="card__title">
+        <h2 className="c-card__title">
           {`Drop me a line at:`}
           <br/>
           <a href="mailto:business@rcavestany.com"
-            className="card__title__link u-txt-underlined"
+            className="c-card__title__link u-txt-underlined"
           >
             {`business@rcavestany.com`}
           </a>

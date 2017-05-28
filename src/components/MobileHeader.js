@@ -73,7 +73,7 @@ class MobileHeader extends Component {
     return MENU_SECTIONS.map((section, index) => {
       return (
         <li key={`${section.name}-${index}`}
-          className="menu__item"
+          className="c-menu__item"
           onClick={this.handleNavClick}
         >
           <a href={`#${section.name}`}>
@@ -86,8 +86,8 @@ class MobileHeader extends Component {
 
   renderMenu(zIndex) {
     return (
-      <div className={`menu ${this.getActiveClass()}`} style={{zIndex: this.zIndex - 1}}>
-        <ul className="menu__list">
+      <div className={`c-menu ${this.getActiveClass()}`} style={{zIndex: this.zIndex - 1}}>
+        <ul className="c-menu__list">
           {this.renderMenuItems()}
         </ul>
       </div>
@@ -97,9 +97,9 @@ class MobileHeader extends Component {
   render() {
     const {isMenuActive, isHeaderVisible, isHeaderAtTop} = this.state;
     const headerClassName = cn(
-      'header',
-      'header--mobile',
-      isMenuActive ? '' : 'color-black',
+      'c-header',
+      'c-header--mobile',
+      isMenuActive ? '' : 't-color-black',
       isHeaderVisible ? 'active' : '',
       isHeaderAtTop ? 'at-top' : ''
     );
@@ -107,14 +107,14 @@ class MobileHeader extends Component {
     return (
       <div>
         <header className={headerClassName} style={{zIndex: this.zIndex}}>
-          <a href="#project" className="header__link">
-            <span className="header__txt">
+          <a href="#project" className="c-header__link">
+            <span className="c-header__txt">
               Rafa Cavestany
             </span>
           </a>
-          <div className={`hamburger ${this.getActiveClass()}`} onClick={this.handleMenuClick}>
-            <div className="hamburger__container">
-              <span className="hamburger__item"></span>
+          <div className={`c-hamburger ${this.getActiveClass()}`} onClick={this.handleMenuClick}>
+            <div className="c-hamburger__container">
+              <span className="c-hamburger__item"></span>
             </div>
           </div>
         </header>

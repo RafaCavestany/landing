@@ -9,10 +9,10 @@ class Header extends Component {
 
   render() {
     return (
-      <header className="header header--desktop">
-        <a href="#" className="header__link" onClick={this.handleClick}>
-          <i className="icon icon-party-popper header__link__icon"></i>
-          <span className="header__link__text">
+      <header className="c-header c-header--desktop">
+        <a href="#" className="c-header__link" onClick={this.handleClick}>
+          <i className="c-header__link__icon icon icon-party-popper"></i>
+          <span className="c-header__link__text">
             Start a Project
           </span>
         </a>

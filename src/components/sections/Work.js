@@ -9,8 +9,8 @@ import {WORK_SECTIONS} from './workSections';
 class Work extends Component {
   renderWorkSection(workSection) {
     const workSectionClassName = cn(
-      'card',
-      'card--work',
+      'c-card',
+      'c-card--work',
       'js-work',
       'js-scrollable-color'
     );

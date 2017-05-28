@@ -1,0 +1,52 @@
+/*-------------*/
+/* WHITE THEME */
+/*-------------*/
+.t-color-white {
+  background-color: var(--color-white);
+  color: var(--color-black);
+}
+
+/* Icons: */
+.t-color-white .icon {
+  color: var(--color-black);
+}
+
+/* Svg icons: */
+.t-color-white .svg-icon {
+  background-color: var(--color-black);
+}
+
+/* Button */
+.t-color-white .c-button {
+  color: var(--color-black);
+  border-color: var(--color-black);
+}
+
+/* Button arrow */
+.t-color-white .c-button::after {
+  background-color: var(--color-black);
+}
+
+/* c-card line-break */
+.t-color-white .c-card__line-break {
+  background-color: var(--color-black);
+}
+
+/* c-hamburger */
+.t-color-white .c-hamburger:not(.active) .c-hamburger__item,
+.t-color-white .c-hamburger:not(.active) .c-hamburger__item:before,
+.t-color-white .c-hamburger:not(.active) .c-hamburger__item:after {
+  background-color: var(--color-black);
+}
+
+/* Vertical header right:  */
+.t-color-white .c-vertical-header--right:not(.active) {
+  border-color: var(--color-black-opaque);
+}
+
+/* Vertical header icons (social media icons) */
+.t-color-black .c-vertical-header.active .c-vertical-header__item .icon,
+.t-color-orange .c-vertical-header.active .c-vertical-header__item .icon,
+.t-color-green .c-vertical-header.active .c-vertical-header__item .icon {
+  color: var(--color-black);
+}

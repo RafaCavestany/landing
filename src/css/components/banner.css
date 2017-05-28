@@ -1,4 +1,4 @@
-.banner {
+.c-banner {
   background-size: cover;
   background-image: url('../../img/banner.jpg');
   background-repeat: no-repeat;
@@ -10,7 +10,7 @@
   animation-fill-mode: forwards;
 }
 
-.banner__title {
+.c-banner__title {
   animation-name: fadeOpacity;
   animation-duration: 0.3s;
   animation-delay: 0.3s;
@@ -19,7 +19,7 @@
   animation-fill-mode: forwards;
 }
 
-.banner__container {
+.c-banner__container {
   width: 70%;
   max-width: 780px;
 }
@@ -35,7 +35,7 @@
        only screen and (min-device-pixel-ratio: 1.25),
        only screen and (min-resolution: 1.25dppx),
        only screen and (min-width: 768px) {
-  .banner {
+  .c-banner {
     background-image: url('../../img/banner@2x.jpg');
   }
 }
@@ -45,7 +45,7 @@
        only screen and (min-device-pixel-ratio: 1.25),
        only screen and (min-resolution: 1.25dppx),
        only screen and (max-width: 768px) {
-  .banner {
+  .c-banner {
     background-image: url('../../img/banner-mobile@2x.jpg');
   }
 }
@@ -56,7 +56,7 @@
        only screen and (min-device-pixel-ratio: 2.25),
        only screen and (min-resolution: 2.25dppx),
        only screen and (min-width: 768px) {
-  .banner {
+  .c-banner {
     background-image: url('../../img/banner@3x.jpg');
   }
 }
@@ -66,29 +66,29 @@
        only screen and (min-device-pixel-ratio: 2.25),
        only screen and (min-resolution: 2.25dppx),
        only screen and (max-width: 768px) {
-  .banner {
+  .c-banner {
     background-image: url('../../img/banner-mobile@3x.jpg');
   }
 }
 
 
 @media only screen and (max-width: 1024px) {
-  .banner__container {
+  .c-banner__container {
     width: 80%;
   }
 }
 
 @media only screen and (max-width: 768px) {
-  .banner__container {
+  .c-banner__container {
     width: 100%;
   }
 }
 
 @media only screen and (max-width: 768px) {
-  .banner__container {
+  .c-banner__container {
     width: 100%;
   }
-  .banner {
+  .c-banner {
     background-image: url('../../img/banner-mobile.jpg');
   }
 }

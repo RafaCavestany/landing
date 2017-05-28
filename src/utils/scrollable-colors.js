@@ -25,7 +25,7 @@ $(document).ready(function() {
   const $workContainer = $('.js-scrollable-color-container');
   const $panel = $('.js-scrollable-color');
 
-  $workContainer.addClass('color-' + $panel.data('color'));
+  $workContainer.addClass('t-color-' + $panel.data('color'));
 });
 
 $(window).scroll(function() {
@@ -58,13 +58,13 @@ $(window).scroll(function() {
         top -= 300;
       }
       if (workDistance >= top && workDistance < bottom) {
-        // Remove all classes on body with color-
+        // Remove all classes on body with t-color-
         $workContainer.removeClass(function(index, css) {
-          return (css.match(/(^|\s)color-\S+/g) || []).join(' ');
+          return (css.match(/(^|\s)t-color-\S+/g) || []).join(' ');
         });
 
         // Add class of currently active div
-        $workContainer.addClass('color-' + $this.data('color'));
+        $workContainer.addClass('t-color-' + $this.data('color'));
       }
     }
   });
