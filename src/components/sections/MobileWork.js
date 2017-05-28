@@ -5,20 +5,9 @@ import cn from 'classnames';
 import Button from '../Button';
 
 import {WORK_SECTIONS} from './workSections';
+import {getRolesString} from '../../utils/roles-helper';
 
 class MobileWork extends Component {
-  getRoles(roles) {
-    let rolesString = ``;
-    roles.map(function(role, index) {
-      if (index === 0) {
-        rolesString += `${role}`;
-      } else {
-        rolesString += ` / ${role}`;
-      }
-    });
-    return `ROLES: ${rolesString}`;
-  };
-
   renderWorkButtons(buttons, sectionName) {
     return buttons.map(function(button, index) {
       return (
@@ -49,7 +38,7 @@ class MobileWork extends Component {
             {workSection.name}
           </h2>
           <label className="card__label">
-            {this.getRoles(workSection.roles)}
+            {`ROLES: ${getRolesString(workSection.roles)}`}
           </label>
           <hr className="card__line-break"></hr>
           <p className="card__paragraph">
