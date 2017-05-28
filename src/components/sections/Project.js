@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class Intro extends Component {
   render() {
     return (
-      <article id="project" className="card">
+      <article id="project" className="card project">
         <div className="project__bg"></div>
         <h2 className="card__title">
           {`Interested in starting a project?`}
