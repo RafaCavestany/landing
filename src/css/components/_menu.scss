@@ -17,25 +17,24 @@
   transition: opacity 0.3s ease;
   visibility: hidden;
   font-family: 'Roboto Mono', monospace;
-}
 
-.c-menu.active {
-  opacity: 0.9;
-  visibility: visible;
-}
+  &.active {
+    opacity: 0.9;
+    visibility: visible;
+  }
 
-.c-menu__list {
-  display: flex;
-  flex-direction: column;
-}
+  &__list {
+    display: flex;
+    flex-direction: column;
+  }
 
-.c-menu__item {
-  padding-bottom: var(--base-spacing-unit);
-  text-align: right;
-}
+  &__item {
+    padding-bottom: var(--base-spacing-unit);
+    text-align: right;
+  }
 
-@media screen and (max-width: 768px) {
-  .c-menu {
+  // Responsive:
+  @media screen and (max-width: 768px) {
     padding: var(--big-spacing-unit);
   }
 }
