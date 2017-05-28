@@ -18,6 +18,6 @@
   text-transform: capitalize;
 }
 
-.u-inline-block {
-  display: inline-block;
+.u-d-inline {
+  display: inline;
 }
