@@ -102,19 +102,19 @@
     height: 70vh;
 
     &--oincs {
-      background-image: url('../img/img-oincs.png');
+      @include retina('img-oincs', 'png');
     }
 
     &--cab2ride {
-      background-image: url('../img/img-cab-2-ride.png');
+      @include retina('img-cab-2-ride', 'png');
     }
 
     &--pagoo {
-      background-image: url('../img/img-pagoo.png');
+      @include retina('img-pagoo', 'png');
     }
 
     &--itau {
-      background-image: url('../img/img-itau.png');
+      @include retina('img-itau', 'png');
       background-position: center;
     }
   }
@@ -155,48 +155,5 @@
     &__title {
       font-size: 48px;
     }
-  }
-}
-
-// TODO: use retina mixin
-@media only screen and (-o-min-device-pixel-ratio: 5/4),
-       only screen and (-webkit-min-device-pixel-ratio: 1.25),
-       only screen and (min-device-pixel-ratio: 1.25),
-       only screen and (min-resolution: 1.25dppx) {
-  .c-card-image--oincs {
-    background-image: url('../img/img-oincs@2x.png');
-  }
-
-  .c-card-image--cab2ride {
-    background-image: url('../img/img-cab-2-ride@2x.png');
-  }
-
-  .c-card-image--pagoo {
-    background-image: url('../img/img-pagoo@2x.png');
-  }
-
-  .c-card-image--itau {
-    background-image: url('../img/img-itau@2x.png');
-  }
-}
-
-@media only screen and (-o-min-device-pixel-ratio: 9/4),
-       only screen and (-webkit-min-device-pixel-ratio: 2.25),
-       only screen and (min-device-pixel-ratio: 2.25),
-       only screen and (min-resolution: 2.25dppx) {
-  .c-card-image--oincs {
-    background-image: url('../img/img-oincs@3x.png');
-  }
-
-  .c-card-image--cab2ride {
-    background-image: url('../img/img-cab-2-ride@3x.png');
-  }
-
-  .c-card-image--pagoo {
-    background-image: url('../img/img-pagoo@3x.png');
-  }
-
-  .c-card-image--itau {
-    background-image: url('../img/img-itau@3x.png');
   }
 }

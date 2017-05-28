@@ -1,13 +1,14 @@
 .c-banner {
-  background-size: cover;
-  background-image: url('../img/banner.jpg');
-  background-repeat: no-repeat;
-  background-position: center;
   animation-name: fadeOpacity;
   animation-duration: 0.5s;
   animation-iteration-count: 1;
   opacity: 0;
   animation-fill-mode: forwards;
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  @include retina('banner', 'jpg');
 
   // .c-banner__title {
   &__title {
@@ -25,6 +26,7 @@
   }
 
   @media only screen and (max-width: 768px) {
+    @include retina('banner-mobile', 'jpg');
     &__container {
       width: 100%;
     }
@@ -40,47 +42,4 @@
 @keyframes fadeOpacity {
   from {opacity: 0}
   to {opacity: 1}
-}
-
-// TODO: use retina mixin
-/* @2x */
-@media only screen and (-o-min-device-pixel-ratio: 5/4),
-       only screen and (-webkit-min-device-pixel-ratio: 1.25),
-       only screen and (min-device-pixel-ratio: 1.25),
-       only screen and (min-resolution: 1.25dppx),
-       only screen and (min-width: 768px) {
-  .c-banner {
-    background-image: url('../img/banner@2x.jpg');
-  }
-}
-
-@media only screen and (-o-min-device-pixel-ratio: 5/4),
-       only screen and (-webkit-min-device-pixel-ratio: 1.25),
-       only screen and (min-device-pixel-ratio: 1.25),
-       only screen and (min-resolution: 1.25dppx),
-       only screen and (max-width: 768px) {
-  .c-banner {
-    background-image: url('../img/banner-mobile@2x.jpg');
-  }
-}
-
-/* @3x */
-@media only screen and (-o-min-device-pixel-ratio: 9/4),
-       only screen and (-webkit-min-device-pixel-ratio: 2.25),
-       only screen and (min-device-pixel-ratio: 2.25),
-       only screen and (min-resolution: 2.25dppx),
-       only screen and (min-width: 768px) {
-  .c-banner {
-    background-image: url('../img/banner@3x.jpg');
-  }
-}
-
-@media only screen and (-o-min-device-pixel-ratio: 9/4),
-       only screen and (-webkit-min-device-pixel-ratio: 2.25),
-       only screen and (min-device-pixel-ratio: 2.25),
-       only screen and (min-resolution: 2.25dppx),
-       only screen and (max-width: 768px) {
-  .c-banner {
-    background-image: url('../img/banner-mobile@3x.jpg');
-  }
 }

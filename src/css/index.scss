@@ -1,35 +1,33 @@
 @charset 'UTF-8';
-/*
-  We are using an architecture of file import following ITCSS:
-  https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/
-*/
-/*
-  Settings – contain fonts, colors definitions, etc.
-*/
+//
+// We are using an architecture of file import following ITCSS:
+// https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/
+//
+
+// Settings – contain fonts, colors definitions, etc.
 @import 'settings/colors';
 @import 'settings/fonts';
 @import 'settings/variables';
-/*
-  Generic – reset and/or normalize styles, box-sizing definition, etc.
-  This is the first layer which generates actual CSS.
-*/
+
+// Tools – globally used mixins and functions.
+@import 'tools/mixins';
+
+// Generic – reset and/or normalize styles, box-sizing definition, etc.
+// (This is the first layer which generates actual CSS.)
 @import 'generic/reset';
 @import 'generic/normalize';
 @import 'generic/page';
-/*
-  Elements – styling for bare HTML elements (like H1, A, etc.).
-  These come with default styling from the browser so we can redefine them here.
-*/
+
+// Elements – styling for bare HTML elements (like H1, A, etc.).
+//  These come with default styling from the browser so we can redefine them here.
 @import 'elements/headings';
 @import 'elements/link';
-/*
-  Objects – class-based selectors which define undecorated design patterns.
-*/
+
+// Objects – class-based selectors which define undecorated design patterns.
 @import 'objects/layout';
-/*
-  Components – specific UI components. This is where majority of our work takes
-  place and our UI components are often composed of Objects and Components
-*/
+
+// Components – specific UI components. This is where majority of our work takes
+//  place and our UI components are often composed of Objects and Components
 @import 'components/banner';
 @import 'components/blackout';
 @import 'components/button';
@@ -42,10 +40,9 @@
 @import 'components/svg-icons';
 @import 'components/scrollable';
 @import 'components/vertical-header';
-/*
-  Trumps – utilities and helper classes with ability to override anything
-   which goes before in the cascade, eg. hide helper class
-*/
+
+// Trumps – utilities and helper classes with ability to override anything
+//  which goes before in the cascade, eg. hide helper class
 @import 'trumps/sizes';
 @import 'trumps/utils';
 @import 'trumps/themes';
