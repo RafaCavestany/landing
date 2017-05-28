@@ -3,6 +3,7 @@
   z-index: inherit;
   width: var(--vertical-header-size);
   height: 100%;
+  max-height: 100vh;
   padding: var(--base-spacing-unit) 0;
   box-sizing: border-box;
   bottom: 0;
