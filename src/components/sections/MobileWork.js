@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 import cn from 'classnames';
 
-import Button from '../Button';
 import WorkSection from './WorkSection';
 
 import {WORK_SECTIONS} from './workSections';

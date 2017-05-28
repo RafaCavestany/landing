@@ -5,7 +5,7 @@ import Button from '../Button';
 class WorkSection extends Component {
   getRolesString(roles) {
     let rolesString = ``;
-    roles.map(function(role, index) {
+    roles.forEach(function(role, index) {
       if (index === 0) {
         rolesString += `${role}`;
       } else {

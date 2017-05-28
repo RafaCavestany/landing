@@ -37,13 +37,13 @@ $(window).scroll(function() {
   // First section only needs to be scrolled half.
   const height = $('.js-scrollable-section').outerHeight();
   const firstSectionScroll = height / 2;
-  const firstSectionDistance = firstSectionScroll + SCROLL_TOLERANCE;
+  // const firstSectionDistance = firstSectionScroll + SCROLL_TOLERANCE;
   // After second section its not necessary
   const secondSectionScroll = firstSectionScroll + height
   const secondSectionDistance = secondSectionScroll + SCROLL_TOLERANCE;
   const thirdSectionScroll = getElementsHeight($workSections);
-  const $scrollableFooter = $('.js-scrollable-footer');
-  const footerHeight = getElementsHeight($scrollableFooter);
+  // const $scrollableFooter = $('.js-scrollable-footer');
+  // const footerHeight = getElementsHeight($scrollableFooter);
   const thirdSectionDistance = secondSectionDistance + thirdSectionScroll;
 
   $workSections.each(function(index) {

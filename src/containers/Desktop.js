@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { animateScroll } from 'react-scroll';
 
-import $ from 'jquery';
-
 import Header from '../components/Header';
 import NavHeader from '../components/NavHeader';
 import MenuHeader from '../components/MenuHeader';

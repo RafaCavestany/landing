@@ -3,11 +3,6 @@ import React, { Component } from 'react';
 import cn from 'classnames';
 
 class Button extends Component {
-
-  constructor(props) {
-    super(props);
-  };
-
   render() {
     const {link, name} = this.props;
 
