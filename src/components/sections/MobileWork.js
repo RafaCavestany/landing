@@ -15,6 +15,7 @@ class MobileWork extends Component {
     );
     return (
       <WorkSection
+        key={workSection.name}
         workSection={workSection}
         workSectionClassName={mobileWorkClassName}
       />
