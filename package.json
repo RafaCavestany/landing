@@ -3,8 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "devDependencies": {
-    "react-scripts": "0.9.5",
-    "react-snapshot": "^1.0.4"
+    "react-scripts": "0.9.5"
   },
   "dependencies": {
     "classnames": "^2.2.5",
@@ -15,7 +14,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build && react-snapshot",
+    "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }
