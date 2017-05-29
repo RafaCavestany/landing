@@ -1,11 +1,6 @@
 import $ from 'jquery';
 
-import {SCROLL_TOLERANCE, getElementsHeight} from './scrollable-helper';
-
-const getScrollableTollerance = function() {
-  const scrollableCount = $('.js-scrollable').length;
-  return scrollableCount * SCROLL_TOLERANCE;
-};
+import {getElementsHeight, getScrollableTollerance} from './scrollable-helper';
 
 const setBodyHeight = function() {
   const $body = $('body');

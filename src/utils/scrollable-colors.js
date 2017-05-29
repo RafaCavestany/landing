@@ -1,6 +1,10 @@
 import $ from 'jquery';
 
-import {getSecondSectionDistance, getThirdSectionDistance} from './scrollable-helper';
+import {
+  getSecondSectionDistance,
+  getThirdSectionDistance,
+  getScrollableTollerance
+} from './scrollable-helper';
 
 const getDistance = function($elements, currentIndex) {
   let totalHeight = 0;
@@ -32,6 +36,8 @@ $(window).scroll(function() {
   const thirdSectionScroll = getThirdSectionDistance();
   const thirdSectionDistance = secondSectionDistance + thirdSectionScroll;
 
+  const totalTollerance = getScrollableTollerance();
+
   $workSections.each(function(index) {
     const $this = $(this);
     if (cur_pos >= secondSectionDistance && cur_pos < thirdSectionDistance) {
@@ -39,9 +45,9 @@ $(window).scroll(function() {
       let top = getDistance($workSections, index);
       let bottom = getDistance($workSections, index + 1);
       if (index === 0) {
-        bottom -= 300;
+        bottom -= totalTollerance;
       } else {
-        top -= 300;
+        top -= totalTollerance;
       }
       if (workDistance >= top && workDistance < bottom) {
         // Remove all classes on body with t-color-
