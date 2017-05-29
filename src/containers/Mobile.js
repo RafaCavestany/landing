@@ -8,6 +8,10 @@ import MobileWork from '../components/sections/MobileWork';
 import Project from '../components/sections/Project';
 
 class Mobile extends Component {
+  componentWillUnmount() {
+    window.location.reload();
+  }
+
   render() {
     return (
       <section>
