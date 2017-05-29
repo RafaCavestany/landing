@@ -3,6 +3,8 @@ import { animateScroll } from 'react-scroll';
 
 import $ from 'jquery';
 
+import { getSecondSectionDistance } from '../../utils/scrollable-helper';
+
 class About extends Component {
   constructor (props) {
     super(props);
@@ -15,13 +17,8 @@ class About extends Component {
       return;
     }
     ev.preventDefault();
-    const $scrollableSections = $('.js-scrollable-section');
-    const height = $scrollableSections.outerHeight();
-    const firstSectionScroll = height / 2;
-    const firstSectionDistance = firstSectionScroll + this.scrollTollerance;
-    // After second section its not necessary
-    const secondSectionScroll = firstSectionDistance + height;
-    const secondSectionDistance = secondSectionScroll + this.scrollTollerance;
+    const $section = $('.js-scrollable-section');
+    const secondSectionDistance = getSecondSectionDistance($section, true);
     animateScroll.scrollTo(secondSectionDistance);
   };
 

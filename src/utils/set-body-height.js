@@ -1,16 +1,6 @@
 import $ from 'jquery';
 
-// We set an SCROLL_TOLERANCE of 100 so we don't scroll
-// to new sections right away.
-const SCROLL_TOLERANCE = 100;
-
-const getElementsHeight = function($elements) {
-  let totalHeight = 0;
-  $elements.each(function() {
-    totalHeight += $(this).outerHeight();
-  });
-  return totalHeight;
-};
+import {SCROLL_TOLERANCE, getElementsHeight} from './scrollable-helper';
 
 const getScrollableTollerance = function() {
   const scrollableCount = $('.js-scrollable').length;

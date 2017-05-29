@@ -1,14 +1,6 @@
 import $ from 'jquery';
 
-const SCROLL_TOLERANCE = 100;
-
-const getElementsHeight = function($elements) {
-  let totalHeight = 0;
-  $elements.each(function() {
-    totalHeight += $(this).outerHeight();
-  });
-  return totalHeight;
-};
+import {getSecondSectionDistance, getThirdSectionDistance} from './scrollable-helper';
 
 const getDistance = function($elements, currentIndex) {
   let totalHeight = 0;
@@ -32,18 +24,12 @@ $(window).scroll(function() {
   const $window = $(window);
   const $workSections = $('.js-scrollable-color');
   const $workContainer = $('.js-scrollable-color-container');
-  //
-  let cur_pos = $window.scrollTop();
-  // First section only needs to be scrolled half.
-  const height = $('.js-scrollable-section').outerHeight();
-  const firstSectionScroll = height / 2;
-  // const firstSectionDistance = firstSectionScroll + SCROLL_TOLERANCE;
-  // After second section its not necessary
-  const secondSectionScroll = firstSectionScroll + height
-  const secondSectionDistance = secondSectionScroll + SCROLL_TOLERANCE;
-  const thirdSectionScroll = getElementsHeight($workSections);
-  // const $scrollableFooter = $('.js-scrollable-footer');
-  // const footerHeight = getElementsHeight($scrollableFooter);
+
+  const cur_pos = $window.scrollTop();
+  const $section = $('.js-scrollable-section');
+  const secondSectionScroll = getSecondSectionDistance($section, false);
+  const secondSectionDistance = getSecondSectionDistance($section, true);
+  const thirdSectionScroll = getThirdSectionDistance();
   const thirdSectionDistance = secondSectionDistance + thirdSectionScroll;
 
   $workSections.each(function(index) {
