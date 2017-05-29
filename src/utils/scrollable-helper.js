@@ -2,6 +2,10 @@ import $ from 'jquery';
 
 const SCROLL_TOLERANCE = 100;
 
+const getHeight = function(element) {
+  return $(element).outerHeight();
+}
+
 // Receives a height, and returns that value, multipled
 // for the current index, example:
 //
@@ -15,9 +19,10 @@ const getContentTop = function(height, index) {
   return (height * (index + 1));
 };
 
-const getHeight = function(element) {
-  return $(element).outerHeight();
-}
+const getScrollableTollerance = function() {
+  const scrollableCount = $('.js-scrollable').length;
+  return scrollableCount * SCROLL_TOLERANCE;
+};
 
 const getElementsHeight = function($elements) {
   let totalHeight = 0;
@@ -58,6 +63,7 @@ module.exports = {
   SCROLL_TOLERANCE,
   getHeight,
   getContentTop,
+  getScrollableTollerance,
   getElementsHeight,
   getFirstSectionDistance,
   getSecondSectionDistance,
